@@ -41,6 +41,7 @@ levels(QPA_Feb17$taxa)
     
     theme(legend.title = element_text(color = "black", size = 14),
       legend.text = element_text(color = "black", size = 12)) +
+    theme_set(theme_gray() + theme(legend.key=element_blank()))  + # gray background
   
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
