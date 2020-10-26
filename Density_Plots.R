@@ -15,32 +15,38 @@ QPA_G_Feb17 <- read.csv("DensityPlots/QPA_Glossosomatidae_Feb17.csv")
 head(QPA_G_Feb17)
 
 
-L <- filter(QPA_G_Feb17, source == "Leaflitter")
-L <-as.data.frame(L)
-L
+dens <- lapply(split(QPA_G_Feb17, QPA_G_Feb17$source), 
+               function(x) density(x$density, from = 0, to = 1))
 
-Lq025  <- quantile(L$density, .025)
-Lq975  <- quantile(L$density, .975)
-Lq025
-Lq975
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
 
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
 
-gF17 <- ggplot(QPA_G_Feb17, aes(x=density, color=source)) + 
-  labs(y="Density", x="Sorce contribution") +
-  geom_density(aes(linetype = source), size=1.2) +
-  scale_color_manual(values=c("#31a354", "#2c7fb8", "#d95f0e")) +
+ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,
+            position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,
+            position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
-  theme_classic()+
-  ylim(0, 5)+
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
-  theme(axis.text.x =element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.title.x = element_text(color="black", size=14))+ # #Axis y
-  theme(axis.title.y = element_text(color="black", size=14))  # #Axis x
+  theme_classic() +
+  ylim(0, 5) +
+  xlim(0, 1) +
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+
+
+
  
-gF17
-gF17 + geom_area(data = subset(QPA_G_Feb17, density <= Lq025 & density >= Lq975), 
-                   aes(x=density, color=source), fill = 'blue') 
-
-
-
 
