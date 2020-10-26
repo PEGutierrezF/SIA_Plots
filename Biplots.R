@@ -13,7 +13,7 @@ levels(QPA_Feb17$taxa)
 
   ggplot(QPA_Feb17, aes(x=C, y=N, colour=taxa)) +
   geom_point( size=5) +
-  labs(x= expression(delta^{13}*"C (???)"), y = expression(delta^{15}*"N (???)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
                                    "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30"),
