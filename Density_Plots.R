@@ -11,7 +11,7 @@
 library(ggplot2)
 library(dplyr)
 library(ggpubr)
-QPA_G_Feb17 <- read.csv("DensityPlots/QPA_Glossosomatidae_Feb17.csv")
+QPA_G_Feb17 <- read.csv("DensityPlots/QPAFeb17/QPA_Glossosomatidae_Feb17.csv")
 head(QPA_G_Feb17)
 
 
@@ -34,12 +34,15 @@ ggplot(df, aes(x, y, color = source)) +
             position = "identity") +
   labs(y = "Density", x = "Source contribution") +
   geom_line(aes(linetype = source), size = 1.2) +
+  
   scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 5) +
   xlim(0, 1) +
+  
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
