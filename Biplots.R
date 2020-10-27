@@ -22,17 +22,17 @@ levels(QPA_Feb17$taxa)
                                    expression(italic("X. elongata")), expression(italic("A. lanipes")),
                                    expression(italic("M. crenulatum")), expression(italic("A. evermani")))) +
 # Segments  
-  geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=2, color="#d95f0e", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
-  geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=2, color="#d95f0e", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   
   geom_segment(aes(x=-31.48,xend=-31.90,yend=6.06,y=6.06), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
   geom_segment(aes(x=-31.69,xend=-31.69,yend=6.389520784,y=5.730479216), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   
-  geom_segment(aes(x=-30.79,xend=-31.81,yend=11.37138181,y=11.37138181), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-31.29893075,xend=-31.29893075,yend=17.153228921,y=5.589534699), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_segment(aes(x=-30.69, xend=-31.88,yend=11.37138181,y=11.37138181), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-31.28781318,xend=-31.28781318,yend=17.441,y=5.1166), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
 
 # Axis Limits 
-  xlim(-40,-20) +
+  xlim(-43,-20) +
   ylim(-5,20) +
     
 # Axis
