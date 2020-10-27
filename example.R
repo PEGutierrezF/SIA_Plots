@@ -41,7 +41,6 @@ ggplot(df, aes(x, y, color = source)) +
 
 
 L <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Leaflitter")
-L
 quantile(L$density, 0.025)
 quantile(L$density, 0.975)
 
