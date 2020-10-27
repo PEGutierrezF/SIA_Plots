@@ -24,7 +24,7 @@ levels(QPA_Feb17$taxa)
 # Segments  
   geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
-  
+
   geom_segment(aes(x=-31.48,xend=-31.90,yend=6.06,y=6.06), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
   geom_segment(aes(x=-31.69,xend=-31.69,yend=6.389520784,y=5.730479216), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   

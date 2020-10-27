@@ -29,3 +29,6 @@ gF17 <- ggplot(QPA_G_Feb17, aes(x=density, color = source)) +
   theme(axis.title.y = element_text(color="black", size=14))  # #Axis x
 
 gF17
+
+
+annotate("text", x = -32.08, y = 0.56, label = "Some text") +
