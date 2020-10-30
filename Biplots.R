@@ -50,7 +50,7 @@ levels(QPA_Feb17$taxa)
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
     
 # Legend    
-    theme(legend.title = element_text(color = "red", size = 14),
+    theme(legend.title = element_text(color = "black", size = 14),
       legend.text = element_text(color = "black", size = 12)) +
     theme_set(theme_gray() + theme(legend.key=element_blank()))  + # gray background
     theme(legend.text.align = 0) + # text align left legend
