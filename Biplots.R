@@ -7,8 +7,8 @@ QPA_Feb17 <- read.csv("Biplot/QPA_Feb17.csv")
 head(QPA_Feb17)
 
 QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
-                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani"))
+                                                  "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                  "M. crenulatum", "A. evermani"))
 levels(QPA_Feb17$taxa) 
 
   ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
