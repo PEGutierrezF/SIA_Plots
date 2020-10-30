@@ -11,16 +11,24 @@ QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani"))
 levels(QPA_Feb17$taxa) 
 
-  ggplot(QPA_Feb17, aes(x=C, y=N, colour=taxa)) +
-  geom_point( size=5) +
+  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
+  geom_point(aes(colour=taxa), size=5,stroke = 1.5) +
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
-  scale_colour_manual("Taxa",
+#color
+      scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
                                    "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30"),
                         labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                    expression(italic("P. pulchrus")), "Libellulidae", 
                                    expression(italic("X. elongata")), expression(italic("A. lanipes")),
                                    expression(italic("M. crenulatum")), expression(italic("A. evermani")))) +
+# shape
+    scale_shape_manual("Taxa",
+                       values=c(0,1,2,3,4,5,6,7,8,9,10),
+                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                  expression(italic("P. pulchrus")), "Libellulidae", 
+                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                  expression(italic("M. crenulatum")), expression(italic("A. evermani"))))  +
 # Segments  
   geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
@@ -52,3 +60,5 @@ levels(QPA_Feb17$taxa)
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+
+  
