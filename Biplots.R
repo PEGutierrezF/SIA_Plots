@@ -50,11 +50,12 @@ levels(QPA_Feb17$taxa)
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
     
 # Legend    
-    theme(legend.title = element_text(color = "black", size = 14),
+    theme(legend.title = element_text(color = "red", size = 14),
       legend.text = element_text(color = "black", size = 12)) +
     theme_set(theme_gray() + theme(legend.key=element_blank()))  + # gray background
     theme(legend.text.align = 0) + # text align left legend
-    theme(legend.position = c(0.9, 0.8)) +# Position in a plot. Their values should be between 0 and 1. 
+    theme(legend.key.size = unit(2, 'lines')) +
+    theme(legend.position = c(0.9, 0.7)) +# Position in a plot. Their values should be between 0 and 1. 
     
 # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
