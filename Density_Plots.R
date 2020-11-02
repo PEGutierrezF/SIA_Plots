@@ -41,8 +41,9 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('Glossosomatidae') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -86,8 +87,9 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('Baetidae') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -119,8 +121,9 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('Chironomidae') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -152,8 +155,9 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('N. julio') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -185,8 +189,9 @@ p1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('Phylloicus') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -218,8 +223,9 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('Libelullidae') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -237,12 +243,12 @@ df <- do.call(rbind, mapply(function(x, y) {
   data.frame(x = x$x, y = x$y, source = y)
 }, dens, names(dens), SIMPLIFY = FALSE))
 
-df <- df %>% group_by(source) %>%
+df_x <- df %>% group_by(source) %>%
   mutate(cdf = cumsum(y * mean(diff(x))),
          lower = cdf < 0.025,
          upper = cdf > 0.975) 
 
-x1 <- ggplot(df, aes(x, y, color = source)) + 
+x1 <- ggplot(df_x, aes(x, y, color = source)) + 
   geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
   geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
   labs(y = "Density", x = "Source contribution") +
@@ -251,8 +257,9 @@ x1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('X. elongata') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -285,8 +292,9 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('A. lanipes') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -318,8 +326,9 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('M. crenulatun') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -349,20 +358,32 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
   labs(y = "Density", x = "Source contribution") +
   geom_line(aes(linetype = source), size = 1.2) +
-  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
-  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
-  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  scale_fill_manual("Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+          labels = c("Leaf litter", "Biofilm", "Algae")) +
+  
+  scale_color_manual("Source",values = c("#31a354", "#2c7fb8", "#d95f0e"),
+        labels = c("Leaf litter", "Biofilm", "Algae")) +
+  
+  scale_linetype_manual("Source",values = c("solid", "dotted", "longdash"),
+            labels = c("Leaf litter", "Biofilm", "Algae")) +
+  
   theme_classic() +
-  ylim(0, 5) +
+  ylim(0, 8) +
   xlim(0, 1) +
+  ggtitle('A. evermani') +
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
-        axis.title.y = element_text(size = 14))
+        axis.title.y = element_text(size = 14)) +
+  
+  theme(legend.title = element_text(size = 18)) + #title
+  theme(legend.text = element_text(size = 16))  + #
+  guides(color=guide_legend(override.aes=list(fill=NA)))
 
 
-(x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
-
+Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
+Fig1
+Fig1 + ggsave("Fig1.pdf",width = 210, height = 297, units = "mm")
 
 
 
