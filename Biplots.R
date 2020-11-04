@@ -2,6 +2,7 @@
 
 library(ggplot2)
 library(ggpubr)
+library(patchwork)
 
 QPA_Feb17 <- read.csv("Biplot/QPA_Feb17.csv")
 head(QPA_Feb17)
@@ -55,7 +56,7 @@ levels(QPA_Feb17$taxa)
     theme_set(theme_gray() + theme(legend.key=element_blank()))  + # gray background
     theme(legend.text.align = 0) + # text align left legend
     theme(legend.key.size = unit(2, 'lines')) +
-    theme(legend.position = c(0.9, 0.7)) +# Position in a plot. Their values should be between 0 and 1. 
+    theme(legend.position = c(0.15, 0.73)) +# Position in a plot. Their values should be between 0 and 1. 
     
 # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
