@@ -27,7 +27,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                    expression(italic("P. pulchrus")), "Libellulidae", 
                                    expression(italic("X. elongata")), expression(italic("A. lanipes")),
                                    expression(italic("M. crenulatum")), expression(italic("A. evermani")),
-                                   "L. regnyi")) +
+                                   expression(italic("L. regnyi")))) +
 # shape
     scale_shape_manual("Taxa",
                        values=c(0,1,2,3,4,5,6,7,8,9,10,11),
@@ -35,7 +35,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                   expression(italic("P. pulchrus")), "Libellulidae", 
                                   expression(italic("X. elongata")), expression(italic("A. lanipes")),
                                   expression(italic("M. crenulatum")), expression(italic("A. evermani")),
-                                  "L. regnyi"))  +
+                                  expression(italic("L. regnyi"))))  +
 # Segments  
   geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
@@ -51,15 +51,16 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
     
 # Axis
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
     
-# Legend    
-  theme(legend.title=element_text(color = "white", size=14),
+# Legend  
+                    # =element_text(color = "white", size=14)
+  theme(legend.title=element_blank(),
         legend.text =element_text(color = "black", size=14),
-        legend.position=c(0.15, 0.7),# Position in a plot. Their values should be between 0 and 1. X y Y
+        legend.position=c(0.15, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
         legend.key.size = unit(2, 'lines'),
         legend.text.align = 0) +  # text align left legend
@@ -117,10 +118,10 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
   
   # Axis
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Legend    
   theme(legend.position = "none") +
