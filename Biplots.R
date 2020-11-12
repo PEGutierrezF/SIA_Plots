@@ -17,8 +17,8 @@ QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
 levels(QPA_Feb17$taxa) 
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=3 ,stroke = 1.5) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
+  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -59,8 +59,8 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
 # Legend  
                     # =element_text(color = "white", size=14)
   theme(legend.title=element_blank(),
-        legend.text =element_text(color = "black", size=10),
-        legend.position=c(0.15, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
+        legend.text =element_text(color = "black", size=8),
+        legend.position=c(0.18, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
         legend.key.size = unit(1.1, 'lines'),
         legend.text.align = 0) +  # text align left legend
@@ -87,8 +87,8 @@ QPA_Nov17$taxa <- factor(QPA_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae
 levels(QPA_Nov17$taxa) 
 
 QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=5,stroke = 1.5) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -151,7 +151,7 @@ QPA_Feb19$taxa <- factor(QPA_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae
 levels(QPA_Feb19$taxa) 
 
 QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=5,stroke = 1.5) +
+  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
@@ -205,4 +205,4 @@ Figure_2 <- (QPAFeb17 + plot_spacer()) / (QPANov17+ plot_spacer()) /
 ( plot_spacer()+ plot_spacer()) / (QPAFeb19 + plot_spacer())
 
 Figure_2 + plot_annotation(tag_levels = 'A')
-  
+Figure_2 + ggsave("Figure_2.pdf",width = 210, height = 297, units = "mm")  
