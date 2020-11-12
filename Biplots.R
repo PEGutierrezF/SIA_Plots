@@ -17,7 +17,7 @@ QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
 levels(QPA_Feb17$taxa) 
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=5,stroke = 1.5) +
+  geom_point(aes(colour=taxa), size=3 ,stroke = 1.5) +
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
 #color
       scale_colour_manual("Taxa",
@@ -59,10 +59,10 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
 # Legend  
                     # =element_text(color = "white", size=14)
   theme(legend.title=element_blank(),
-        legend.text =element_text(color = "black", size=14),
+        legend.text =element_text(color = "black", size=10),
         legend.position=c(0.15, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
-        legend.key.size = unit(2, 'lines'),
+        legend.key.size = unit(1.1, 'lines'),
         legend.text.align = 0) +  # text align left legend
   
 # Panel
@@ -70,6 +70,73 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 QPAFeb17
+
+
+
+
+
+# QPA November 2017 -------------------------------------------------------
+
+
+QPA_Nov17 <- read.csv("Biplot/QPA_Nov17.csv")
+head(QPA_Nov17)
+
+QPA_Nov17$taxa <- factor(QPA_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+levels(QPA_Nov17$taxa) 
+
+QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
+  geom_point(aes(colour=taxa), size=5,stroke = 1.5) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  #color
+  scale_colour_manual("Taxa",
+                      values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
+                                 "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
+                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                 expression(italic("P. pulchrus")), "Libellulidae", 
+                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("L. regnyi")))) +
+  # shape
+  scale_shape_manual("Taxa",
+                     values=c(0,1,2,3,4,5,6,7,8,9,10,11),
+                     labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                expression(italic("P. pulchrus")), "Libellulidae", 
+                                expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("L. regnyi"))))  +
+  # Segments  
+  geom_segment(aes(x=-31.3557,xend=-31.77720,yend=0.9295,y=0.9295), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-31.5665,xend=-31.5665,yend=1.1411,y=0.7178), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  
+  geom_segment(aes(x=-26.270,xend=-26.3690,yend=2.413,y=2.413), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-26.319,xend=-26.319,yend=3.03212,y=1.7938), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  
+  geom_segment(aes(x=-18.232, xend=-26.769,yend=3.5359,y=3.5359), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-22.5013,xend=-22.50128,yend=4.864,y=2.2073), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  
+  # Axis Limits 
+  xlim(-43,-17) +
+  ylim(-5,20) +
+  
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+  # Legend    
+  theme(legend.position = "none") +
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+QPANov17
+
+
+
 
 
 # QPA February 2019 -------------------------------------------------------
@@ -134,5 +201,8 @@ QPAFeb19
 
 
 
-QPAFeb17 + QPAFeb19
+Figure_2 <- (QPAFeb17 + plot_spacer()) / (QPANov17+ plot_spacer()) / 
+( plot_spacer()+ plot_spacer()) / (QPAFeb19 + plot_spacer())
+
+Figure_2 + plot_annotation(tag_levels = 'A')
   
