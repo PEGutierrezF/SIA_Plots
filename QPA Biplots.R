@@ -205,7 +205,7 @@ QPAFeb19
 
 
 
-Figure_2 <- (QPAFeb17 | plot_spacer()) / (QPANov17 | QPBNov17) / 
+Figure_2 <- (QPAFeb17 | QPBFeb17) / (QPANov17 | QPBNov17) / 
 ( plot_spacer()| plot_spacer()) / (QPAFeb19 | plot_spacer()) 
 Figure_2
 
