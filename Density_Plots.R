@@ -359,13 +359,13 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   labs(y = "Density", x = "Source contribution") +
   geom_line(aes(linetype = source), size = 1.2) +
   scale_fill_manual("Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
-          labels = c("Leaf litter", "Biofilm", "Algae")) +
+          labels = c("Algae", "Biofilm", "Leaf litter")) +
   
   scale_color_manual("Source",values = c("#31a354", "#2c7fb8", "#d95f0e"),
-        labels = c("Leaf litter", "Biofilm", "Algae")) +
+        labels = c("Algae", "Biofilm", "Leaf litter")) +
   
   scale_linetype_manual("Source",values = c("solid", "dotted", "longdash"),
-            labels = c("Leaf litter", "Biofilm", "Algae")) +
+            labels = c("Algae", "Biofilm", "Leaf litter")) +
   
   theme_classic() +
   ylim(0, 8) +

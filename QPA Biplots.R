@@ -18,7 +18,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -59,12 +59,12 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
     
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+#  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) + Activa este para que quite el Cabon
   
 # Legend  
                     # =element_text(color = "white", size=14)
   theme(legend.title=element_blank(),
-        legend.text =element_text(color = "black", size=8),
+        legend.text =element_text(color = "black", size=10),
         legend.position=c(0.18, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
         legend.key.size = unit(1.1, 'lines'),
