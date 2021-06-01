@@ -54,17 +54,17 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
     
 # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 18, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
     
 #  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) + Activa este para que quite el Cabon
   
 # Legend  
                     # =element_text(color = "white", size=14)
   theme(legend.title=element_blank(),
-        legend.text =element_text(color = "black", size=10),
+        legend.text =element_text(color = "black", size=15),
         legend.position=c(0.18, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
         legend.key.size = unit(1.1, 'lines'),
@@ -197,10 +197,10 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
   
   # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 18, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
   
   # Legend    
   theme(legend.position = "none") +
