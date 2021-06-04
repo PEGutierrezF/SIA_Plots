@@ -99,6 +99,40 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.y = element_text(size = 14))
 
 
+# Chironomidae ----------------------------------------------------------------
+
+QPA_C_Nov17 <- read.csv("DensityPlots/QPANov17/03 QPA_Chrironomidae_Nov17.csv")
+
+dens <- lapply(split(QPA_C_Nov17, QPA_C_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+c1 <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('Chironomidae') +
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
 # Njulio ----------------------------------------------------------------
 
 QPA_Nj_Nov17 <- read.csv("DensityPlots/QPANov17/04 QPA_Njulio_Nov17.csv")
@@ -133,11 +167,12 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-# Chironomidae ----------------------------------------------------------------
 
-QPA_C_Nov17 <- read.csv("DensityPlots/QPANov17/03 QPA_Chrironomidae_Nov17.csv")
+# Phylloicus ----------------------------------------------------------------
 
-dens <- lapply(split(QPA_C_Nov17, QPA_C_Nov17$source), 
+QPA_P_Nov17 <- read.csv("DensityPlots/QPANov17/05 QPA_Phylloicus_Nov17.csv")
+
+dens <- lapply(split(QPA_P_Nov17, QPA_P_Nov17$source), 
                function(x) density(x$density, from = 0, to = 1))
 
 df <- do.call(rbind, mapply(function(x, y) {
@@ -149,7 +184,7 @@ df <- df %>% group_by(source) %>%
          lower = cdf < 0.025,
          upper = cdf > 0.975) 
 
-c1 <- ggplot(df, aes(x, y, color = source)) + 
+p1 <- ggplot(df, aes(x, y, color = source)) + 
   geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
   geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
   labs(y = "Density", x = "Source contribution") +
@@ -160,7 +195,41 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('Chironomidae') +
+  ggtitle('Phylloicus') +
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+# Libellulidae ----------------------------------------------------------------
+
+QPA_L_Nov17 <- read.csv("DensityPlots/QPANov17/06 QPA_Libellulidae_Nov17.csv")
+
+dens <- lapply(split(QPA_L_Nov17, QPA_L_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+l1 <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('Libelullidae') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -271,4 +340,91 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
+
+
+# Anolis ------------------------------------------------------------------
+
+QPA_An_Nov17 <- read.csv("DensityPlots/QPANov17/10 QPA_Anolis_Nov17.csv")
+
+dens <- lapply(split(QPA_An_Nov17, QPA_An_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+an1 <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('A. evermani') +
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+
+
+# Luecauge ------------------------------------------------------------------
+
+QPA_Lm_Nov17 <- read.csv("DensityPlots/QPANov17/11 QPA_Leucauge_Nov17.csv")
+
+dens <- lapply(split(QPA_Lm_Nov17, QPA_Lm_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+Lm <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual("Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                    labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  scale_color_manual("Source",values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                     labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  scale_linetype_manual("Source",values = c("solid", "dotted", "longdash"),
+                        labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('Leucauge') +
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14)) +
+  
+  theme(legend.title = element_text(size = 18)) + #title
+  theme(legend.text = element_text(size = 16))  + #
+  guides(color=guide_legend(override.aes=list(fill=NA)))
+
+
+
+Fig2 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm+ plot_spacer())
+Fig2
+Fig2 + ggsave("Figure 3 QPA Nov17.pdf",width = 210, height = 297, units = "mm")
 
