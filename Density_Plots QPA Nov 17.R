@@ -99,6 +99,41 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.y = element_text(size = 14))
 
 
+# Xyphocarys ----------------------------------------------------------------
+
+QPA_X_Nov17 <- read.csv("DensityPlots/QPANov17/07 QPA_Xyphocaris_Nov17.csv")
+
+dens <- lapply(split(QPA_X_Nov17, QPA_X_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df_x <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+x1 <- ggplot(df_x, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('X. elongata') +
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+
 # Atya ----------------------------------------------------------------
 
 QPA_A_Nov17 <- read.csv("DensityPlots/QPANov17/08 QPA_Atya_Nov17.csv")
@@ -127,6 +162,42 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('A. lanipes') +
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+
+
+# Macrobrachium ----------------------------------------------------------------
+
+QPA_M_Nov17 <- read.csv("DensityPlots/QPANov17/09 QPA_Macrobrachium_Nov17.csv")
+
+dens <- lapply(split(QPA_M_Nov17, QPA_M_Nov17$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+m1 <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
+  scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('M. crenulatun') +
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
