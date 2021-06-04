@@ -424,7 +424,7 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
 
 
 
-Fig2 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm+ plot_spacer())
-Fig2
-Fig2 + ggsave("Figure 3 QPA Nov17.pdf",width = 210, height = 297, units = "mm")
+Fig_QP_Nov17 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm+ plot_spacer())
+Fig_QP_Nov17
+Fig_QP_Nov17 + ggsave("Figure 3 QPA Nov17.pdf",width = 210, height = 297, units = "mm")
 
