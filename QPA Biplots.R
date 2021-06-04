@@ -131,10 +131,10 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
   
   # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
  # theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
- #  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+ # theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
   
   theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
@@ -215,7 +215,7 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
 
 QPAFeb19
 
-(QPAFeb17 | QPAFeb19)
+(QPAFeb17 | QPANov17 | QPAFeb19)
 
 
 
