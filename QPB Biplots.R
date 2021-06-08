@@ -7,9 +7,9 @@ head(QPB_Feb17)
 QPB_Feb17$taxa <- factor(QPB_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
-levels(QPB_Nov17$taxa) 
+levels(QPB_Feb17$taxa) 
 
-QPBFeb17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
+QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
   labs(x= "", y = expression(delta^{15}*"N (\211)")) +
   #color
@@ -130,15 +130,15 @@ QPBNov17
 # QPB June 2018 -------------------------------------------------------
 
 
-QPB_Nov17 <- read.csv("Biplot/QPB_Nov17.csv")
-head(QPB_Nov17)
+QPB_June18 <- read.csv("Biplot/QPB_June18.csv")
+head(QPB_June18)
 
-QPB_Nov17$taxa <- factor(QPB_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+QPB_June18$taxa <- factor(QPB_June18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
-levels(QPB_Nov17$taxa) 
+levels(QPB_June18$taxa) 
 
-QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
+QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
   labs(x= "", y = expression(delta^{15}*"N (\211)")) +
   #color
@@ -159,21 +159,24 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
-  geom_segment(aes(x=-32.104,xend=-32.424,yend=-0.464,y=-0.464), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
-  geom_segment(aes(x=-32.264,xend=-32.264,yend=-0.307820616,y=-0.620179384), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
-  geom_point(aes(x = -32.264, y = -0.464), shape=15,color = "coral4", size=5)+ 
+  geom_segment(aes(x=-30.22279365,xend=-30.66570635,yend=0.5765,y=0.5765), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-30.44425,xend=-30.44425,yend=0.717620516,y=0.435379484), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -30.444, y = 0.5765), shape=15,color = "coral4", size=5)+ 
   
-  geom_segment(aes(x=-27.40470835,xend=-27.49879165,yend=2.49425,y=2.49425), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
-  geom_segment(aes(x=-27.45175,xend=-27.45175,yend=2.719578464,y=2.268921536), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
-  geom_point(aes(x = -27.45175, y = 2.49425), shape=17,color = "turquoise3", size=5) +
+  geom_segment(aes(x=-28.0262638890269,xend=-29.42423611,yend=5.74375,y=5.74375), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-28.72525,xend=-28.72525,yend=6.920422816,y=4.567077184), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -28.72525, y = 5.74375), shape=17,color = "turquoise3", size=5) +
   
-  geom_segment(aes(x=-4.591, xend=-24.4241,yend=10.3605,y=10.3605), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-14.508,xend=-14.508,yend=16.5156949,y=4.205494871), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
-  geom_point(aes(x = -14.508, y = 10.3605), shape=19,color = "greenyellow", size=9)+
+  
+  
+  
+  geom_segment(aes(x=-19.2631071177543, xend=-27.1850047001927,yend=21.86152524,y=21.86152524), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-23.22405591,xend=-23.22405591,yend=33.10554446,y=10.61750602), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
+  geom_point(aes(x = -23.22405591, y = 21.86152524), shape=19,color = "greenyellow", size=9)+
   
   # Axis Limits 
   xlim(-45,1) +
-  ylim(-5,20) +
+  ylim(-5,35) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
@@ -190,4 +193,5 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
-QPBNov17
+
+QPBJune18

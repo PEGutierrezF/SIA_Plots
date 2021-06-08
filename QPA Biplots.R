@@ -18,7 +18,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -54,12 +54,12 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
     
 # Axis
-  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 18, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+#  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+ # theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
     
-#  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) + Activa este para que quite el Cabon
+  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
 # Legend  
                     # =element_text(color = "white", size=14)
@@ -131,10 +131,10 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
   
   # Axis
-  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
  # theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
  # theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
@@ -200,10 +200,10 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   ylim(-5,20) +
   
   # Axis
-  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 18, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Legend    
   theme(legend.position = "none") +
@@ -215,17 +215,19 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
 
 QPAFeb19
 
-(QPAFeb17 | QPANov17 | QPAFeb19)
 
 
 
 
 
-Figure_2 <- (QPAFeb17 | QPBFeb17) / (QPANov17 | QPBNov17) / 
-( plot_spacer()| plot_spacer()) / (QPAFeb19 | plot_spacer()) 
+Figure_2 <- QPAFeb17 + QPBFeb17 + QPANov17 + QPBNov17 + 
+ plot_spacer() + QPBJune18 + QPAFeb19 + plot_spacer() +
+  plot_layout(ncol = 2)
 Figure_2
 
 Figure_2 + plot_annotation(tag_levels = 'A')
-Figure_2 + ggsave("Figure_2.pdf", width = 210, height = 297, units = "mm")
+Figure_2 + ggsave("Figure_2_new.pdf", width = 210, height = 297, units = "mm")
+
+
 
 + plot_layout(guides="collect")
