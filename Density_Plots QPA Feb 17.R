@@ -251,7 +251,7 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-# Xyphocarys ----------------------------------------------------------------
+# Xiphocaris ----------------------------------------------------------------
 
 QPA_X_Feb17 <- read.csv("DensityPlots/QPAFeb17/07 QPA_Xyphocaris_Feb17.csv")
 
@@ -355,7 +355,7 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
   
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('M. crenulatun') +
+  ggtitle('M. crenulatum') +
   theme(plot.title = element_text(face="bold.italic"))+
   
   theme(legend.position = "none")+
