@@ -195,3 +195,70 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 
 QPBJune18
+
+
+
+# QPB February 2019 -------------------------------------------------------
+
+
+QPB_Feb19 <- read.csv("Biplot/QPB_Feb19.csv")
+head(QPB_Feb19)
+
+QPB_Feb19$taxa <- factor(QPB_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+                                                      "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                      "M. crenulatum", "A. evermani","L. regnyi"))
+levels(QPB_Feb19$taxa) 
+
+QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
+  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  #color
+  scale_colour_manual("Taxa",
+                      values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
+                                 "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
+                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                 expression(italic("P. pulchrus")), "Libellulidae", 
+                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("L. regnyi")))) +
+  # shape
+  scale_shape_manual("Taxa",
+                     values=c(0,1,2,3,4,5,6,7,8,9,10,11),
+                     labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                expression(italic("P. pulchrus")), "Libellulidae", 
+                                expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("L. regnyi"))))  +
+  # Segments  
+  geom_segment(aes(x=-30.2117157287525,xend=-30.26828427,yend=0.65,y=0.65), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-30.24,xend=-30.24,yend=0.706568542,y=0.593431458), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -30.24, y = 0.65), shape=15,color = "coral4", size=5)+ 
+  
+  geom_segment(aes(x=-27.07343146,xend=-27.18656854,yend=3.65,y=3.65), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-27.13,xend=-27.13,yend=4.116690476,y=3.183309524), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -27.13, y = 3.65), shape=17,color = "turquoise3", size=5) +
+  
+  geom_segment(aes(x=-27.19184263, xend=-34.15278073,yend=8.022895772,y=8.022895772), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-30.67231168,xend=-30.67231168,yend=12.21237758,y=3.833413964), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
+  geom_point(aes(x = -30.67231168, y = 8.022895772), shape=19,color = "greenyellow", size=9)+
+  
+  # Axis Limits 
+  xlim(-43,-20) +
+  ylim(-5,20) +
+  
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+
+  # Legend    
+  theme(legend.position = "none") +
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+
+QPBFeb19

@@ -221,7 +221,7 @@ QPAFeb19
 
 
 Figure_2 <- QPAFeb17 + QPBFeb17 + QPANov17 + QPBNov17 + 
- plot_spacer() + QPBJune18 + QPAFeb19 + plot_spacer() +
+ plot_spacer() + QPBJune18 + QPAFeb19 +  QPBFeb19 +
   plot_layout(ncol = 2)
 Figure_2
 
