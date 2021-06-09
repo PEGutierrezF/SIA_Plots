@@ -1,9 +1,19 @@
 
 
-library(ggplot2)
-library(ggpubr)
-library(patchwork)
 
+
+# ---------------------------------------------
+# Biplots for Quebrada Prieta A
+# 09 Jun 2021
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
+
+
+
+# cleans global environment
+rm(list = ls())
 
 # QPA February 17 ---------------------------------------------------------
 

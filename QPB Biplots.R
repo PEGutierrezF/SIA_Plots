@@ -1,6 +1,23 @@
 
 
 
+
+# ---------------------------------------------
+# Biplots for Quebrada Prieta A
+# 09 Jun 2021
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
+
+
+
+# cleans global environment
+rm(list = ls())
+
+
+# QPb February 17 ---------------------------------------------------------
+
 QPB_Feb17 <- read.csv("Biplot/QPB_Feb17.csv")
 head(QPB_Feb17)
 
