@@ -2,16 +2,19 @@
 
 
 
-# Density Plots -----------------------------
-# 21 Oct 2020
-#PEGF
-#--------------------------------------------
-#
+# ---------------------------------------------
+# Density Plots February 2017 Quebrada Prieta A
+# 09 Jun 2021
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
 
-library(ggplot2)
-library(dplyr)
-library(ggpubr)
-library(patchwork)
+
+
+# cleans global environment
+rm(list = ls())
+
 
 
 QPA_G_Feb17 <- read.csv("DensityPlots/QPAFeb17/01 QPA_Glossosomatidae_Feb17.csv")
@@ -41,9 +44,12 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Glossosomatidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -90,6 +96,8 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Baetidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -124,6 +132,8 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Chironomidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -155,9 +165,12 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('N. julio') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -189,9 +202,12 @@ p1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('Phylloicus') +
+  ggtitle('P. pulchrus') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -223,9 +239,12 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Libelullidae') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -257,9 +276,12 @@ x1 <- ggplot(df_x, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('X. elongata') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -292,14 +314,18 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('A. lanipes') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
 
 # Macrobrachium ----------------------------------------------------------------
 
@@ -326,9 +352,12 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
   scale_color_manual(values = c("#31a354", "#2c7fb8", "#d95f0e")) +
   scale_linetype_manual(values = c("solid", "dotted", "longdash")) +
   theme_classic() +
+  
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('M. crenulatun') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -356,7 +385,9 @@ df <- df %>% group_by(source) %>%
 an1 <- ggplot(df, aes(x, y, color = source)) + 
   geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
   geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  
   labs(y = "Density", x = "Source contribution") +
+  
   geom_line(aes(linetype = source), size = 1.2) +
   scale_fill_manual("Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
           labels = c("Algae", "Biofilm", "Leaf litter")) +
@@ -370,7 +401,10 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('A. evermani') +
+  
+  ggtitle('A. evermanni') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
@@ -383,7 +417,7 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
 
 Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
 Fig1
-Fig1 + ggsave("Figure 1 QPA Feb 17.pdf",width = 210, height = 297, units = "mm")
+Fig1 + ggsave("Figure X Density plot QPA Feb 17.pdf",width = 210, height = 297, units = "mm")
 
 
 
