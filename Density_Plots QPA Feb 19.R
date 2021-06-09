@@ -12,6 +12,15 @@
 
 
 
+# cleans global environment
+rm(list = ls())
+
+
+
+
+# Glossosomatidae ---------------------------------------------------------
+
+
 QPA_G_Feb19 <- read.csv("DensityPlots/QPAFeb19/01 QPA_Glossosomatidae_Feb19.csv")
 head(QPA_G_Feb19)
 

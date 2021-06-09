@@ -16,7 +16,9 @@
 rm(list = ls())
 
 
+
 # QPb February 17 ---------------------------------------------------------
+
 
 QPB_Feb17 <- read.csv("Biplot/QPB_Feb17.csv")
 head(QPB_Feb17)
