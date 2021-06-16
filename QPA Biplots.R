@@ -176,6 +176,7 @@ levels(QPA_Feb19$taxa)
 QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -210,6 +211,16 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   xlim(-43,-20) +
   ylim(-5,20) +
   
+  #text
+  annotate("text", x = -22, y = 11, label = "Algae") +
+  annotate("text", x = -35, y = 9, label = "Biofilm") +
+  annotate("text", x = -38, y = -3, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-32, xend=-29,y = 8, yend = 5), # Biofilm
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
+  geom_segment(aes(x =-35, xend=-30,y = -2, yend = 0), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
+  
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
@@ -229,6 +240,17 @@ QPAFeb19
 
 
 
+# ggarrange -------------------------------------------------------------
+
+p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
+                QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
+                ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
+                widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
+                common.legend = TRUE, legend="bottom")
+p1
+p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
+
+
 
 
 Figure_2 <- QPAFeb17 + QPBFeb17 + QPANov17 + QPBNov17 + 
@@ -243,13 +265,5 @@ Figure_2 + ggsave("Figure_2_new.pdf", width=11, height=8.5)
 
 
 
-# Another way -------------------------------------------------------------
 
-p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
-                QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
-            ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
-            widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
-            common.legend = TRUE, legend="bottom")
-p1
-p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
