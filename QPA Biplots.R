@@ -30,7 +30,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)"),fill = "Taxa") +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -82,7 +82,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
   
 # Legend  
-        theme(legend.title=element_blank(),
+        theme(legend.title= element_text(colour="black", size=16, face="bold"),
         legend.text =element_text(color = "black", size=15),
         legend.position=c(0.18, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
@@ -156,7 +156,7 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x =-32, xend=-28,y = 4, yend = 3), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
-  geom_segment(aes(x =-36, xend=-31,y = -3, yend = 0), # Leaf litter
+  geom_segment(aes(x =-36, xend=-33,y = -3, yend = 0), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
   
   # Axis
@@ -259,6 +259,14 @@ QPAFeb19
 
 
 # ggarrange -------------------------------------------------------------
+
+get_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)}
+
+p2_legend <- get_legend(QPAFeb17)
 
 p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
                 QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
