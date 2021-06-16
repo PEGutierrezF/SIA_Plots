@@ -59,7 +59,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x=-30.69, xend=-31.88,yend=11.37138181,y=11.37138181), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-31.28781318,xend=-31.28781318,yend=17.441,y=5.1166), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
-  geom_point(aes(x = -31.28781318, y = 11.37138181), shape=19,color = "greenyellow", size=9)+ 
+  geom_point(aes(x = -31.28781318, y = 11.37138181), shape=19,color = "greenyellow", size=5)+ 
 
   # Axis Limits 
   xlim(-43,-20) +
@@ -72,6 +72,14 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
     
 #  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  
+  #text
+  annotate("text", x = -27, y = 12, label = "Algae") +
+  annotate("text", x = -36, y = 7, label = "Biofilm") +
+  annotate("text", x = -24, y = 5, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-26, xend=-30,y = 4, yend = 1.25), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
   
 # Legend  
         theme(legend.title=element_blank(),
@@ -205,7 +213,7 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x=-25.7792, xend=-27.909,yend=9.433,y=9.433), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-26.844,xend=-26.844,yend=14.361,y=4.505), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
-  geom_point(aes(x = -26.844, y = 9.433), shape=19,color = "greenyellow", size=9)+
+  geom_point(aes(x = -26.844, y = 9.433), shape=19,color = "greenyellow", size=5)+
   
   # Axis Limits 
   xlim(-43,-20) +
@@ -252,6 +260,8 @@ p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
 
+
+# patchwork ---------------------------------------------------------------
 
 Figure_2 <- QPAFeb17 + QPBFeb17 + QPANov17 + QPBNov17 + 
  plot_spacer() + QPBJune18 + QPAFeb19 +  QPBFeb19 +
