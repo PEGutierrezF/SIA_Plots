@@ -137,9 +137,9 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
-  annotate("text", x = -8, y = 13, label = "Algae") +
+  annotate("text", x = -7, y = 13, label = "Algae") +
   annotate("text", x = -36, y = 5, label = "Biofilm") +
-  annotate("text", x = -12, y = -3, label = "Leaf litter") +
+  annotate("text", x = -11, y = -3, label = "Leaf litter") +
   
   geom_segment(aes(x =-20, xend=-29,y = -3, yend = -1), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
@@ -199,7 +199,7 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x=-19.2631071177543, xend=-27.1850047001927,yend=21.86152524,y=21.86152524), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-23.22405591,xend=-23.22405591,yend=33.10554446,y=10.61750602), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
-  geom_point(aes(x = -23.22405591, y = 21.86152524), shape=19,color = "greenyellow", size=9)+
+  geom_point(aes(x = -23.22405591, y = 21.86152524), shape=19,color = "greenyellow", size=5)+
   
   # Axis Limits 
   xlim(-45,1) +
@@ -212,6 +212,14 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  
+  #text
+  annotate("text", x = -13, y = 25, label = "Algae") +
+  annotate("text", x = -36, y = 10, label = "Biofilm") +
+  annotate("text", x = -10, y = -4, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-19, xend=-26,y = -3, yend = -1.25), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
   
   # Legend    
   theme(legend.position = "none") +
@@ -267,7 +275,7 @@ QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x=-27.19184263, xend=-34.15278073,yend=8.022895772,y=8.022895772), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-30.67231168,xend=-30.67231168,yend=12.21237758,y=3.833413964), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
-  geom_point(aes(x = -30.67231168, y = 8.022895772), shape=19,color = "greenyellow", size=9)+
+  geom_point(aes(x = -30.67231168, y = 8.022895772), shape=19,color = "greenyellow", size=5)+
   
   # Axis Limits 
   xlim(-43,-20) +
@@ -279,7 +287,14 @@ QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
-
+  #text
+  annotate("text", x = -26, y = 11, label = "Algae") +
+  annotate("text", x = -23, y = 6, label = "Biofilm") +
+  annotate("text", x = -37, y = -4, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-36, xend=-32,y = -3, yend = -1.25), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
+  
   # Legend    
   theme(legend.position = "none") +
   
