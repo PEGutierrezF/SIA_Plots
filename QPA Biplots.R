@@ -273,10 +273,28 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
                 ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
                 widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
                 common.legend = TRUE, legend="bottom")
+
+
 p1
 p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
+p2 <- ggdraw(p1) + draw_label("Sources", x = 0.79, y = 0.05, size = 16,fontface = "bold") +
+  
+  draw_label("Leaf litter", x = 0.87, y = 0.09, size = 16,fontface = "plain") +
+  draw_label("???", x = 0.83, y = 0.09, size = 24,fontface = "bold", color = "coral4") +
+
+    draw_label("Biofilm", x = 0.857, y = 0.06, size = 16,fontface = "plain") +
+  draw_label("???", x = 0.83, y = 0.06, size = 22,fontface = "bold", color = "turquoise3") +
+  
+  draw_label("Algae", x = 0.86, y = 0.03, size = 16,fontface = "plain") +
+    draw_label("???", x = 0.83, y = 0.03, size = 30,fontface = "bold", color = "greenyellow") 
+
+p2 + ggsave("Figure_2C.png", width=11, height=6.5)
+
+#
+   
+  
 
 
 # patchwork ---------------------------------------------------------------
