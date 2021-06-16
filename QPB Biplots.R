@@ -30,7 +30,7 @@ levels(QPB_Feb17$taxa)
 
 QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -64,11 +64,11 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  # theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  #  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   # Legend    
   theme(legend.position = "none") +
@@ -93,7 +93,7 @@ levels(QPB_Nov17$taxa)
 
 QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -130,11 +130,11 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
   theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+ # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   # Legend    
   theme(legend.position = "none") +
@@ -159,7 +159,7 @@ levels(QPB_June18$taxa)
 
 QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -203,7 +203,7 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+ # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   # Legend    
   theme(legend.position = "none") +

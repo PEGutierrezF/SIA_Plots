@@ -30,7 +30,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -67,15 +67,14 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
     
 # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-#  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
- # theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
     
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+#  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
 # Legend  
-                    # =element_text(color = "white", size=14)
-  theme(legend.title=element_blank(),
+        theme(legend.title=element_blank(),
         legend.text =element_text(color = "black", size=15),
         legend.position=c(0.18, 0.72),# Position in a plot. Their values should be between 0 and 1. X y Y
         legend.key=element_blank(), # gray background
@@ -107,7 +106,7 @@ levels(QPA_Nov17$taxa)
 
 QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= "", y = expression(delta^{15}*"N (\211)")) +
+  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -144,11 +143,11 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
- # theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
- # theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+ # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   # Legend    
   theme(legend.position = "none") +
@@ -234,12 +233,23 @@ QPAFeb19
 
 Figure_2 <- QPAFeb17 + QPBFeb17 + QPANov17 + QPBNov17 + 
  plot_spacer() + QPBJune18 + QPAFeb19 +  QPBFeb19 +
-  plot_layout(ncol = 2)
+  plot_spacer() +plot_spacer() +plot_spacer() +plot_spacer() +
+  plot_layout(ncol = 4, widths = c(1, 1))
+
 Figure_2
 
 Figure_2 + plot_annotation(tag_levels = 'A')
-Figure_2 + ggsave("Figure_2_new.pdf", width = 210, height = 297, units = "mm")
+Figure_2 + ggsave("Figure_2_new.pdf", width=11, height=8.5)
 
 
 
-+ plot_layout(guides="collect")
+# Another way -------------------------------------------------------------
+
+p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
+                QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
+            ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
+            widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
+            common.legend = TRUE, legend="bottom")
+p1
+p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
+

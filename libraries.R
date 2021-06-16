@@ -17,5 +17,6 @@ rm(list = ls())
 
 
 
-libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork')
+libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork',
+               'gridExtra')
 lapply(libraries, require, character.only = TRUE)
