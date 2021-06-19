@@ -30,7 +30,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)"),fill = "Taxa") +
+  labs(x="",y = expression(delta^{15}*"N (\211)"),fill = "Taxa") +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -49,7 +49,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                   expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                   expression(italic("L. regnyi"))))  +
 # Segments  
-  geom_segment(aes(x=-31.91,xend=-32.25,yend=0.56,y=0.56), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-31.90410042,xend=-31.77720437,yend=0.56,y=0.56), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -32.08, y = 0.56), shape=15,color = "coral4", size=5)+ 
   
@@ -57,9 +57,9 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x=-31.69,xend=-31.69,yend=6.389520784,y=5.730479216), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -31.69, y = 6.06), shape=17,color = "turquoise3", size=5)+ 
   
-  geom_segment(aes(x=-30.69, xend=-31.88,yend=11.37138181,y=11.37138181), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-30.69, xend=-31.88,yend=11.278808,y=11.278808), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-31.28781318,xend=-31.28781318,yend=17.441,y=5.1166), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
-  geom_point(aes(x = -31.28781318, y = 11.37138181), shape=19,color = "greenyellow", size=5)+ 
+  geom_point(aes(x = -31.28781318, y = 11.278808), shape=19,color = "greenyellow", size=5)+ 
 
   # Axis Limits 
   xlim(-43,-20) +
@@ -78,7 +78,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   annotate("text", x = -36, y = 7, label = "Biofilm") +
   annotate("text", x = -24, y = 5, label = "Leaf litter") +
   
-  geom_segment(aes(x =-26, xend=-30,y = 4, yend = 1.25), # Leaf litter
+  geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
   
 # Legend  
@@ -114,7 +114,7 @@ levels(QPA_Nov17$taxa)
 
 QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  labs(x="", y = "") +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -193,7 +193,7 @@ levels(QPA_Feb19$taxa)
 
 QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
+  labs(x="", y = "") +
   
   #color
   scale_colour_manual("Taxa",
@@ -275,22 +275,31 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
                 common.legend = TRUE, legend="bottom")
 
 
-p1
 p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
-p2 <- ggdraw(p1) + draw_label("Sources", x = 0.79, y = 0.05, size = 16,fontface = "bold") +
-  
-  draw_label("Leaf litter", x = 0.87, y = 0.09, size = 16,fontface = "plain") +
-  draw_label("???", x = 0.83, y = 0.09, size = 24,fontface = "bold", color = "coral4") +
 
-    draw_label("Biofilm", x = 0.857, y = 0.06, size = 16,fontface = "plain") +
-  draw_label("???", x = 0.83, y = 0.06, size = 22,fontface = "bold", color = "turquoise3") +
-  
-  draw_label("Algae", x = 0.86, y = 0.03, size = 16,fontface = "plain") +
-    draw_label("???", x = 0.83, y = 0.03, size = 30,fontface = "bold", color = "greenyellow") 
 
-p2 + ggsave("Figure_2C.png", width=11, height=6.5)
+square <- "???"
+triangle <- "???"
+circle<- "???"
+
+p3<- annotate_figure(p1,bottom = text_grob(" \n \n \n", color = "blue",
+                                      hjust = 1, x = 1, face = "italic", size = 10))
+
+p2 <- ggdraw(p3) + draw_label("Sources", x = 0.2, y = 0.09, size = 16,fontface = "bold") +
+  
+  draw_label("Leaf litter", x = 0.3, y = 0.09, size = 16,fontface = "plain") +
+  draw_label("-", x = 0.27, y = 0.092, size = 24,fontface = "bold", color = "coral4") +
+
+    draw_label("Biofilm", x = 0.4, y = 0.09, size = 16,fontface = "plain") +
+  draw_label("-", x = 0.37, y = 0.092, size = 22,fontface = "bold", color = "turquoise3") +
+  
+  draw_label("Algae", x = 0.5, y = 0.09, size = 16,fontface = "plain") +
+    draw_label("-", x = 0.47, y = 0.092, size = 30,fontface = "bold", color = "greenyellow") 
+p2
+
+p2 + save_plot("Figure_2C.pdf", width=11, height=6.5,device=cairo_pdf)
 
 #
    
