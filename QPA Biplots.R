@@ -280,7 +280,7 @@ p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
 
-square <- "\u25B2"
+square <- "???"
 triangle <- "???"
 circle<- "???"
 
@@ -290,13 +290,16 @@ p2<- annotate_figure(p1,bottom = text_grob(" \n \n \n", color = "blue",
 p3 <- ggdraw(p2) + draw_label("Sources", x = 0.2, y = 0.09, size = 16,fontface = "bold") +
   
   draw_label("Leaf litter", x = 0.3, y = 0.09, size = 16,fontface = "plain") +
-  draw_label(triangle, x = 0.27, y = 0.092, size = 24,fontface = "bold", color = "coral4") +
+  draw_label(square, x = 0.27, y = 0.092, size = 30,fontface = "bold", color = "coral4",
+             fontfamily = "Tahoma") +
 
     draw_label("Biofilm", x = 0.4, y = 0.09, size = 16,fontface = "plain") +
-  draw_label(triangle, x = 0.37, y = 0.092, size = 22,fontface = "bold", color = "turquoise3") +
+  draw_label(triangle, x = 0.37, y = 0.092, size = 30,fontface = "bold", color = "turquoise3",
+             fontfamily = "Tahoma") +
   
   draw_label("Algae", x = 0.5, y = 0.09, size = 16,fontface = "plain") +
-    draw_label(circle, x = 0.47, y = 0.092, size = 30,fontface = "bold", color = "greenyellow") 
+    draw_label(circle, x = 0.47, y = 0.092, size = 30,fontface = "bold", color = "greenyellow",
+               fontfamily = "Tahoma") 
 p3
 
 p3 + ggsave("Figure_2C.pdf", width=11, height=6.5,  dpi = 600)
