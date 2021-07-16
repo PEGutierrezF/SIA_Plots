@@ -49,17 +49,17 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                   expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                   expression(italic("L. regnyi"))))  +
 # Segments  
-  geom_segment(aes(x=-31.90410042,xend=-31.77720437,yend=0.56,y=0.56), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
-  geom_segment(aes(x=-32.08,xend=-32.08,yend=0.878914827,y=0.241085173), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
-  geom_point(aes(x = -32.08, y = 0.56), shape=15,color = "coral4", size=5)+ 
+  geom_segment(aes(x=-31.9041,xend=-32.2459,yend=0.559,y=0.559), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-32.08,xend=-32.08,yend=0.8789,y=0.2401), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -32.075, y = 0.559), shape=15,color = "coral4", size=5)+ 
   
   geom_segment(aes(x=-31.48,xend=-31.90,yend=6.06,y=6.06), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
-  geom_segment(aes(x=-31.69,xend=-31.69,yend=6.389520784,y=5.730479216), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_segment(aes(x=-31.69,xend=-31.69,yend=6.3904,y=5.7320), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -31.69, y = 6.06), shape=17,color = "turquoise3", size=5)+ 
   
-  geom_segment(aes(x=-30.69, xend=-31.88,yend=11.278808,y=11.278808), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-31.28781318,xend=-31.28781318,yend=17.441,y=5.1166), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
-  geom_point(aes(x = -31.28781318, y = 11.278808), shape=19,color = "greenyellow", size=5)+ 
+  geom_segment(aes(x=-30.6952, xend=-31.8804,yend=11.27881,y=11.27881), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-31.2878,xend=-31.2878,yend=17.4411,y=5.1166), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
 
   # Axis Limits 
   xlim(-43,-20) +
@@ -137,9 +137,9 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x=-31.5665,xend=-31.5665,yend=1.1411,y=0.7178), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -31.5665, y = 0.9295), shape=15,color = "coral4", size=5)+ 
   
-  geom_segment(aes(x=-26.270,xend=-26.3690,yend=2.413,y=2.413), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
-  geom_segment(aes(x=-26.319,xend=-26.319,yend=3.03212,y=1.7938), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
-  geom_point(aes(x = -26.319, y = 2.413), shape=17,color = "turquoise3", size=5)+ 
+  geom_segment(aes(x=-26.2704,xend=-26.3691,yend=2.413,y=2.413), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-26.3198,xend=-26.3198,yend=3.03212,y=1.7938), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -26.3198, y = 2.413), shape=17,color = "turquoise3", size=5)+ 
   
   geom_segment(aes(x=-18.232, xend=-26.769,yend=3.5359,y=3.5359), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-22.5013,xend=-22.50128,yend=4.864,y=2.2073), size=1,linetype='solid', color="black",arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
@@ -178,6 +178,81 @@ QPANov17
 
 
 
+# # QPA June 2018 ---------------------------------------------------------
+
+
+QPA_June18 <- read.csv("Biplot/QPA_June18.csv")
+head(QPA_June18)
+
+QPA_June18$taxa <- factor(QPA_June18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+levels(QPA_June18$taxa) 
+
+QPAJune18 <-  ggplot(QPA_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
+  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+  labs(x="", y = "") +
+  
+  #color
+  scale_colour_manual("Taxa",
+                      values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
+                                 "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
+                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                 expression(italic("P. pulchrus")), "Libellulidae", 
+                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("L. regnyi")))) +
+  # shape
+  scale_shape_manual("Taxa",
+                     values=c(0,1,2,3,4,5,6,7,8,9,10,11),
+                     labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                expression(italic("P. pulchrus")), "Libellulidae", 
+                                expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("L. regnyi"))))  +
+  # Segments  
+  geom_segment(aes(x=-29.6746,xend=-29.8854,yend=3.676,y=3.676), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-29.78,xend=-29.78,yend=3.761957,y=3.590043), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -29.78, y = 3.676), shape=15,color = "coral4", size=5)+ 
+  
+  geom_segment(aes(x=-27.7252,xend=-28.3193,yend=6.694,y=6.694), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-28.0223,xend=-28.0223,yend=7.021881,y=6.366119), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -28.0223, y = 6.694), shape=17,color = "turquoise3", size=5)+
+  
+  geom_segment(aes(x=-23.7732, xend=-28.1843,yend=10.13571,y=10.13571), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-25.9788,xend=-25.9788,yend=13.850,y=6.421), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_point(aes(x = -25.9788, y = 10.13571), shape=19,color = "greenyellow", size=5)+
+  
+  # Axis Limits 
+  xlim(-43,-20) +
+  ylim(-5,20) +
+  
+  #text
+  annotate("text", x = -22, y = 13, label = "Algae") +
+  annotate("text", x = -37, y = 11, label = "Biofilm") +
+  annotate("text", x = -38, y = -3, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-34, xend=-30,y = 11, yend = 8.5), # Biofilm
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
+  geom_segment(aes(x =-35, xend=-32,y = -2, yend = 1.5), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.2) +
+  
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+  # Legend    
+  theme(legend.position = "none") +
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+
+QPAJune18
+
 
 
 # QPA February 2019 -------------------------------------------------------
@@ -213,15 +288,15 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
-  geom_segment(aes(x=-28.297,xend=-28.596,yend=1.153,y=1.153), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-28.2969,xend=-28.5964,yend=1.153,y=1.153), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-28.447,xend=-28.447,yend=1.4256,y=0.881), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -28.447, y = 1.153), shape=15,color = "coral4", size=5)+ 
   
-  geom_segment(aes(x=-27.758,xend=-27.981,yend=4.18,y=4.18), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-27.7586,xend=-27.9814,yend=4.18,y=4.18), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
   geom_segment(aes(x=-27.87,xend=-27.87,yend=4.439,y=3.9213), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -27.87, y = 4.18), shape=17,color = "turquoise3", size=5)+
   
-  geom_segment(aes(x=-25.7792, xend=-27.909,yend=9.433,y=9.433), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-25.7792, xend=-27.9095,yend=9.433,y=9.433), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-26.844,xend=-26.844,yend=14.361,y=4.505), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
   geom_point(aes(x = -26.844, y = 9.433), shape=19,color = "greenyellow", size=5)+
   
@@ -268,16 +343,14 @@ get_legend<-function(a.gplot){
 
 p2_legend <- get_legend(QPAFeb17)
 
-p1 <- ggarrange(QPAFeb17, QPANov17, QPBJune18, QPAFeb19,
+p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
                 ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
                 widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
                 common.legend = TRUE, legend="bottom")
 
 
-p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
-
-
+# p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
 square <- "???"
