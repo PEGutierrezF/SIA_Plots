@@ -281,7 +281,6 @@ p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
 square <- "???"
-square
 triangle <- "???"
 circle<- "???"
 
