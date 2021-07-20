@@ -49,17 +49,23 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
-  geom_segment(aes(x=-30.21171573,xend=-30.26828427,yend=0.65,y=0.65), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
-  geom_segment(aes(x=-30.24,xend=-30.24,yend=0.706568542,y=0.593431458), size=2, color="#8c2d04", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_segment(aes(x=-30.2554,xend=-30.34556,yend=2.13925,y=2.13925), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-30.3005,xend=-30.3005,yend=2.741054,y=1.537445838), size=1, linetype='solid', color="black",  arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -30.3005, y = 2.13925), shape=15,color = "coral4", size=5)+ 
   
-  geom_segment(aes(x=-27.07343146,xend=-27.18656854,yend=3.65,y=3.65), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
-  geom_segment(aes(x=-27.13,xend=-27.13,yend=4.116690476,y=3.183309524), size=2, color="#2c7fb8", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_segment(aes(x=-34.2122,xend=-34.5278,yend=4.9245,y=4.9245), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-34.37,xend=-34.37,yend=5.170192,y=4.678808), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -34.37, y = 4.9245), shape=17,color = "turquoise3", size=5) +
   
-  geom_segment(aes(x=-27.19184263, xend=-34.15278073,yend=8.022895772,y=8.022895772), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-30.672311680065,xend=-30.672311680065,yend=12.21237758,y=3.833413964), size=2, color="#31a354", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  
+  
+  
+  geom_segment(aes(x=-34.2780, xend=-47.8407,yend=9.446942,y=9.446942), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-41.0594,xend=-41.0594,yend=14.13489,y=4.758994), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_point(aes(x = -41.0594, y = 9.446942), shape=19,color = "greenyellow", size=5)+
   
   # Axis Limits 
-  xlim(-43,-17) +
+  xlim(-49,-17) +
   ylim(-5,20) +
   
   # Axis
@@ -112,7 +118,7 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
-  geom_segment(aes(x=-32.104,xend=-32.424,yend=-0.464,y=-0.464), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-32.104,xend=-32.424,yend=-0.464,y=-0.464), size=1, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.264,xend=-32.264,yend=-0.307820616,y=-0.620179384), size=1,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -32.264, y = -0.464), shape=15,color = "coral4", size=5)+ 
   
