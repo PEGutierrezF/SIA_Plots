@@ -350,7 +350,7 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 common.legend = TRUE, legend="bottom")
 
 
- p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
+p1 + ggsave("Figure_2B.pdf", width=11, height=6.5)
 
 
 square <- "???"
