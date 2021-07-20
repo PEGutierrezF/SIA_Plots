@@ -167,7 +167,7 @@ levels(QPB_June18$taxa)
 
 QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
-  labs(x="", y = "") +
+  labs(x= expression(delta^{13}*"C (\211)"), y = "") +
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
