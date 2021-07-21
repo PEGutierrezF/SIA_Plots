@@ -232,7 +232,7 @@ QPAJune18 <-  ggplot(QPA_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   annotate("text", x = -37, y = 11, label = "Biofilm") +
   annotate("text", x = -38, y = -3, label = "Leaf litter") +
   
-  geom_segment(aes(x =-34, xend=-30,y = 11, yend = 8.5), # Biofilm
+  geom_segment(aes(x =-34, xend=-29.5,y = 10.5, yend = 7.7), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   geom_segment(aes(x =-35, xend=-32,y = -2, yend = 1.5), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
