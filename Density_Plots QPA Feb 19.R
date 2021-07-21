@@ -51,6 +51,8 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Glossosomatidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -100,6 +102,8 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Baetidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -135,6 +139,8 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Chironomidae') +
+  theme(plot.title = element_text(face="bold"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -169,6 +175,8 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('N. julio') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -202,7 +210,9 @@ p1 <- ggplot(df, aes(x, y, color = source)) +
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('Phylloicus') +
+  ggtitle('P. pulchrus') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -237,6 +247,8 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Libelullidae') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -271,6 +283,8 @@ x1 <- ggplot(df_x, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('X. elongata') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -306,6 +320,8 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('A. lanipes') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -339,7 +355,9 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('M. crenulatun') +
+  ggtitle('M. crenulatum') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(legend.position = "none")+
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
@@ -381,7 +399,53 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('A. evermani') +
+  ggtitle('A. evermanni') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
+  theme(legend.position = "none")+
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+
+
+# Luecauge ------------------------------------------------------------------
+
+QPA_Lm_Feb19 <- read.csv("DensityPlots/QPAFeb19/11 QPA_Leucauge_Feb19.csv")
+
+dens <- lapply(split(QPA_Lm_Feb19, QPA_Lm_Feb19$source), 
+               function(x) density(x$density, from = 0, to = 1))
+
+df <- do.call(rbind, mapply(function(x, y) {
+  data.frame(x = x$x, y = x$y, source = y)
+}, dens, names(dens), SIMPLIFY = FALSE))
+
+df <- df %>% group_by(source) %>%
+  mutate(cdf = cumsum(y * mean(diff(x))),
+         lower = cdf < 0.025,
+         upper = cdf > 0.975) 
+
+Lm <- ggplot(df, aes(x, y, color = source)) + 
+  geom_area(data = df[df$lower,], aes(fill = source), alpha = 0.5,position = "identity") +
+  geom_area(data = df[df$upper,], aes(fill = source), alpha = 0.5,position = "identity") +
+  labs(y = "Density", x = "Source contribution") +
+  geom_line(aes(linetype = source), size = 1.2) +
+  scale_fill_manual("Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                    labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  scale_color_manual("Source",values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                     labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  scale_linetype_manual("Source",values = c("solid", "dotted", "longdash"),
+                        labels = c("Algae", "Biofilm", "Leaf litter")) +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('L. regnyi') +
+  theme(plot.title = element_text(face="bold.italic"))+
+  
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
@@ -392,7 +456,11 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   guides(color=guide_legend(override.aes=list(fill=NA)))
 
 
-Fig2 <- (x1+a1+plot_spacer()) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
-Fig2
-Fig2 + ggsave("Figure 2 QPA Feb19.pdf",width = 210, height = 297, units = "mm")
+
+# Figure QPA February 2019 ------------------------------------------------
+
+
+Fig4 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm + plot_spacer())
+Fig4
+Fig4 + ggsave("Figure X Density plot QPA Feb 19.pdf",width = 210, height = 297, units = "mm")
 
