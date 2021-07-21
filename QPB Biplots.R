@@ -75,9 +75,11 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   #text
   annotate("text", x = -35, y = 12, label = "Algae") +
-  annotate("text", x = -28, y = 7, label = "Biofilm") +
+  annotate("text", x = -26, y = 8, label = "Biofilm") +
   annotate("text", x = -35, y = -4, label = "Leaf litter") +
   
+  geom_segment(aes(x =-30.5, xend=-33.5,y = 8, yend = 6), # Biofilm
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   geom_segment(aes(x =-35, xend=-32,y = -3, yend = 0), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   

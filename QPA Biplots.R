@@ -309,7 +309,7 @@ QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   annotate("text", x = -35, y = 9, label = "Biofilm") +
   annotate("text", x = -38, y = -3, label = "Leaf litter") +
   
-  geom_segment(aes(x =-32, xend=-29,y = 8, yend = 5), # Biofilm
+  geom_segment(aes(x =-32, xend=-29.1,y = 8, yend = 5), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   geom_segment(aes(x =-35, xend=-30,y = -2, yend = 0), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
