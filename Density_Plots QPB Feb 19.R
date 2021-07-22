@@ -3,12 +3,12 @@
 
 
 # ---------------------------------------------
-# Density Plots February 20019 Quebrada Prieta B
-# 09 Jun 2021
+# ensity Plots February 2019 Quebrada Prieta B
+# 21 Jul 2021
 # Pablo E. Gutiérrez-Fonseca
 # pabloe.gutierrezfonseca@gmail.com
 # ---------------------------------------------
-#  
+
 
 
 
@@ -56,15 +56,15 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-L <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Leaflitter")
+L <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Leaflitter")
 quantile(L$density, 0.025)
 quantile(L$density, 0.975)
 
-B <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Biofilm")
+B <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Biofilm")
 quantile(B$density, 0.025)
 quantile(B$density, 0.975)
 
-A <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Algae")
+A <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Algae")
 quantile(A$density, 0.025)
 quantile(A$density, 0.975)
 
