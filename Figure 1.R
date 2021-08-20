@@ -62,11 +62,11 @@ canopy$se = as.numeric(canopy$se)
 
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   labs(x= '', y= 'Canopy cover (%)') +
-  geom_line(stat="identity",position='dodge',size=0.8) + 
+  geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se), na.rm=TRUE, 
-                width = 0.2, position = position_dodge(0.9),
+                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
   theme_classic()+
   theme(legend.position="none")  +
@@ -108,7 +108,8 @@ leaf$se = as.numeric(leaf$se)
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
+  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
+                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
   theme_classic() +
    theme(legend.position="none")  +
@@ -152,7 +153,8 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
+  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
+                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
   theme_classic() +
   theme(legend.position="none")  +
@@ -196,7 +198,8 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
+  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE,
+                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") + 
   theme_classic() +
   theme(legend.position="none") +
