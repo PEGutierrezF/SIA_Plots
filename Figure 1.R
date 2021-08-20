@@ -28,7 +28,12 @@ tail(discharge)
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   labs(x = "", y= "Water level (m)", color='Stream') +
-  theme_classic()
+  theme_classic()  +
+   
+   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
  d
  d1 <- d + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
            ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
@@ -64,7 +69,12 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
                 width = 0.2, position = position_dodge(0.9),
                 colour = "black") +
   theme_classic()+
-  theme(legend.position="none")
+  theme(legend.position="none")  +
+  
+  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
 
 c1 <- c + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
              ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
@@ -101,7 +111,12 @@ leaf$se = as.numeric(leaf$se)
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
                 colour = "black") +
   theme_classic() +
-   theme(legend.position="none")
+   theme(legend.position="none")  +
+   
+   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
 
  l1 <- l + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
              ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
@@ -132,14 +147,20 @@ tail(chla)
 chla$se = as.numeric(chla$se)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
-  xlab('') + ylab("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
+  xlab('Year') + ylab(expression(paste("Chlorophyll-", italic("a") , ~"("*"\u03BC"~g~m^-2*")"))) +
+           #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
                 colour = "black") +
   theme_classic() +
-  theme(legend.position="none")
+  theme(legend.position="none")  +
+  
+  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
 
 ch1 <- ch + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
                    ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5)  +
@@ -171,15 +192,22 @@ tail(BOM)
 BOM$se = as.numeric(BOM$se)
 
 b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
-  xlab('') + ylab("Benthic organic matter ("~g~m^-2*")") +
+  xlab('Year') + ylab("Benthic organic matter ("*g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, position="dodge",
-                colour = "black") +
+                colour = "black") + 
   theme_classic() +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  
+  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+  
 
+b
 b1 <- b + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
                      ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5)  +
   
@@ -201,7 +229,7 @@ b1
 Fig1 <- (d1 + plot_spacer()) / (c1 + l1) /(ch1 + b1) 
 Fig1
 
-Fig1 + ggsave("Figure X Density plot QPB Nov 17.tiff",width = 210, height = 220, units = "mm")
+Fig1 + ggsave("Figure X Density plot QPB Nov 17.tiff",width = 200, height = 220, units = "mm")
 
 
 
