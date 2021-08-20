@@ -29,6 +29,9 @@ tail(discharge)
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   labs(x = "", y= "Water level (m)", color='Stream') +
   theme_classic()  +
+  theme(legend.key.size = unit(0.6, "cm"))+
+   theme(legend.title=element_text(size=14)) + # legend title size
+   theme(legend.text = element_text(color = "black", size = 12))+  #factor name 
    
    theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
