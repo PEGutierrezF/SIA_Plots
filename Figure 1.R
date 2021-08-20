@@ -24,7 +24,7 @@ discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(dischage)
 tail(discharge)
 
- d <-  ggplot(discharge, aes(x=date, y=value, colour=stream)) +
+ d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Quebrada Prieta A", "Quebrada Prieta B")))) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   labs(x = "", y= "Water level (m)", color='Stream') +
@@ -109,7 +109,7 @@ leaf$se = as.numeric(leaf$se)
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
-                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
+                position = position_dodge(width = 0.9),stat = "identity", 
                 colour = "black") +
   theme_classic() +
    theme(legend.position="none")  +
@@ -118,7 +118,7 @@ leaf$se = as.numeric(leaf$se)
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
    theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
    theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
-
+l
  l1 <- l + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
              ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
    
@@ -148,7 +148,7 @@ tail(chla)
 chla$se = as.numeric(chla$se)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
-  xlab('Year') + ylab(expression(paste("Chlorophyll-", italic("a") , ~"("*"\u03BC"~g~m^-2*")"))) +
+  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*"\u03BC"*g~m^-2*")"))) +
            #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
@@ -163,20 +163,21 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+ch 
 
 ch1 <- ch + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
                    ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5)  +
   
-  geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 1125, xend = as.POSIXct(c("2017-02-01")), yend = 975), 
+  geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 1275, xend = as.POSIXct(c("2017-02-01")), yend = 1150), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2017-11-15")), y = 1125, xend = as.POSIXct(c("2017-11-15")), yend = 975), 
+  geom_segment(aes(x = as.POSIXct(c("2017-11-15")), y = 1275, xend = as.POSIXct(c("2017-11-15")), yend = 1150), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 1125, xend = as.POSIXct(c("2018-06-01")), yend = 975), 
+  geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 1275, xend = as.POSIXct(c("2018-06-01")), yend = 1150), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 1125, xend = as.POSIXct(c("2019-02-01")), yend = 975), 
+  geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 1275, xend = as.POSIXct(c("2019-02-01")), yend = 1150), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black")
 
 ch1
@@ -230,9 +231,10 @@ b1
 
 
 Fig1 <- (d1 + plot_spacer()) / (c1 + l1) /(ch1 + b1) 
-Fig1
+Fig2 <- Fig1 + plot_annotation(tag_levels = 'A')
+Fig2
 
-Fig1 + ggsave("Figure X Density plot QPB Nov 17.tiff",width = 200, height = 220, units = "mm")
+Fig2 + ggsave("Figure X Density plot QPB Nov 17.tiff",width = 200, height = 220, units = "mm")
 
 
 
