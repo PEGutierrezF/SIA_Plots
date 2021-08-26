@@ -410,7 +410,7 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-
+an1
 
 # Luecauge ------------------------------------------------------------------
 
@@ -457,7 +457,7 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
   theme(legend.text = element_text(size = 16))  + #
   guides(color=guide_legend(override.aes=list(fill=NA)))
 
-
+Lm
 
 # Figure QPA June 2018 ------------------------------------------------
 
@@ -465,3 +465,5 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
 Fig3 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm + plot_spacer())
 Fig3
 Fig3 + ggsave("Figure X Density plot QPA June 19.pdf",width = 210, height = 297, units = "mm")
+
+# This error is beacause an1 Anolis going to 14.
