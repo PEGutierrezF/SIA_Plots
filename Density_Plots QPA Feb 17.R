@@ -288,6 +288,18 @@ x1 <- ggplot(df_x, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_x <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Leaflitter")
+B_x <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Biofilm")
+A_x <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Algae")
+
+mean(L_x$density)
+t.test(L_x$density)
+
+mean(B_x$density)
+t.test(B_x$density)
+
+mean(A_x$density)
+t.test(A_x$density)
 
 # Atya ----------------------------------------------------------------
 
@@ -326,18 +338,18 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-L_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Leaflitter")
-B_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Biofilm")
-A_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Algae")
+L_a <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Leaflitter")
+B_a <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Biofilm")
+A_a <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Algae")
 
-mean(L_x$density)
-t.test(L_x$density)
+mean(L_a$density)
+t.test(L_a$density)
 
-mean(B_x$density)
-t.test(B_x$density)
+mean(B_a$density)
+t.test(B_a$density)
 
-mean(A_x$density)
-t.test(A_x$density)
+mean(A_a$density)
+t.test(A_a$density)
 
 
 # Macrobrachium ----------------------------------------------------------------
