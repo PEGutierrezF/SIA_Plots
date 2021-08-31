@@ -64,7 +64,7 @@ tail(canopy)
 canopy$se = as.numeric(canopy$se)
 
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
-  labs(x= '', y= 'Canopy cover (%)') +
+  labs(x= '', y= 'Canopy openness (%)') +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
@@ -151,7 +151,7 @@ tail(chla)
 chla$se = as.numeric(chla$se)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
-  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*"\u03BC"*g~m^-2*")"))) +
+  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
            #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
