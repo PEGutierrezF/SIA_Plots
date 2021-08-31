@@ -70,7 +70,9 @@ A <- QPA_G_June18 %>% filter(QPA_G_June18$source == "Algae")
 quantile(A$density, 0.025)
 quantile(A$density, 0.975)
 
-
+mean(L$density)
+mean(B$density)
+mean(A$density)
 
 
 # Baetidae ----------------------------------------------------------------

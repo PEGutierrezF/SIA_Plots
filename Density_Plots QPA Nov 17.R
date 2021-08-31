@@ -68,6 +68,10 @@ A <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Algae")
 quantile(A$density, 0.025)
 quantile(A$density, 0.975)
 
+mean(L$density)
+mean(B$density)
+mean(A$density)
+
 # Baetidae ----------------------------------------------------------------
 
 QPA_B_Nov17 <- read.csv("DensityPlots/QPANov17/02 QPA_Baetidae_Nov17.csv")
@@ -286,6 +290,18 @@ x1 <- ggplot(df_x, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Leaflitter")
+B_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Biofilm")
+A_x <- QPA_X_Nov17 %>% filter(QPA_X_Nov17$source == "Algae")
+
+mean(L_x$density)
+t.test(L_x$density)
+
+mean(B_x$density)
+t.test(B_x$density)
+
+mean(A_x$density)
+t.test(A_x$density)
 
 # Atya ----------------------------------------------------------------
 
