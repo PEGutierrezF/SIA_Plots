@@ -29,19 +29,44 @@ p <- ggplot(data = data, aes(x = stream, y = value)) +
   geom_errorbar(aes(colour = source, ymin = value - sd, ymax = value + sd), 
                 width = 0.2, position = position_dodge(width = 1), size= 1) +
   
-  labs(x="Streams",y = "Value", colour = "Source") +
+  labs(x="Streams",y = "Isotopic signature", colour = "Source") +
   scale_x_discrete(labels = c("Quebrada\nPrieta A", "Quebrada\nPrieta B")) +
+
+# line in discrete variable
+  geom_vline(xintercept=seq(1.5, length(unique(data$stream))-0.5, 1), 
+             lwd=1, colour="black", linetype="dashed", alpha=0.5) +
+
+# Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+# Strip  
+  theme(strip.placement = 'outside') +
+  theme(strip.switch.pad.grid = unit('0.25', "cm")) +
+  theme(strip.text.x = element_text(size = 14)) +
+  theme(strip.text.y = element_text(size = 14)) +
+  theme(strip.background = element_rect(colour="black", fill="gray90"),
+        strip.text = element_text(margin = margin(10, 10, 10, 10))) +
+ 
+# Legend 
+  theme(legend.key.size = unit(0.6, "cm"))+
+  theme(legend.title=element_text(size=16)) + # legend title size
+  theme(legend.text = element_text(color = "black", size = 14))+  #factor name 
+  theme(legend.key = element_rect(fill = NA, color = NA))+
   
 # Panel   
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
 
-p + facet_grid(isotope ~ sampling, 
+Fig_iso <- p + facet_grid(isotope ~ sampling, 
                scale= "free_y", labeller = labeller(isotope = as_labeller(isotopes_new,  label_parsed),
                                                     sampling = as_labeller(sampling_new))) 
-  
+Fig_iso
 
+Fig_iso + ggsave("Figure_3.tiff", width=11, height=6.5)
 
 
 
