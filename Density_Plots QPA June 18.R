@@ -330,6 +330,19 @@ a1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_a <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Leaflitter")
+B_a <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Biofilm")
+A_a <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Algae")
+
+mean(L_a$density)
+t.test(L_a$density)
+
+mean(B_a$density)
+t.test(B_a$density)
+
+mean(A_a$density)
+t.test(A_a$density)
+
 
 
 # Macrobrachium ----------------------------------------------------------------
