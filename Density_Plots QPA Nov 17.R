@@ -388,7 +388,18 @@ m1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_m <- QPA_M_Nov17 %>% filter(QPA_M_Nov17$source == "Leaflitter")
+B_m <- QPA_M_Nov17 %>% filter(QPA_M_Nov17$source == "Biofilm")
+A_m <- QPA_M_Nov17 %>% filter(QPA_M_Nov17$source == "Algae")
 
+mean(L_m$density)
+t.test(L_m$density)
+
+mean(B_m$density)
+t.test(B_x$density)
+
+mean(A_m$density)
+t.test(A_m$density)
 
 # Anolis ------------------------------------------------------------------
 
