@@ -237,7 +237,7 @@ Fig1 <- (d1 + plot_spacer()) / (c1 + l1) /(ch1 + b1)
 Fig2 <- Fig1 + plot_annotation(tag_levels = 'A')
 Fig2
 
-Fig2 + ggsave("Figure X.jpeg",width = 200, height = 220, units = "mm")
+Fig2 + ggsave("Figure 1.tiff",width = 200, height = 220, units = "mm")
 
 
 
