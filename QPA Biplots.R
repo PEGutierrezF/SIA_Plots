@@ -348,11 +348,20 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
                 widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
                 common.legend = TRUE, legend="bottom") +
-  theme(plot.margin = margin(2,0.5,2,0.1, "cm")) # Increase area (margin) of the graph
-
+  theme(plot.margin = margin(1,0.1,0.1,0.1, "cm")) # Increase area (margin) of the graph
 p1
-p1 + ggsave("Figure_2B.tiff", width=11, height=6.5)
+p1 + ggsave("Figure 3.jpg", width=11, height=6.5)
 
+
+p2 <- ggdraw(p1) + 
+  draw_label("6mo pre-", x = 0.16, y = 0.95, size = 14 ,fontface = "bold") +
+  draw_label("2mo post-", x = 0.40, y = 0.95, size = 14, fontface = "bold") +
+  draw_label("9mo post-", x = 0.65, y = 0.95, size = 14,fontface = "bold")+
+  draw_label("18mo post-", x = 0.9, y = 0.95, size = 14, fontface = "bold")
+
+p2
+p2 + ggsave("Figure 3B.jpg", width=11, height=6.5)
+#
 
 
 
