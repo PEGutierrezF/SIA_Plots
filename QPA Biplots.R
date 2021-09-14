@@ -347,10 +347,17 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
                 ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
                 widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
-                common.legend = TRUE, legend="bottom")
+                common.legend = TRUE, legend="bottom") +
+  theme(plot.margin = margin(2,0.5,2,0.1, "cm")) # Increase area (margin) of the graph
 
-
+p1
 p1 + ggsave("Figure_2B.tiff", width=11, height=6.5)
+
+
+
+
+
+
 
 
 square <- "???"
