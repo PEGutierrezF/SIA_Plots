@@ -352,12 +352,19 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
 p1
 p1 + ggsave("Figure 3.jpg", width=11, height=6.5)
 
-
+#Solo modifica x
 p2 <- ggdraw(p1) + 
-  draw_label("6mo pre-", x = 0.16, y = 0.95, size = 14 ,fontface = "bold") +
-  draw_label("2mo post-", x = 0.40, y = 0.95, size = 14, fontface = "bold") +
-  draw_label("9mo post-", x = 0.65, y = 0.95, size = 14,fontface = "bold")+
-  draw_label("18mo post-", x = 0.9, y = 0.95, size = 14, fontface = "bold")
+  geom_rect(aes(xmin=0.064, xmax=0.246, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
+  draw_label("6mo pre-", x = 0.16, y = 0.95, size = 14 ,fontface = "plain") +
+
+  geom_rect(aes(xmin=0.303, xmax=0.4942, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
+  draw_label("2mo post-", x = 0.40, y = 0.95, size = 14, fontface = "plain") +
+                                  
+  geom_rect(aes(xmin=0.551, xmax=0.74, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
+  draw_label("9mo post-", x = 0.65, y = 0.95, size = 14,fontface = "plain")+
+  
+  geom_rect(aes(xmin=0.798, xmax=0.99, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
+  draw_label("18mo post-", x = 0.9, y = 0.95, size = 14, fontface = "plain")
 
 p2
 p2 + ggsave("Figure 3B.jpg", width=11, height=6.5)
