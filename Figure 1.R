@@ -144,7 +144,7 @@ l1
 # Chlorophyl -a  -------------------------------------------------------------
 
 data <- read.csv("data/data.csv")
-chla <- slice(data, (1931:1990))
+chla <- slice(data, (1961:2048))
 chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
 tail(chla)
@@ -163,10 +163,10 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   theme_classic() +
   theme(legend.position="none")  +
   
-  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+  theme(axis.title.x = element_text(size = 18, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black"))  #subaxis y
 ch 
 
 ch1 <- ch + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
