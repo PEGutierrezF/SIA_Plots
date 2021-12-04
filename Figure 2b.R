@@ -37,7 +37,7 @@ Fig_iso1 <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colo
   geom_errorbar(aes(ymax=value+sd, ymin=value-sd), width = 0) +
 
   scale_color_manual(values = c('#ce1256','#0570b0'), 
-                     labels = c("PA", "PB")) +
+                     labels = c("Prieta A", "Prieta B")) +
                      
 # Label  
   labs(x="Sampling event", y = "Isotopic signature", colour = "Stream") +
@@ -72,7 +72,7 @@ Fig_iso1 <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colo
   theme(legend.key = element_rect(fill = NA, color = NA))+
   
 # Panel   
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(color = "gray95"), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
