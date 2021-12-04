@@ -61,12 +61,12 @@ p <- ggplot(data = data, aes(x = stream, y = value)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
 
-Fig_iso <- p + facet_grid(isotope ~ sampling, 
+Fig_isotopes <- p + facet_grid(isotope ~ sampling, 
                scale= "free_y", labeller = labeller(isotope = as_labeller(isotopes_new,  label_parsed),
                                                     sampling = as_labeller(sampling_new))) 
-Fig_iso
+Fig_isotopes
 
-Fig_iso + ggsave("Figure 2b.tiff", width=11, height=6.5)
+Fig_isotopes + ggsave("Figure 2 extra.tiff", width=11, height=6.5)
 
 
 

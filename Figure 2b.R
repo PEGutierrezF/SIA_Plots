@@ -82,11 +82,11 @@ facet_grid(isotope ~ source,
                                                     source = as_labeller(source_new)))
 
 
-Fig_iso1
+Fig_isotopes_ecology
 
-Fig_iso1 + ggsave("Figure 2b.jpeg", width=11, height=6.5)
-
-Fig_iso1 + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 2.tif",
+#Ecology format
+Fig_isotopes_ecology + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 2.tiff",
      height=5600,width=7200,units="px",res=800,compression="lzw")
 
+Fig_isotopes_ecology + ggsave("Figure 2b.jpeg", width=11, height=6.5)
 
