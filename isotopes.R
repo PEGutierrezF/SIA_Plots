@@ -66,7 +66,7 @@ Fig_iso <- p + facet_grid(isotope ~ sampling,
                                                     sampling = as_labeller(sampling_new))) 
 Fig_iso
 
-Fig_iso + ggsave("Figure 2.tiff", width=11, height=6.5)
+Fig_iso + ggsave("Figure 2b.tiff", width=11, height=6.5)
 
 
 

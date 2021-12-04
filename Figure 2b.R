@@ -41,7 +41,7 @@ Fig_iso1 <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colo
                      
 # Label  
   labs(x="Sampling event", y = "Isotopic signature", colour = "Stream") +
-  scale_x_discrete(labels = c("6mo pre-", "2mo post-", "9mo post-", "18mo post-")) +  
+  scale_x_discrete(labels = c("6mo\npre-", "2mo\npost-", "9mo\npost-", "18mo\npost-")) +  
   
 # line in discrete variable
   geom_vline(xintercept=seq(1.5, length(unique(data$stream))-0.5, 1), 
@@ -52,6 +52,10 @@ Fig_iso1 <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colo
   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
   theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+
+# Mueve los margenes para que la legenda entre
+#  top (t), right (r), bottom (b), and left (l)
+  theme(axis.title.x = element_text(margin = margin(t = 15))) +
   
 # Strip  
   theme(strip.placement = 'outside') +
@@ -80,6 +84,9 @@ facet_grid(isotope ~ source,
 
 Fig_iso1
 
-Fig_iso1 + ggsave("Figure 2b.tiff", width=11, height=6.5)
+Fig_iso1 + ggsave("Figure 2b.jpeg", width=11, height=6.5)
+
+Fig_iso1 + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 2.tif",
+     height=5600,width=7200,units="px",res=800,compression="lzw")
 
 
