@@ -24,11 +24,11 @@ discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(dischage)
 tail(discharge)
 
- d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Quebrada Prieta A", "Quebrada Prieta B")))) +
+ d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Prieta A", "Prieta B")))) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   labs(x = "", y= "Water level (m)", color='Stream') +
-  theme_classic()  +
+   theme_bw()  +
   theme(legend.key.size = unit(0.6, "cm"))+
    theme(legend.title=element_text(size=14)) + # legend title size
    theme(legend.text = element_text(color = "black", size = 12))+  #factor name 
@@ -56,7 +56,7 @@ tail(discharge)
 # Canopy cover ------------------------------------------------------------
 
 data <- read.csv("data/data.csv")
-canopy <- slice(data, (1763:1844))
+canopy <- slice(data, (1763:1814))
 canopy$date <-as.POSIXct(canopy$date,"%Y-%m-%d",tz = "UTC")
 head(canopy)
 tail(canopy)
@@ -71,13 +71,13 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se), na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
-  theme_classic()+
+  theme_bw()+
   theme(legend.position="none")  +
   
-  theme(axis.title.x = element_text(size = 18, angle = 0)) + # axis x
-  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y
-  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black"))  #subaxis y
+  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
 c
 
 c1 <- c + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
@@ -115,7 +115,7 @@ leaf$se = as.numeric(leaf$se)
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", 
                 colour = "black") +
-  theme_classic() +
+   theme_bw() +
    theme(legend.position="none")  +
    
    theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
@@ -144,7 +144,7 @@ l1
 # Chlorophyl -a  -------------------------------------------------------------
 
 data <- read.csv("data/data.csv")
-chla <- slice(data, (1961:2048))
+chla <- slice(data, (1931:1990))
 chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
 tail(chla)
@@ -160,13 +160,13 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
-  theme_classic() +
+  theme_bw() +
   theme(legend.position="none")  +
   
-  theme(axis.title.x = element_text(size = 18, angle = 0)) + # axis x
-  theme(axis.title.y = element_text(size = 18, angle = 90)) + # axis y
-  theme(axis.text.x=element_text(angle=0, size=16, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=16, vjust=0.5, color="black"))  #subaxis y
+  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
 ch 
 
 ch1 <- ch + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
@@ -206,7 +206,7 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE,
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") + 
-  theme_classic() +
+  theme_bw() +
   theme(legend.position="none") +
   
   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
@@ -240,6 +240,27 @@ Fig2
 
 Fig2 + ggsave("Figure 1.tiff",width = 200, height = 220, units = "mm")
 
+
+## Function to extract legend
+g_legend <- function(a.gplot){ 
+  tmp <- ggplot_gtable(ggplot_build(a.gplot)) 
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box") 
+  legend <- tmp$grobs[[leg]] 
+  legend
+} 
+
+library(gridExtra)
+library(lemon)
+legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)))
+Fig <-grid.arrange(d1+theme(legend.position='hidden'), legend,
+             c1+theme(legend.position='hidden'),l1+theme(legend.position='hidden'),
+             ch1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'))
+
+#Ecology format
+ggsave(file="Figure.tiff", Fig, height = 10, width = 8, dpi = 600)
+ 
+library(cowplot)
+plot_grid(d1+theme(legend.position='hidden'), legend,c1,l1,ch1,b1,nrow=3, ncol=2, align="v")
 
 
 
