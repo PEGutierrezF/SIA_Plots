@@ -242,7 +242,6 @@ b1
 
 
 Fig1 <- (d1 | plot_spacer()) / (c1 | l1) / (ch1 | b1) 
-Fig1
 Fig2 <- Fig1 + plot_annotation(tag_levels = 'A') 
 Fig2
 
