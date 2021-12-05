@@ -32,7 +32,7 @@ isotopes_new <- c(
 
 # Graph 
 
-Fig_iso1 <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colour= stream)) + 
+Fig_isotopes_ecology <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colour= stream)) + 
   geom_line(size=1.2) + geom_point(size = 2.2)+
   geom_errorbar(aes(ymax=value+sd, ymin=value-sd), width = 0) +
 

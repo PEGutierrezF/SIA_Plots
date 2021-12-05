@@ -29,9 +29,11 @@ tail(discharge)
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   labs(x = "", y= "Water level (m)", color='Stream') +
    theme_bw()  +
-  theme(legend.key.size = unit(0.6, "cm"))+
-   theme(legend.title=element_text(size=14)) + # legend title size
-   theme(legend.text = element_text(color = "black", size = 12))+  #factor name 
+   theme(legend.position="none") +
+#Quite la leyenda  
+ # theme(legend.key.size = unit(0.6, "cm"))+
+  # theme(legend.title=element_text(size=14)) + # legend title size
+  # theme(legend.text = element_text(color = "black", size = 12))+  #factor name 
    
    theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
@@ -108,9 +110,10 @@ tail(leaf)
 leaf$se = as.numeric(leaf$se)
 
  l <- ggplot(leaf, aes(x=date,y=value, colour=stream)) +
-  labs(x= '', y= "Mean litter input rate ("*g~m^-2~d^-1*")") +
+  labs(x= 'Year', y= "Mean litter input rate ("*g~m^-2~d^-1*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
+   scale_y_continuous(labels = scales::number_format(accuracy = 1)) +
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", 
@@ -152,7 +155,7 @@ tail(chla)
 chla$se = as.numeric(chla$se)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
-  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
+  xlab('') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
            #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
@@ -234,12 +237,20 @@ b1 <- b + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("20
 b1
 
 
-Fig1 <- (d1 + plot_spacer()) / (c1 + l1) /(ch1 + b1) 
-Fig2 <- Fig1 + plot_annotation(tag_levels = 'A')
+
+# Plot 1 ------------------------------------------------------------------
+
+
+Fig1 <- (d1 | plot_spacer()) / (c1 | l1) / (ch1 | b1) 
+Fig1
+Fig2 <- Fig1 + plot_annotation(tag_levels = 'A') 
 Fig2
 
 Fig2 + ggsave("Figure 1.tiff",width = 200, height = 220, units = "mm")
 
+
+
+# Plot 2 ------------------------------------------------------------------
 
 ## Function to extract legend
 g_legend <- function(a.gplot){ 
@@ -252,15 +263,13 @@ g_legend <- function(a.gplot){
 library(gridExtra)
 library(lemon)
 legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)))
+
 Fig <-grid.arrange(d1+theme(legend.position='hidden'), legend,
-             c1+theme(legend.position='hidden'),l1+theme(legend.position='hidden'),
-             ch1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'))
+             c1+theme(legend.position='hidden'),ch1+theme(legend.position='hidden'),
+             l1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'),nrow=3)
 
 #Ecology format
 ggsave(file="Figure.tiff", Fig, height = 10, width = 8, dpi = 600)
  
-library(cowplot)
-plot_grid(d1+theme(legend.position='hidden'), legend,c1,l1,ch1,b1,nrow=3, ncol=2, align="v")
-
 
 
