@@ -27,6 +27,10 @@ tail(discharge)
  d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Prieta A", "Prieta B")))) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
+   
+# Number of digits
+   scale_y_continuous(labels = scales::number_format(accuracy = 0.01)) +
+   
   labs(x = "", y= "Water level (m)", color='Stream') +
    theme_bw()  +
    theme(legend.position="none") +
@@ -39,7 +43,9 @@ tail(discharge)
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
    theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
    theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+ 
  d
+ 
  d1 <- d + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
            ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
    geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 0.45, xend = as.POSIXct(c("2017-02-01")), yend = 0.42), 
@@ -66,7 +72,7 @@ tail(canopy)
 canopy$se = as.numeric(canopy$se)
 
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
-  labs(x= 'Year', y= 'Canopy openness (%)') +
+  labs(x= '', y= 'Canopy openness (%)') +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
@@ -75,6 +81,7 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
                 colour = "black") +
   theme_bw()+
   theme(legend.position="none")  +
+  ylim(0,100)+
   
   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
@@ -110,10 +117,13 @@ tail(leaf)
 leaf$se = as.numeric(leaf$se)
 
  l <- ggplot(leaf, aes(x=date,y=value, colour=stream)) +
-  labs(x= 'Year', y= "Mean litter input rate ("*g~m^-2~d^-1*")") +
+  labs(x= 'Year', y= "Mean litter input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
+
+# Number of digits
    scale_y_continuous(labels = scales::number_format(accuracy = 1)) +
+   
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", 
@@ -261,14 +271,17 @@ g_legend <- function(a.gplot){
 
 library(gridExtra)
 library(lemon)
-legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)))
+legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)) +
+                      theme(legend.key.size = unit(0.6, "cm"))+
+                      theme(legend.title=element_text(size=14)) + # legend title size
+                      theme(legend.text = element_text(color = "black", size = 12)))
 
 Fig <-grid.arrange(d1+theme(legend.position='hidden'), legend,
              c1+theme(legend.position='hidden'),ch1+theme(legend.position='hidden'),
              l1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'),nrow=3)
 
 #Ecology format
-ggsave(file="Figure.tiff", Fig, height = 10, width = 8, dpi = 600)
+ggsave(file="Figure 1.tiff", Fig, height = 10, width = 8, dpi = 600)
  
 
 
