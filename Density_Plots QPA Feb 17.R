@@ -56,17 +56,14 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-L <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Leaflitter")
-quantile(L$density, 0.025)
-quantile(L$density, 0.975)
+L_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Leaflitter")
+B_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Biofilm")
+A_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Algae")
 
-B <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Biofilm")
-quantile(B$density, 0.025)
-quantile(B$density, 0.975)
+t.test(L_G_QPA$density)
+t.test(B_G_QPA$density)
+t.test(B_G_QPA$density)
 
-A <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Algae")
-quantile(A$density, 0.025)
-quantile(A$density, 0.975)
 
 # Baetidae ----------------------------------------------------------------
 
