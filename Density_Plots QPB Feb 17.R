@@ -56,18 +56,13 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-L <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Leaflitter")
-quantile(L$density, 0.025)
-quantile(L$density, 0.975)
+L_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Leaflitter")
+B_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Biofilm")
+A_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Algae")
 
-B <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Biofilm")
-quantile(B$density, 0.025)
-quantile(B$density, 0.975)
-
-A <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Algae")
-quantile(A$density, 0.025)
-quantile(A$density, 0.975)
-
+t.test(L_G_QPB$density)
+t.test(B_G_QPB$density)
+t.test(A_G_QPB$density)
 
 # Baetidae ----------------------------------------------------------------
 
@@ -105,7 +100,13 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Leaflitter")
+B_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Biofilm")
+A_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Algae")
 
+t.test(L_B_QPB$density)
+t.test(B_B_QPB$density)
+t.test(B_B_QPB$density)
 
 # Chironomidae ----------------------------------------------------------------
 
@@ -143,6 +144,13 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Leaflitter")
+B_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Biofilm")
+A_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Algae")
+
+t.test(L_C_QPB$density)
+t.test(B_C_QPB$density)
+t.test(A_C_QPB$density)
 
 # Njulio ----------------------------------------------------------------
 
@@ -179,6 +187,14 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
+L_Nj_QPB <- QPB_Nj_Feb17 %>% filter(QPB_Nj_Feb17$source == "Leaflitter")
+B_Nj_QPB <- QPB_Nj_Feb17 %>% filter(QPB_Nj_Feb17$source == "Biofilm")
+A_Nj_QPB <- QPB_Nj_Feb17 %>% filter(QPB_Nj_Feb17$source == "Algae")
+
+t.test(L_Nj_QPB$density)
+t.test(B_Nj_QPB$density)
+t.test(B_Nj_QPB$density)
 
 
 # Phylloicus ----------------------------------------------------------------
@@ -217,6 +233,13 @@ p1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_P_QPB <- QPB_P_Feb17 %>% filter(QPB_P_Feb17$source == "Leaflitter")
+B_P_QPB <- QPB_P_Feb17 %>% filter(QPB_P_Feb17$source == "Biofilm")
+A_P_QPB <- QPB_P_Feb17 %>% filter(QPB_P_Feb17$source == "Algae")
+
+t.test(L_P_QPB$density)
+t.test(B_P_QPB$density)
+t.test(A_P_QPB$density)
 
 # Libellulidae ----------------------------------------------------------------
 
@@ -254,6 +277,13 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_L_QPB <- QPB_L_Feb17 %>% filter(QPB_L_Feb17$source == "Leaflitter")
+B_L_QPB <- QPB_L_Feb17 %>% filter(QPB_L_Feb17$source == "Biofilm")
+A_L_QPB <- QPB_L_Feb17 %>% filter(QPB_L_Feb17$source == "Algae")
+
+t.test(L_L_QPB$density)
+t.test(B_L_QPB$density)
+t.test(A_L_QPB$density)
 
 # Xyphocarys ----------------------------------------------------------------
 
@@ -450,6 +480,16 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   theme(legend.title = element_text(size = 18)) + #title
   theme(legend.text = element_text(size = 16))  + #
   guides(color=guide_legend(override.aes=list(fill=NA)))
+
+
+L_An_QPB <- QPB_An_Feb17 %>% filter(QPB_An_Feb17$source == "Leaflitter")
+B_An_QPB <- QPB_An_Feb17 %>% filter(QPB_An_Feb17$source == "Biofilm")
+A_An_QPB <- QPB_An_Feb17 %>% filter(QPB_An_Feb17$source == "Algae")
+
+t.test(L_An_QPB$density)
+t.test(B_An_QPB$density)
+t.test(A_An_QPB$density)
+
 
 
 Fig5 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())

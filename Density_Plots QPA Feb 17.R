@@ -62,7 +62,7 @@ A_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Algae")
 
 t.test(L_G_QPA$density)
 t.test(B_G_QPA$density)
-t.test(B_G_QPA$density)
+t.test(A_G_QPA$density)
 
 
 # Baetidae ----------------------------------------------------------------
@@ -101,6 +101,15 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_B_QPA <- QPA_B_Feb17 %>% filter(QPA_B_Feb17$source == "Leaflitter")
+B_B_QPA <- QPA_B_Feb17 %>% filter(QPA_B_Feb17$source == "Biofilm")
+A_B_QPA <- QPA_B_Feb17 %>% filter(QPA_B_Feb17$source == "Algae")
+
+t.test(L_B_QPA$density)
+t.test(B_B_QPA$density)
+t.test(B_B_QPA$density)
+
+
 # Chironomidae ----------------------------------------------------------------
 
 QPA_C_Feb17 <- read.csv("DensityPlots/QPAFeb17/03 QPA_Chrironomidae_Feb17.csv")
@@ -136,6 +145,15 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
+L_C_QPA <- QPA_C_Feb17 %>% filter(QPA_C_Feb17$source == "Leaflitter")
+B_C_QPA <- QPA_C_Feb17 %>% filter(QPA_C_Feb17$source == "Biofilm")
+A_C_QPA <- QPA_C_Feb17 %>% filter(QPA_C_Feb17$source == "Algae")
+
+t.test(L_C_QPA$density)
+t.test(B_C_QPA$density)
+t.test(A_C_QPA$density)
+
 
 # Njulio ----------------------------------------------------------------
 
@@ -174,6 +192,14 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Leaflitter")
+B_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Biofilm")
+A_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Algae")
+
+t.test(L_Nj_QPA$density)
+t.test(B_Nj_QPA$density)
+t.test(B_Nj_QPA$density)
+
 # Phylloicus ----------------------------------------------------------------
 
 QPA_P_Feb17 <- read.csv("DensityPlots/QPAFeb17/05 QPA_Phylloicus_Feb17.csv")
@@ -211,6 +237,14 @@ p1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_P_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Leaflitter")
+B_P_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Biofilm")
+A_P_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Algae")
+
+t.test(L_P_QPA$density)
+t.test(B_P_QPA$density)
+t.test(A_P_QPA$density)
+
 # Libellulidae ----------------------------------------------------------------
 
 QPA_L_Feb17 <- read.csv("DensityPlots/QPAFeb17/06 QPA_Libellulidae_Feb17.csv")
@@ -247,6 +281,14 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
+L_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Leaflitter")
+B_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Biofilm")
+A_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Algae")
+
+t.test(L_L_QPA$density)
+t.test(B_L_QPA$density)
+t.test(A_L_QPA$density)
 
 # Xiphocaris ----------------------------------------------------------------
 
@@ -446,6 +488,16 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
   theme(legend.title = element_text(size = 18)) + #title
   theme(legend.text = element_text(size = 16))  + #
   guides(color=guide_legend(override.aes=list(fill=NA)))
+
+L_AN_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Leaflitter")
+B_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Biofilm")
+A_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Algae")
+
+t.test(L_AN_QPA$density)
+t.test(B_An_QPA$density)
+t.test(A_An_QPA$density)
+
+
 
 
 Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
