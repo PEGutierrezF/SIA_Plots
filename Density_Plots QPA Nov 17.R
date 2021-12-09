@@ -56,21 +56,13 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
-L <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Leaflitter")
-quantile(L$density, 0.025)
-quantile(L$density, 0.975)
+L_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Leaflitter")
+B_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm")
+A_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Algae")
 
-B <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm")
-quantile(B$density, 0.025)
-quantile(B$density, 0.975)
-
-A <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Algae")
-quantile(A$density, 0.025)
-quantile(A$density, 0.975)
-
-mean(L$density)
-mean(B$density)
-mean(A$density)
+t.test(L_G_QPA$density)
+t.test(B_G_QPA$density)
+t.test(A_G_QPA$density)
 
 # Baetidae ----------------------------------------------------------------
 
@@ -108,6 +100,13 @@ b1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Leaflitter")
+B_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Biofilm")
+A_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Algae")
+
+t.test(L_B_QPA$density)
+t.test(B_B_QPA$density)
+t.test(B_B_QPA$density)
 
 # Chironomidae ----------------------------------------------------------------
 
@@ -145,6 +144,15 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_C_QPA <- QPA_C_Nov17 %>% filter(QPA_C_Nov17$source == "Leaflitter")
+B_C_QPA <- QPA_C_Nov17 %>% filter(QPA_C_Nov17$source == "Biofilm")
+A_C_QPA <- QPA_C_Nov17 %>% filter(QPA_C_Nov17$source == "Algae")
+
+t.test(L_C_QPA$density)
+t.test(B_C_QPA$density)
+t.test(A_C_QPA$density)
+
+
 # Njulio ----------------------------------------------------------------
 
 QPA_Nj_Nov17 <- read.csv("DensityPlots/QPANov17/04 QPA_Njulio_Nov17.csv")
@@ -181,6 +189,13 @@ n1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Leaflitter")
+B_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Biofilm")
+A_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Algae")
+
+t.test(L_Nj_QPA$density)
+t.test(B_Nj_QPA$density)
+t.test(B_Nj_QPA$density)
 
 # Phylloicus ----------------------------------------------------------------
 
@@ -253,6 +268,15 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
+
+L_L_QPA <- QPA_L_Nov17 %>% filter(QPA_L_Nov17$source == "Leaflitter")
+B_L_QPA <- QPA_L_Nov17 %>% filter(QPA_L_Nov17$source == "Biofilm")
+A_L_QPA <- QPA_L_Nov17 %>% filter(QPA_L_Nov17$source == "Algae")
+
+t.test(L_L_QPA$density)
+t.test(B_L_QPA$density)
+t.test(A_L_QPA$density)
+
 
 # Xyphocarys ----------------------------------------------------------------
 
@@ -437,7 +461,13 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_An_QPA <- QPA_An_Nov17 %>% filter(QPA_An_Nov17$source == "Leaflitter")
+B_An_QPA <- QPA_An_Nov17 %>% filter(QPA_An_Nov17$source == "Biofilm")
+A_An_QPA <- QPA_An_Nov17 %>% filter(QPA_An_Nov17$source == "Algae")
 
+t.test(L_An_QPA$density)
+t.test(B_An_QPA$density)
+t.test(A_An_QPA$density)
 
 # Luecauge ------------------------------------------------------------------
 
@@ -483,6 +513,16 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
   theme(legend.title = element_text(size = 18)) + #title
   theme(legend.text = element_text(size = 16))  + #
   guides(color=guide_legend(override.aes=list(fill=NA)))
+
+L_Lm_QPA <- QPA_Lm_Nov17 %>% filter(QPA_Lm_Nov17$source == "Leaflitter")
+B_Lm_QPA <- QPA_Lm_Nov17 %>% filter(QPA_Lm_Nov17$source == "Biofilm")
+A_Lm_QPA <- QPA_Lm_Nov17 %>% filter(QPA_Lm_Nov17$source == "Algae")
+
+t.test(L_Lm_QPA$density)
+t.test(B_Lm_QPA$density)
+t.test(A_Lm_QPA$density)
+
+
 
 
 

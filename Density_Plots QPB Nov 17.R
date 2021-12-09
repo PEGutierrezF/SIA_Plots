@@ -143,6 +143,13 @@ c1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_C_QPB <- QPB_C_Nov17 %>% filter(QPB_C_Nov17$source == "Leaflitter")
+B_C_QPB <- QPB_C_Nov17 %>% filter(QPB_C_Nov17$source == "Biofilm")
+A_C_QPB <- QPB_C_Nov17 %>% filter(QPB_C_Nov17$source == "Algae")
+
+t.test(L_C_QPB$density)
+t.test(B_C_QPB$density)
+t.test(A_C_QPB$density)
 
 # Njulio ----------------------------------------------------------------
 
@@ -254,6 +261,13 @@ l1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_L_QPB <- QPB_L_Nov17 %>% filter(QPB_L_Nov17$source == "Leaflitter")
+B_L_QPB <- QPB_L_Nov17 %>% filter(QPB_L_Nov17$source == "Biofilm")
+A_L_QPB <- QPB_L_Nov17 %>% filter(QPB_L_Nov17$source == "Algae")
+
+t.test(L_L_QPB$density)
+t.test(B_L_QPB$density)
+t.test(A_L_QPB$density)
 
 # Xyphocarys ----------------------------------------------------------------
 
@@ -439,7 +453,13 @@ an1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+L_An_QPB <- QPB_An_Nov17 %>% filter(QPB_An_Nov17$source == "Leaflitter")
+B_An_QPB <- QPB_An_Nov17 %>% filter(QPB_An_Nov17$source == "Biofilm")
+A_An_QPB <- QPB_An_Nov17 %>% filter(QPB_An_Nov17$source == "Algae")
 
+t.test(L_An_QPB$density)
+t.test(B_An_QPB$density)
+t.test(A_An_QPB$density)
 
 # Luecauge ------------------------------------------------------------------
 
@@ -485,6 +505,14 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
   theme(legend.title = element_text(size = 18)) + #title
   theme(legend.text = element_text(size = 16))  + #
   guides(color=guide_legend(override.aes=list(fill=NA)))
+
+L_Lm_QPB <- QPB_Lm_Nov17 %>% filter(QPB_Lm_Nov17$source == "Leaflitter")
+B_Lm_QPB <- QPB_Lm_Nov17 %>% filter(QPB_Lm_Nov17$source == "Biofilm")
+A_Lm_QPB <- QPB_Lm_Nov17 %>% filter(QPB_Lm_Nov17$source == "Algae")
+
+t.test(L_Lm_QPB$density)
+t.test(B_Lm_QPB$density)
+t.test(A_Lm_QPB$density)
 
 
 
