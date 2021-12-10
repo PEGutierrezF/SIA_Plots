@@ -26,7 +26,7 @@ group <- c("one"= "6mo pre-", "two"= "2mo post-")
 CI_PA$group <- factor(CI_PA$group, levels=c("two", "one"))
 
 
-ggplot(data=CI_PA, aes(x = group,y = C, ymin = hdi_lower, ymax = hdi_upper))+
+Carbon <- ggplot(data=CI_PA, aes(x = group,y = C, ymin = hdi_lower, ymax = hdi_upper))+
   
   geom_pointrange(aes(col=source), position=position_dodge(0.2), size=1)+
   geom_errorbar(aes(ymin=hdi_lower, ymax=hdi_upper, col= source), 
@@ -70,3 +70,8 @@ ggplot(data=CI_PA, aes(x = group,y = C, ymin = hdi_lower, ymax = hdi_upper))+
              nrow=15, scales = "free_y",
              labeller = as_labeller(group)) +
   coord_flip()
+Carbon
+
+#Ecology format
+Carbon + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
+                      height=5600,width=7200,units="px",res=800,compression="lzw")
