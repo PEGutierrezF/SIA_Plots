@@ -345,29 +345,41 @@ p2_legend <- get_legend(QPAFeb17)
 
 p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 QPBFeb17, QPBNov17, QPBJune18, QPBFeb19,
-                ncol=4,nrow=2, labels = c("A", "B", "C","D","E","F","G","H"),
-                widths = c(0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75),
+                ncol=4,nrow=2, # labels = c("A", "B", "C","D","E","F","G","H"),
+                widths = c(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5),
                 common.legend = TRUE, legend="bottom") +
   theme(plot.margin = margin(1,0.1,0.1,0.1, "cm")) # Increase area (margin) of the graph
 p1
 p1 + ggsave("Figure 3.jpg", width=11, height=6.5)
 
-#Solo modifica x
+
+# Incluir strips
 p2 <- ggdraw(p1) + 
-  geom_rect(aes(xmin=0.064, xmax=0.246, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
-  draw_label("6mo pre-", x = 0.16, y = 0.95, size = 14 ,fontface = "plain") +
+  geom_rect(aes(xmin=0.071, xmax=0.243, ymin=0.925, ymax=0.974), color = "black", alpha=0.2) +
+  draw_label("6mo pre-", x = 0.16, y = 0.954, size = 14 ,fontface = "plain") +
 
-  geom_rect(aes(xmin=0.303, xmax=0.4942, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
-  draw_label("2mo post-", x = 0.40, y = 0.95, size = 14, fontface = "plain") +
+  geom_rect(aes(xmin=0.308, xmax=0.491, ymin=0.925, ymax=0.974), color = "black", alpha=0.2) +
+  draw_label("2mo post-", x = 0.40, y = 0.954, size = 14, fontface = "plain") +
                                   
-  geom_rect(aes(xmin=0.551, xmax=0.74, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
-  draw_label("9mo post-", x = 0.65, y = 0.95, size = 14,fontface = "plain")+
+  geom_rect(aes(xmin=0.555, xmax=0.737, ymin=0.925, ymax=0.974), color = "black", alpha=0.2) +
+  draw_label("9mo post-", x = 0.65, y = 0.954, size = 14,fontface = "plain")+
   
-  geom_rect(aes(xmin=0.798, xmax=0.99, ymin=0.933, ymax=0.968), color = "black", alpha=0.2) +
-  draw_label("18mo post-", x = 0.9, y = 0.95, size = 14, fontface = "plain")
+  geom_rect(aes(xmin=0.801, xmax=0.984, ymin=0.925, ymax=0.974), color = "black", alpha=0.2) +
+  draw_label("18mo post-", x = 0.9, y = 0.954, size = 14, fontface = "plain") +
 
-p2
-p2 + ggsave("Figure 3B.jpg", width=11, height=6.5)
+# Prieta A
+  geom_rect(aes(xmin=0.993, xmax= 1.02, ymin=0.640, ymax=0.920), color = "black", alpha=0.2) +
+  draw_label("Prieta A", x = 1.005, y = 0.8, size = 14, fontface = "plain", angle=270) +
+
+# Prieta B
+  geom_rect(aes(xmin=0.993, xmax= 1.02, ymin=0.260, ymax=0.540), color = "black", alpha=0.2) +
+  draw_label("Prieta B", x = 1.005, y = 0.4, size = 14, fontface = "plain", angle=270)
+
+
+p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
+p3
+
+p3 + ggsave("Figure 3.jpg", width=11, height=6.5)
 #
 
 
