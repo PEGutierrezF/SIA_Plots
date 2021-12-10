@@ -22,11 +22,14 @@ CI_PA <- read.csv("data/CI_sources_PA.csv")
 head(CI_PA)
 
 
-group <- c("one"= "6mo pre-", "two"= "2mo post-")
-CI_PA$group <- factor(CI_PA$group, levels=c("two", "one"))
+period <- c("one"= "6mo pre-", "two"= "2mo post-",
+           "three"= "9mo post-", "four"="18mo post-")
+
+CI_PA$period <- factor(CI_PA$period, levels=c("four","three","two", "one"))
 
 
-Carbon <- ggplot(data=CI_PA, aes(x = group,y = C, ymin = hdi_lower, ymax = hdi_upper))+
+Carbon <- ggplot(data=CI_PA, aes(x = period, y = carbon, 
+                                 ymin = hdi_lower, ymax = hdi_upper))+
   
   geom_pointrange(aes(col=source), position=position_dodge(0.2), size=1)+
   geom_errorbar(aes(ymin=hdi_lower, ymax=hdi_upper, col= source), 
@@ -66,9 +69,9 @@ Carbon <- ggplot(data=CI_PA, aes(x = group,y = C, ymin = hdi_lower, ymax = hdi_u
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  facet_wrap(.~ group, strip.position="left", 
+  facet_wrap(.~ period, strip.position="left", 
              nrow=15, scales = "free_y",
-             labeller = as_labeller(group)) +
+             labeller = as_labeller(period)) +
   coord_flip()
 Carbon
 
