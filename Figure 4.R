@@ -77,3 +77,6 @@ Carbon
 #Ecology format
 Carbon + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
                       height=5600,width=7200,units="px",res=800,compression="lzw")
+
+library(cowplot)
+plot_grid(Carbon, Carbon, labels = c("1", "2"), nrow = 1)
