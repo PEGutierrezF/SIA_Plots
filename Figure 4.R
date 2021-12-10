@@ -146,6 +146,8 @@ Nitrogen
 
 C_and_N <- grid.arrange(Carbon, Nitrogen, nrow=1, widths = c(5/6, 1))
 
+ggsave("Figure 4.jpeg",C_and_N, width=11, height=6.5)
+
 #Ecology format
 C_and_N + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
               height=5600,width=7200,units="px",res=800,compression="lzw")
