@@ -16,7 +16,6 @@ rm(list = ls())
 
 
 library(ggplot2)
-library(ggtext) # remotes::install_github("clauswilke/ggtext")
 
 CI_PA <- read.csv("data/CI_sources_PA.csv")
 head(CI_PA)
