@@ -21,7 +21,7 @@ lapply(libraries, require, character.only = TRUE)
 data <- read.csv("data/data.csv")
 discharge <- slice(data, (1:1762))
 discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
-head(dischage)
+head(discharge)
 tail(discharge)
 
  d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Prieta A", "Prieta B")))) +

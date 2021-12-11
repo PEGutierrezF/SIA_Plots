@@ -65,12 +65,6 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   xlim(-49,-17) +
   ylim(-5,20) +
   
-  # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
-  
   # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
@@ -83,13 +77,21 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x =-35, xend=-32,y = -3, yend = 0), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
   # Legend    
   theme(legend.position = "none") +
   
   # Panel
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(colour="gray95"), 
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
-  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
+
 QPBFeb17
 
 
@@ -140,13 +142,7 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   # Axis Limits 
    xlim(-45,1) +
    ylim(-5,20) +
-  
-  # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
-  
+
  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
@@ -157,13 +153,21 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x =-20, xend=-29,y = -3, yend = -1), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
   # Legend    
   theme(legend.position = "none") +
   
   # Panel
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(colour="gray95"), 
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
-  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
+
 QPBNov17
 
 
@@ -215,12 +219,6 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   xlim(-45,1) +
   ylim(-5,35) +
   
-  # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
-  
  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
@@ -231,13 +229,20 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x =-19, xend=-26,y = -3, yend = -1.25), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
   # Legend    
   theme(legend.position = "none") +
   
   # Panel
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(colour="gray95"), 
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
-  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
 
 QPBJune18
 
@@ -291,12 +296,6 @@ QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   xlim(-43,-20) +
   ylim(-5,20) +
   
-  # Axis
-  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
-  
   #text
   annotate("text", x = -26, y = 11, label = "Algae") +
   annotate("text", x = -23, y = 6, label = "Biofilm") +
@@ -304,14 +303,20 @@ QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
   
   geom_segment(aes(x =-36, xend=-32,y = -3, yend = -1.25), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
   
   # Legend    
   theme(legend.position = "none") +
   
   # Panel
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(colour="gray95"), 
+        panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
-  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
 
 QPBFeb19
 
