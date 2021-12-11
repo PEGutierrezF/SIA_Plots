@@ -26,8 +26,8 @@ data$sampling = factor(data$sampling,
                        levels=c('six','two','9mo','18mo'))
 # Rename the isotopes
 isotopes_new <- c(
-  "Carbon" = "delta^{13}*C",
-  "Nitrogen" = "delta^{15}*N")
+  "Carbon" = "delta^{13}*C ~(`\211`)",
+  "Nitrogen" = "delta^{15}*N ~(`\211`)")
 
 
 # Graph 
