@@ -30,7 +30,7 @@ levels(QPA_Feb17$taxa)
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_point(aes(colour=taxa), size=3 ,stroke = 1.2) +
-  labs(x="",y = expression(delta^{15}*"N (\211)"),fill = "Taxa") +
+  labs(x="", y = expression(delta^{15}*"N (\211)"), fill = "Taxa") +
 #color
       scale_colour_manual("Taxa",
                         values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
@@ -61,7 +61,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   geom_segment(aes(x=-31.2878,xend=-31.2878,yend=17.4411,y=5.1166), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
   geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
 
-  # Axis Limits 
+# Axis Limits 
   xlim(-43,-20) +
   ylim(-5,20) +
     
@@ -78,14 +78,15 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
   annotate("text", x = -36, y = 7, label = "Biofilm") +
   annotate("text", x = -24, y = 5, label = "Leaf litter") +
   
-  geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
+geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
 # Legend    
   theme(legend.position = "none") +
   theme(legend.key=element_blank()) +
   theme(legend.text.align = 0) +
-
+  theme(legend.title=element_text(size=16, face="bold")) + # legend title size
+  theme(legend.text = element_text(color = "black", size = 14))+  #factor name 
 # Panel
   theme(panel.grid.major = element_line(colour="gray95"), 
         panel.grid.minor = element_blank(),
