@@ -98,12 +98,12 @@ period <- c("one"= "6mo pre-", "two"= "2mo post-",
 N_PA$period <- factor(N_PA$period, levels=c("four","three","two", "one"))
 
 
-N_PA <- ggplot(data=N_PA, aes(x = period, y = value, 
+Nitrogen_PA <- ggplot(data=N_PA, aes(x = period, y = value, 
                                  ymin = hdi_lower, ymax = hdi_upper))+
   
-  geom_pointrange(aes(col=source), position=position_dodge(0.2), size=1)+
+  geom_pointrange(aes(col=source), position=position_dodge(0.5), size=1)+
   geom_errorbar(aes(ymin=hdi_lower, ymax=hdi_upper, col= source), 
-                position=position_dodge(0.2), width=0, size=0.9)+
+                position=position_dodge(0.5), width=0, size=0.9)+
   
 # Labels  
   labs(x="", colour = "Source") +
@@ -119,11 +119,11 @@ N_PA <- ggplot(data=N_PA, aes(x = period, y = value,
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
 # Legend 
-  theme(legend.position = "none") +
-#  theme(legend.key.size = unit(0.6, "cm"))+
-#  theme(legend.title=element_text(size=16)) + # legend title size
-#  theme(legend.text = element_text(color = "black", size = 14))+  #factor name 
-#  theme(legend.key = element_rect(fill = NA, color = NA))+
+ # theme(legend.position = "none") +
+  theme(legend.key.size = unit(0.6, "cm"))+
+  theme(legend.title=element_text(size=16)) + # legend title size
+  theme(legend.text = element_text(color = "black", size = 14))+  #factor name 
+  theme(legend.key = element_rect(fill = NA, color = NA))+
   
 # Strip
   theme(strip.text.y = element_blank()) +
@@ -148,7 +148,7 @@ N_PA <- ggplot(data=N_PA, aes(x = period, y = value,
              labeller = as_labeller(period)) +
   coord_flip()
 
-N_PA
+Nitrogen_PA
 
 
 # Carbon Prieta B ---------------------------------------------------------
@@ -281,7 +281,7 @@ N_PB
 C_and_N + tiff(filename="D:/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
               height=5600,width=7200,units="px",res=800,compression="lzw")
 
-C_and_N <- grid.arrange(C_PA, N_PA,
+C_and_N <- grid.arrange(Carbon_PA, Nitrogen_PA,
                         nrow=1, widths = c(5/6, 1))
 
 ggsave("Figure 4.jpeg",C_and_N, width=11, height=8)
@@ -295,7 +295,7 @@ get_legend<-function(a.gplot){
   legend <- tmp$grobs[[leg]]
   return(legend)}
 
-p2_legend <- get_legend(N_PB)
+p2_legend <- get_legend(Nitrogen_PA)
 
 p4 <- ggarrange(C_PA, N_PA, C_PB, N_PB,
                 ncol = 2, nrow=2, widths = c(5/6, 1, 5/6, 1),
