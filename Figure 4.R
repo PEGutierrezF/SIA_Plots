@@ -15,27 +15,30 @@
 rm(list = ls())
 
 
-library(ggplot2)
-library(cowplot)
 
-CI_PA <- read.csv("data/CI_sources_PA.csv")
-head(CI_PA)
+
+CrI_vs_CI <- read.csv("data/CI_sources_PA.csv")
+head(CrI_vs_CI)
 
 
 # Carbon ------------------------------------------------------------------
 
+C_PA <- slice(CrI_vs_CI, (1:12))
+head(CI_PA)
+tail(CI_PA)
+
 period <- c("one"= "6mo pre-", "two"= "2mo post-",
            "three"= "9mo post-", "four"="18mo post-")
 
-CI_PA$period <- factor(CI_PA$period, levels=c("four","three","two", "one"))
+C_PA$period <- factor(C_PA$period, levels=c("four","three","two", "one"))
 
 
-C_PA <- ggplot(data=CI_PA, aes(x = period, y = carbon, 
+Carbon_PA <- ggplot(data=C_PA, aes(x = period, y = value, 
                                  ymin = hdi_lower, ymax = hdi_upper))+
   
-  geom_pointrange(aes(col=source), position=position_dodge(0.2), size=1)+
+  geom_pointrange(aes(col=source), position=position_dodge(0.5), size=1)+
   geom_errorbar(aes(ymin=hdi_lower, ymax=hdi_upper, col= source), 
-                position=position_dodge(0.2), width=0, size=0.9)+
+                position=position_dodge(0.5), width=0, size=0.9)+
   
   # Labels  
   labs(x="", colour = "Source") +
@@ -81,18 +84,21 @@ C_PA <- ggplot(data=CI_PA, aes(x = period, y = carbon,
              labeller = as_labeller(period)) +
   coord_flip()
 
-C_PA
+Carbon_PA
 
 
 # Nitrogen ----------------------------------------------------------------
+N_PA <- slice(CrI_vs_CI, (13:24))
+head(N_PA)
+tail(N_PA)
 
 period <- c("one"= "6mo pre-", "two"= "2mo post-",
             "three"= "9mo post-", "four"="18mo post-")
 
-CI_PA$period <- factor(CI_PA$period, levels=c("four","three","two", "one"))
+N_PA$period <- factor(N_PA$period, levels=c("four","three","two", "one"))
 
 
-N_PA <- ggplot(data=CI_PA, aes(x = period, y = carbon, 
+N_PA <- ggplot(data=N_PA, aes(x = period, y = value, 
                                  ymin = hdi_lower, ymax = hdi_upper))+
   
   geom_pointrange(aes(col=source), position=position_dodge(0.2), size=1)+
