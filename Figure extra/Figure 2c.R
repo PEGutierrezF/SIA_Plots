@@ -35,8 +35,8 @@ PA$sampling = factor(PA$sampling,
                        levels=c('six','two','9mo','18mo'))
 # Rename the isotopes
 isotopes_new <- c(
-  "Carbon" = "delta^{13}*C",
-  "Nitrogen" = "delta^{15}*N")
+  "Carbon" = "delta^{13}*C ~(`\211`)",
+  "Nitrogen" = "delta^{15}*N ~(`\211`)")
 
 q <- ggplot(data = PA, aes(x = source, y = value)) +
   geom_point(aes(colour = source), position = position_dodge(width = 1), size= 5) +
@@ -73,10 +73,10 @@ labs(x="",y = "Isotopic signature", colour = "Source") +
     axis.ticks.x=element_blank()) +  
 
 # Panel   
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+  theme(panel.grid.major = element_line(color = "gray95"), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
-
+  
 Fig_isotopes <- q + facet_grid(isotope ~ sampling, 
                                scale= "free_y", labeller = labeller(isotope = as_labeller(isotopes_new,  label_parsed),
                                                                     sampling = as_labeller(sampling_new))) 
