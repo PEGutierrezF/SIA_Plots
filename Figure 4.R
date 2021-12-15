@@ -24,8 +24,8 @@ head(CrI_vs_CI)
 # Carbon ------------------------------------------------------------------
 
 C_PA <- slice(CrI_vs_CI, (1:12))
-head(CI_PA)
-tail(CI_PA)
+head(C_PA)
+tail(C_PA)
 
 period <- c("one"= "6mo pre-", "two"= "2mo post-",
            "three"= "9mo post-", "four"="18mo post-")
