@@ -40,13 +40,13 @@ isotopes_new <- c(
 
 q <- ggplot(data = PA, aes(x = source, y = value)) +
   geom_point(aes(colour = source), position = position_dodge(width = 1), size= 5) +
-  scale_color_manual(values = c("#238b45", "turquoise3", "coral4"), 
-                     labels = c("Algae", "Biofilm", "Leaf litter")) +
   geom_errorbar(aes(colour = source, ymin = value - sd, ymax = value + sd), 
                 width = 0.2, position = position_dodge(width = 1), size= 1) +
   
 # Labels
-labs(x="",y = "Isotopic signature", colour = "Source") +
+  labs(x="",y = "Isotopic signature", colour = "Source") +
+  scale_color_manual(values = c("#238b45", "turquoise3", "coral4"), 
+                     labels = c("Algae", "Biofilm", "Leaf litter")) +
 
 # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
