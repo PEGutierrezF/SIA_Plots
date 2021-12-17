@@ -30,8 +30,11 @@ tail(discharge)
    
 # Number of digits
    scale_y_continuous(labels = scales::number_format(accuracy = 0.01)) +
-   
+
+# Labels 
   labs(x = "", y= "Water level (m)", color='Stream') +
+ #  labs(tag = "A") +
+ 
    theme_bw()  +
    theme(legend.position="none") +
 #Quite la leyenda  
@@ -79,6 +82,9 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se), na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
+# Labels
+#  labs(tag = "B") +
+  
   theme_bw()+
   theme(legend.position="none")  +
   ylim(0,100)+
@@ -123,6 +129,9 @@ leaf$se = as.numeric(leaf$se)
 
 # Number of digits
    scale_y_continuous(labels = scales::number_format(accuracy = 1)) +
+
+#Labels
+ #  labs(tag = "D") + 
    
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
@@ -173,6 +182,9 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
+# Labels 
+ # labs(tag = "C")+
+  
   theme_bw() +
   theme(legend.position="none")  +
   
@@ -219,6 +231,9 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE,
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") + 
+#Labels
+#  labs(tag = "E")+
+  
   theme_bw() +
   theme(legend.position="none") +
   
