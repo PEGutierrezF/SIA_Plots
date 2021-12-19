@@ -33,7 +33,7 @@ tail(discharge)
 
 # Labels 
   labs(x = "", y= "Water level (m)", color='Stream') +
- #  labs(tag = "A") +
+  labs(tag = "A") +
  
    theme_bw()  +
    theme(legend.position="none") +
@@ -75,7 +75,6 @@ tail(canopy)
 canopy$se = as.numeric(canopy$se)
 
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
-  labs(x= '', y= 'Canopy openness (%)') +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
@@ -83,7 +82,8 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
 # Labels
-#  labs(tag = "B") +
+  labs(x= '', y= 'Canopy openness (%)') +
+  labs(tag = "B") +
   
   theme_bw()+
   theme(legend.position="none")  +
@@ -123,7 +123,6 @@ tail(leaf)
 leaf$se = as.numeric(leaf$se)
 
  l <- ggplot(leaf, aes(x=date,y=value, colour=stream)) +
-  labs(x= 'Year', y= "Mean litter input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
 
@@ -131,7 +130,8 @@ leaf$se = as.numeric(leaf$se)
    scale_y_continuous(labels = scales::number_format(accuracy = 1)) +
 
 #Labels
- #  labs(tag = "D") + 
+   labs(x= 'Year', y= "Litterfall input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
+   labs(tag = "D") + 
    
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
@@ -174,8 +174,6 @@ tail(chla)
 chla$se = as.numeric(chla$se)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
-  xlab('') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
-           #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
@@ -183,7 +181,9 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") +
 # Labels 
- # labs(tag = "C")+
+  xlab('') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
+  #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
+  labs(tag = "C")+
   
   theme_bw() +
   theme(legend.position="none")  +
@@ -224,7 +224,6 @@ tail(BOM)
 BOM$se = as.numeric(BOM$se)
 
 b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
-  xlab('Year') + ylab("Benthic organic matter ("*g~m^-2*")") +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
@@ -232,7 +231,8 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
                 position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 colour = "black") + 
 #Labels
-#  labs(tag = "E")+
+  xlab('Year') + ylab("Benthic organic matter ("*g~m^-2*")") +
+  labs(tag = "E")+
   
   theme_bw() +
   theme(legend.position="none") +
@@ -293,7 +293,8 @@ legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)) +
 
 Fig <-grid.arrange(d1+theme(legend.position='hidden'), legend,
              c1+theme(legend.position='hidden'),ch1+theme(legend.position='hidden'),
-             l1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'),nrow=3)
+             l1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'),
+             nrow=3)
 
 #Ecology format
 ggsave(file="Figure 1.tiff", Fig, height = 10, width = 8, dpi = 600)
