@@ -18,7 +18,7 @@ lapply(libraries, require, character.only = TRUE)
 
 # Discharge ---------------------------------------------------------------
 
-data <- read.csv("data/data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 discharge <- slice(data, (1:1762))
 discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(discharge)
@@ -66,7 +66,7 @@ tail(discharge)
 
 # Canopy cover ------------------------------------------------------------
 
-data <- read.csv("data/data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 canopy <- slice(data, (1763:1814))
 canopy$date <-as.POSIXct(canopy$date,"%Y-%m-%d",tz = "UTC")
 head(canopy)
@@ -114,7 +114,7 @@ c1
 
 # Leaf litter -------------------------------------------------------------
 
-data <- read.csv("data/data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 leaf <- slice(data, (1815:1930))
 leaf$date <-as.POSIXct(leaf$date,"%Y-%m-%d",tz = "UTC")
 head(leaf)
@@ -165,7 +165,7 @@ l1
 
 # Chlorophyl -a  -------------------------------------------------------------
 
-data <- read.csv("data/data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 chla <- slice(data, (1931:1990))
 chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
@@ -215,7 +215,7 @@ ch1
 
 # BOM ---------------------------------------------------------------------
 
-data <- read.csv("data/data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 BOM <- slice(data, (1991:2050))
 BOM$date <-as.POSIXct(BOM$date,"%Y-%m-%d",tz = "UTC")
 head(BOM)
