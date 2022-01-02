@@ -12,8 +12,10 @@
 
 
 
+# cleans global environment
+rm(list = ls())
 
-library(tidyverse)
+
 
 data <- read.csv("data/isotopes.csv")
 head(data)

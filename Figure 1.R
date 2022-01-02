@@ -10,7 +10,13 @@
 # ---------------------------------------------
 #  
 
-rm(list=ls(all=TRUE)) #give R a blank slate
+
+
+# cleans global environment
+rm(list = ls())
+
+
+
 
 libraries <- c( "ggplot2", "plyr","dplyr", 'patchwork','tidyverse')
 lapply(libraries, require, character.only = TRUE)
