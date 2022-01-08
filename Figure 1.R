@@ -85,7 +85,8 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
   geom_errorbar(aes(ymax=value+se, ymin=value-se), na.rm=TRUE, 
-                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
+                #position = position_dodge(width = 0.9),stat = "identity", 
+                width = 0,
                 colour = "gray50") +
 # Labels
   labs(x= '', y= 'Canopy openness (%)') +
