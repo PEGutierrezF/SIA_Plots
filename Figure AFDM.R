@@ -24,11 +24,10 @@ lapply(libraries, require, character.only = TRUE)
 data <- read.csv("data/AFDM.csv")
 head(data)
 
-ggplot(data, aes(x=date, y=value) ) + 
-  geom_jitter(position=position_jitter(width=0.3, height=0.2), 
-              alpha=0.9) +
-  geom_boxplot(alpha = 0.5, show.legend = FALSE) + 
-  facet_grid(.~period) +
+ggplot(data, aes(x=period, y=value) )+
+  geom_violin()+
+  geom_jitter(shape=16, position=position_jitter(0.2))+
+  facet_grid(.~stream) +
   theme(strip.text.x = element_text(size=9, color="black", face="bold"))
 
 
