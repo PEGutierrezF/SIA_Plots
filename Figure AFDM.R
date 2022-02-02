@@ -29,9 +29,7 @@ data$period <- factor(data$period, levels=c('six' ,
                                             'two', 'nine' ,
                                             'eighteen' ))
 
-'six' = "6mo pre-",
-'two' = "2mo post-", 'nine' = "9mo post-",
-'eighteen' = "18mo post-"
+streams <- as_labeller(c(qpa="Prieta A", qpb="Prieta B"))
 
 ggplot(data, aes(x=period, y=value) )+
   geom_violin()+
@@ -39,7 +37,7 @@ ggplot(data, aes(x=period, y=value) )+
   
   scale_x_discrete(labels=c('6mo pre-','2mo post-','9mo post-', 
                             "18mo post-")) +
-  facet_grid(.~stream) +
+  facet_grid(.~stream, labeller= streams) +
   theme(strip.text.x = element_text(size=9, color="black", face="bold"))
 
 
