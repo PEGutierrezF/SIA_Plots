@@ -35,7 +35,8 @@ ggplot(data, aes(x=period, y=value) )+
   geom_violin()+
   geom_jitter(shape=16, position=position_jitter(0.2))+
   
-  scale_x_discrete(labels=c('6mo pre-','2mo post-','9mo post-', 
+  scale_x_discrete(labels=c('6mo pre-','2mo post-',
+                            '9mo post-', 
                             "18mo post-")) +
   facet_grid(.~stream, labeller= streams) +
   theme(strip.text.x = element_text(size=9, color="black", face="bold"))
