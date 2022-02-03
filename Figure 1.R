@@ -95,7 +95,7 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   theme_bw()+
   theme(legend.position="none")  +
   ylim(0,100)+
-  
+#Axis  
   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x

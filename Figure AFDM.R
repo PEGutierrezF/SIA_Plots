@@ -34,7 +34,8 @@ streams <- as_labeller(c(qpa="Prieta A", qpb="Prieta B"))
 ggplot(data, aes(x=period, y=value) )+
   geom_violin()+
   geom_jitter(width=.1, alpha=.5) +
-  
+
+#Labels  
   labs(x="Sampling period", y= "AFDM value ("*g~m^-2~d^-1*")") +
   scale_x_discrete(labels=c('6mo pre-','2mo post-',
                             '9mo post-', 
