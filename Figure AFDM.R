@@ -44,13 +44,14 @@ a <- ggplot(data, aes(x=period, y=value) )+
   # Ticks interval
   scale_y_continuous(breaks = seq(0, 300, by=50), limits=c(0,300)) +
   
-  #Axis 
+#Axis 
   theme_bw() +
   theme(legend.position="none")  +
   
   theme(axis.title.x = element_text(size = 14, angle = 0)) + # axis x
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y
-  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black",
+                                 margin = margin(t = 0, r = 0, b = 10, l = 0))) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) +  #subaxis y
   
   facet_grid(.~stream, labeller= streams) +
