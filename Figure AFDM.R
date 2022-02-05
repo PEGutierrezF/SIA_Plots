@@ -3,7 +3,7 @@
 
 
 # ---------------------------------------------
-# AFDM Prieta A
+# AFDM Prieta A and B
 # 28 Jan 2022
 # Pablo E. Gutiérrez-Fonseca
 # pabloe.gutierrezfonseca@gmail.com
@@ -39,7 +39,11 @@ ggplot(data, aes(x=period, y=value) )+
   labs(x="Sampling period", y= "AFDM value ("*g~m^-2~d^-1*")") +
   scale_x_discrete(labels=c('6mo pre-','2mo post-',
                             '9mo post-', 
-                            "18mo post-")) +
+                            '18mo post-')) +
+
+# Ticks interval
+  scale_y_continuous(breaks = seq(0, 300, by=50), limits=c(0,300)) +
+
 #Axis 
   theme_bw() +
   theme(legend.position="none")  +
