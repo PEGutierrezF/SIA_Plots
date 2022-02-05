@@ -31,29 +31,31 @@ data$period <- factor(data$period, levels=c('six' ,
 
 streams <- as_labeller(c(qpa="Prieta A", qpb="Prieta B"))
 
-ggplot(data, aes(x=period, y=value) )+
+a <- ggplot(data, aes(x=period, y=value) )+
   geom_violin()+
   geom_jitter(width=.1, alpha=.5) +
-
-#Labels  
+  
+  #Labels  
   labs(x="Sampling period", y= "AFDM value ("*g~m^-2~d^-1*")") +
   scale_x_discrete(labels=c('6mo pre-','2mo post-',
                             '9mo post-', 
                             '18mo post-')) +
-
-# Ticks interval
+  
+  # Ticks interval
   scale_y_continuous(breaks = seq(0, 300, by=50), limits=c(0,300)) +
-
-#Axis 
+  
+  #Axis 
   theme_bw() +
   theme(legend.position="none")  +
   
-  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) +  #subaxis y
-
+  theme(axis.title.x = element_text(size = 14, angle = 0)) + # axis x
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) +  #subaxis y
+  
   facet_grid(.~stream, labeller= streams) +
   theme(strip.text.x = element_text(size=9, color="black", face="bold"))
+a
 
-
+#Ecology format
+ggsave(file="Figure X.jpeg", a, height = 8, width = 11, dpi = 600)
