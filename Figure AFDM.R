@@ -21,7 +21,7 @@ rm(list = ls())
 libraries <- c( "ggplot2", "plyr","dplyr", 'patchwork','tidyverse')
 lapply(libraries, require, character.only = TRUE)
 
-data <- read.csv("data/AFDM.csv")
+data <- read.csv("data/AFDMAll.csv")
 head(data)
 
 # First, rename variables
@@ -31,8 +31,8 @@ data$period <- factor(data$period, levels=c('six' ,
 
 streams <- as_labeller(c(qpa="Prieta A", qpb="Prieta B"))
 
-a <- ggplot(data, aes(x=period, y=value) )+
-  geom_violin()+
+a <- ggplot(data, aes(x=period, y=ratio) )+
+  geom_boxplot()+
   geom_jitter(width=.1, alpha=.5) +
   
   #Labels  
@@ -42,7 +42,7 @@ a <- ggplot(data, aes(x=period, y=value) )+
                             '18mo post-')) +
   
   # Ticks interval
-  scale_y_continuous(breaks = seq(0, 300, by=50), limits=c(0,300)) +
+  scale_y_continuous(breaks = seq(0, 380, by=50), limits=c(0,380)) +
   
 #Axis 
   theme_bw() +
@@ -54,7 +54,7 @@ a <- ggplot(data, aes(x=period, y=value) )+
                                  margin = margin(t = 0, r = 0, b = 10, l = 0))) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) +  #subaxis y
   
-  facet_grid(.~stream, labeller= streams) +
+  facet_grid(~stream, labeller= streams) +
   theme(strip.text.x = element_text(size=9, color="black", face="bold"))
 a
 
