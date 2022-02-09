@@ -36,13 +36,13 @@ a <- ggplot(data, aes(x=period, y=ratio) )+
   geom_jitter(width=.1, alpha=.5) +
   
   #Labels  
-  labs(x="Sampling period", y= "AFDM value ("*g~m^-2~d^-1*")") +
+  labs(x="Sampling period", y= "Chl-a:AFDM") + #AFDM value ("*g~m^-2~d^-1*")
   scale_x_discrete(labels=c('6mo pre-','2mo post-',
                             '9mo post-', 
                             '18mo post-')) +
   
   # Ticks interval
-  scale_y_continuous(breaks = seq(0, 380, by=50), limits=c(0,380)) +
+ # scale_y_continuous(breaks = seq(0, 380, by=50), limits=c(0,380)) +
   
 #Axis 
   theme_bw() +
