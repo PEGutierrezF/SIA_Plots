@@ -17,11 +17,6 @@ rm(list = ls())
 
 
 
-
-libraries <- c( "ggplot2", "plyr","dplyr", 'patchwork','tidyverse')
-lapply(libraries, require, character.only = TRUE)
-
-
 # Discharge ---------------------------------------------------------------
 
 data <- read.csv("data/physicochemical_data.csv")
@@ -78,16 +73,15 @@ canopy$date <-as.POSIXct(canopy$date,"%Y-%m-%d",tz = "UTC")
 head(canopy)
 tail(canopy)
 
-canopy$se = as.numeric(canopy$se)
+canopy$sd = as.numeric(canopy$sd)
 
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se), na.rm=TRUE, 
+  geom_errorbar(aes(ymax=value+sd, ymin=value-sd), na.rm=TRUE, 
                 #position = position_dodge(width = 0.9),stat = "identity", 
-                width = 0,
-                colour = "gray50") +
+                width = 0, colour = "gray50") +
 # Labels
   labs(x= '', y= 'Canopy openness (%)') +
   labs(tag = "B") +
@@ -127,7 +121,7 @@ leaf$date <-as.POSIXct(leaf$date,"%Y-%m-%d",tz = "UTC")
 head(leaf)
 tail(leaf)
 
-leaf$se = as.numeric(leaf$se)
+leaf$sd = as.numeric(leaf$sd)
 
  l <- ggplot(leaf, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
@@ -141,9 +135,9 @@ leaf$se = as.numeric(leaf$se)
    labs(tag = "D") + 
    
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
-                position = position_dodge(width = 0.9),stat = "identity", 
-                colour = "black") +
+  geom_errorbar(aes(ymax=value+sd, ymin=value-sd),na.rm=TRUE, 
+               # position = position_dodge(width = 0.9),stat = "identity", 
+                width = 0, colour = "gray50") +
    theme_bw() +
    theme(legend.position="none")  +
    
