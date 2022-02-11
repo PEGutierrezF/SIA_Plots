@@ -128,7 +128,8 @@ leaf$sd = as.numeric(leaf$sd)
   scale_color_manual(values=c('#ce1256','#0570b0'))+
 
 # Number of digits
-   scale_y_continuous(labels = scales::number_format(accuracy = 1)) +
+   scale_y_continuous(labels = scales::number_format(accuracy = 1),
+                      breaks = seq(0, 13, by=3), limits=c(0,13)) +
 
 #Labels
    labs(x= 'Year', y= "Litterfall input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
@@ -149,16 +150,16 @@ l
  l1 <- l + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
              ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
    
-   geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 7.7, xend = as.POSIXct(c("2017-02-01")), yend = 6.9), 
+   geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 8, xend = as.POSIXct(c("2017-02-01")), yend = 6.9), 
                 arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
    
-   geom_segment(aes(x = as.POSIXct(c("2017-11-15")), y = 7.7, xend = as.POSIXct(c("2017-11-15")), yend = 6.9), 
+   geom_segment(aes(x = as.POSIXct(c("2017-11-15")), y = 8, xend = as.POSIXct(c("2017-11-15")), yend = 6.9), 
                 arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
    
-   geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 7.7, xend = as.POSIXct(c("2018-06-01")), yend = 6.9), 
+   geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 8, xend = as.POSIXct(c("2018-06-01")), yend = 6.9), 
                 arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
    
-   geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 7.7, xend = as.POSIXct(c("2019-02-01")), yend = 6.9), 
+   geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 8, xend = as.POSIXct(c("2019-02-01")), yend = 6.9), 
                 arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black")
  
 l1
@@ -172,15 +173,15 @@ chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
 tail(chla)
 
-chla$se = as.numeric(chla$se)
+chla$sd = as.numeric(chla$sd)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE, 
-                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
-                colour = "black") +
+  geom_errorbar(aes(ymax=value+sd, ymin=value-sd),na.rm=TRUE, 
+               # position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
+                width = 0, colour = "gray50") +
 # Labels 
   xlab('') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
   #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
