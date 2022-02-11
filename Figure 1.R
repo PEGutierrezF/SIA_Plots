@@ -223,15 +223,15 @@ BOM$date <-as.POSIXct(BOM$date,"%Y-%m-%d",tz = "UTC")
 head(BOM)
 tail(BOM)
 
-BOM$se = as.numeric(BOM$se)
+BOM$sd = as.numeric(BOM$sd)
 
 b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
   geom_point() +
-  geom_errorbar(aes(ymax=value+se, ymin=value-se),na.rm=TRUE,
-                position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
-                colour = "black") + 
+  geom_errorbar(aes(ymax=value+sd, ymin=value-sd),na.rm=TRUE,
+              #  position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
+                width = 0, colour = "gray50") + 
 #Labels
   xlab('Year') + ylab("Benthic organic matter ("*g~m^-2*")") +
   labs(tag = "E")+
