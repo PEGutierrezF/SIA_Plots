@@ -20,7 +20,8 @@ rm(list = ls())
 # Discharge ---------------------------------------------------------------
 
 data <- read.csv("data/physicochemical_data.csv")
-discharge <- slice(data, (1:1762))
+discharge <- data[1:1762,]
+
 discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(discharge)
 tail(discharge)
