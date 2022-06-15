@@ -56,10 +56,16 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14))
 
+g1
+
+
 L_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Leaflitter")
 B_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Biofilm")
 A_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Algae")
 
+
+
+hdi(L_G_QPA$density)
 t.test(L_G_QPA$density)
 t.test(B_G_QPA$density)
 t.test(A_G_QPA$density)
@@ -502,7 +508,7 @@ t.test(A_An_QPA$density)
 
 Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
 Fig1
-Fig1 + ggsave("Figure X Density plot QPA Feb 17.pdf",width = 210, height = 297, units = "mm")
+Fig1 + ggsave("Figure X Density plot QPA Feb 17.jpg",width = 210, height = 297, units = "mm")
 
 
 
