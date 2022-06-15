@@ -518,5 +518,5 @@ t.test(A_Lm_QPB$density)
 
 Fig_QPB_Nov17 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm+ plot_spacer())
 Fig_QPB_Nov17
-Fig_QPB_Nov17 + ggsave("Figure X Density plot QPB Nov 17.pdf",width = 210, height = 297, units = "mm")
+Fig_QPB_Nov17 + ggsave("Figure X Density plot QPB Nov 17.jpg",width = 210, height = 297, units = "mm")
 
