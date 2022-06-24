@@ -18,7 +18,12 @@ rm(list = ls())
 
 
 libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork',
-               'gridExtra',"cowplot")
+               'gridExtra',"cowplot",'HDInterval')
 lapply(libraries, require, character.only = TRUE)
 
+
+library(tidyverse)
+library(HDInterval)
+install.packages('ggridges')
+library(ggridges)
 

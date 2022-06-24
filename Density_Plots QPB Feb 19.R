@@ -457,5 +457,5 @@ Lm <- ggplot(df, aes(x, y, color = source)) +
 
 Fig_QPB_Feb19 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + Lm+ plot_spacer())
 Fig_QPB_Feb19
-Fig_QPB_Feb19 + ggsave("Figure X Density plot QPB Feb 19.pdf",width = 210, height = 297, units = "mm")
+Fig_QPB_Feb19 + ggsave("Figure X Density plot QPB Feb 19.jpg",width = 210, height = 297, units = "mm")
 
