@@ -22,9 +22,9 @@ B_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm")
 A_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Algae")
 
 data_lower <- tribble(~source, ~value,  ~hdi,
-                      'L_G_QPA_l' , 0.025, 0.5,# hdi(L_G_QPA$density)["lower"],
-                      'B_G_QPA_l' , 0.025, 0.5,#hdi(B_G_QPA$density)["lower"],
-                      'A_G_QPA_l' , 0.025, 0.5)#hdi(A_G_QPA$density)["lower"]
+                      'L_G_QPA_l' , 0.025, hdi(L_G_QPA$density)["lower"],
+                      'B_G_QPA_l' , 0.025, hdi(B_G_QPA$density)["lower"],
+                      'A_G_QPA_l' , 0.025, hdi(A_G_QPA$density)["lower"])
 
 data_upper <- tribble(~source, ~value, ~hdi,
                       'L_G_QPA_u', 0.975, hdi(L_G_QPA$density)["upper"],
@@ -34,11 +34,12 @@ data_upper <- tribble(~source, ~value, ~hdi,
 value <- hdi(L_G_QPA$density)["upper"]
 value. <- hdi(B_G_QPA$density)["upper"]
 
+
 ggplot(QPA_G_Nov17, aes(x = density, color = source)) +
-  geom_density(alpha = 0.4) +
-      geom_area(mapping = aes(x = ifelse(density>0.9906391 & density< 1 , 
-                                         density, 0)), 
-                fill = "red")
+  geom_density( alpha = 0.4) +
+  geom_area(data=QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm"),
+            stat = "function", fun = dnorm, 
+            fill = "#00998a", xlim = c(0.5646074, 1))
   
 
 
