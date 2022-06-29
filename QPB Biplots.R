@@ -17,7 +17,7 @@ rm(list = ls())
 
 
 
-# QPb February 17 ---------------------------------------------------------
+# QPB February 17 ---------------------------------------------------------
 
 
 QPB_Feb17 <- read.csv("Biplot/QPB_Feb17.csv")
@@ -28,8 +28,21 @@ QPB_Feb17$taxa <- factor(QPB_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Feb17$taxa) 
 
-QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+# Define hull area
+# Computes the subset of points which lie on the convex hull of the set of points specified.
+find_hull <- function(dataframe) {
+  dataframe[chull(dataframe$C, dataframe$N), ]
+}
+qpbF17_hull <- find_hull(QPB_Feb17) 
+qpbF17_hull1 <- qpbF17_hull[-6,] # Exclude spider
+
+
+QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N)) +
+  geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
+             size=3,stroke = 1.2) +
+  geom_polygon(data=qpbF17_hull1, fill= "pink1", alpha=.3) +
+  
+  # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
   #color
   scale_colour_manual("Taxa",
@@ -106,9 +119,22 @@ QPB_Nov17$taxa <- factor(QPB_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Nov17$taxa) 
 
-QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+# Define hull area
+# Computes the subset of points which lie on the convex hull of the set of points specified.
+find_hull <- function(dataframe) {
+  dataframe[chull(dataframe$C, dataframe$N), ]
+}
+qpbN17_hull <- find_hull(QPB_Nov17) 
+
+
+QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N)) +
+  geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
+             size=3,stroke = 1.2) +
+  geom_polygon(data=qpbN17_hull, fill= "pink1", alpha=.3) +
+  
+  # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
+  
   #color
   scale_colour_manual("Taxa",
                       values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
