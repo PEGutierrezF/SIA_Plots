@@ -378,7 +378,7 @@ p2 <- ggdraw(p1) +
 p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
 p3
 
-p3 + ggsave("Figure 3.jpg", width=11, height=6.5)
+p3 + ggsave("Figure 3a.jpg", width=11, height=6.5)
 #
 
 

@@ -206,10 +206,22 @@ head(QPB_June18)
 QPB_June18$taxa <- factor(QPB_June18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
-levels(QPB_June18$taxa) 
+levels(QPB_June18$taxa)
 
-QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+# Define hull area
+# Computes the subset of points which lie on the convex hull of the set of points specified.
+find_hull <- function(dataframe) {
+  dataframe[chull(dataframe$C, dataframe$N), ]
+}
+qpbJ18_hull <- find_hull(QPB_June18) 
+
+
+QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N)) +
+  geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
+             size=3,stroke = 1.2) +
+  geom_polygon(data=qpbJ18_hull, fill= "pink1", alpha=.3) +
+  
+  # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
   #color
   scale_colour_manual("Taxa",
@@ -285,8 +297,19 @@ QPB_Feb19$taxa <- factor(QPB_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae
                                                       "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Feb19$taxa) 
 
-QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N, group=taxa, shape=taxa)) +
-  geom_point(aes(colour=taxa), size=3,stroke = 1.2) +
+# Define hull area
+# Computes the subset of points which lie on the convex hull of the set of points specified.
+find_hull <- function(dataframe) {
+  dataframe[chull(dataframe$C, dataframe$N), ]
+}
+qpbF19_hull <- find_hull(QPB_Feb19) 
+
+QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N)) +
+  geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
+             size=3,stroke = 1.2) +
+  geom_polygon(data=qpbF19_hull, fill= "pink1", alpha=.3) +
+  
+  # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
   #color
   scale_colour_manual("Taxa",
