@@ -39,7 +39,8 @@ qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2) +
-  geom_polygon(data=qpaF17_hull1, fill= "pink1", alpha=.5) +
+  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
+               colour = "pink2",size = 0.5, alpha=.5) +
   
   # Axis label
   labs(x="", y = expression(delta^{15}*"N (\211)"), fill = "Taxa") +
@@ -132,7 +133,8 @@ qpaN17_hull <- find_hull(QPA_Nov17)
 
 QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3,stroke = 1.2) +
-  geom_polygon(data=qpaN17_hull, fill= "pink1", alpha=.5) +
+  geom_polygon(data=qpaN17_hull, fill= "pink1", 
+               colour = "pink2",size = 0.5, alpha=.5) +
   
   # Axis label
   labs(x="", y = "") +
@@ -220,7 +222,8 @@ qpaJ18_hull <- find_hull(QPA_June18)
 QPAJune18 <-  ggplot(QPA_June18, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpaJ18_hull, fill= "pink1", alpha=.5) +
+  geom_polygon(data=qpaJ18_hull, fill= "pink1", 
+               colour = "pink2",size = 0.5, alpha=.5) +
   
   # Axis label
   labs(x="", y = "") +
@@ -309,7 +312,8 @@ qpaF19_hull <- find_hull(QPA_Feb19)
 QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpaF19_hull, fill= "pink1", alpha=.5) +
+  geom_polygon(data=qpaF19_hull, fill= "pink1", 
+               colour = "pink2",size = 0.5, alpha=.5) +
   
   # Axis label
   labs(x="", y = "") +
