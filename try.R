@@ -35,13 +35,38 @@ value <- hdi(L_G_QPA$density)["upper"]
 value. <- hdi(B_G_QPA$density)["upper"]
 
 
-ggplot(QPA_G_Nov17, aes(x = density, color = source)) +
-  geom_density( alpha = 0.4) +
+ggplot(df, aes(x = density, color = source)) +
+  geom_density(alpha = 0.4) +
   geom_area(data=QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm"),
             stat = "function", fun = dnorm, 
             fill = "#00998a", xlim = c(0.5646074, 1))
   
 
 
+set.seed(14)
+df <- data.frame(density = c(rgamma(400, 2, 10), rgamma(400, 2.25, 9),rgamma(400, 5, 7)),
+                 source = rep(c("source_1", "source_2", "source_3"), 
+                              each = 400))
+
+ggplot(df, aes(x = density, color = source)) +
+  geom_density(size=1.5, alpha = 0.4) +
+  labs(y = "Density", x = "Source contribution")
 
 
+S1 <- df %>% filter(df$source == "source_1")
+S2 <- df %>% filter(df$source == "source_2")
+S3 <- df %>% filter(df$source == "source_3")
+
+data_lower <- tribble(~source, ~value,  ~hdi,
+                      'S1' , 0.025, hdi(S1$density)["lower"],
+                      'S2' , 0.025, hdi(S2$density)["lower"],
+                      'S3' , 0.025, hdi(S3$density)["lower"])
+
+data_upper <- tribble(~source, ~value, ~hdi,
+                      's1', 0.975, hdi(S1$density)["upper"],
+                      's2', 0.975, hdi(S2$density)["upper"],
+                      's3', 0.975, hdi(S3$density)["upper"])
+
+hdi(S1$density, ci = 0.95)
+hdi(S2$density, ci = 0.95)
+hdi(S3$density, ci = 0.95)
