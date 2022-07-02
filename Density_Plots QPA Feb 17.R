@@ -63,9 +63,8 @@ L_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Leaflitter")
 B_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Biofilm")
 A_G_QPA <- QPA_G_Feb17 %>% filter(QPA_G_Feb17$source == "Algae")
 
-
-
 hdi(L_G_QPA$density)
+
 t.test(L_G_QPA$density)
 t.test(B_G_QPA$density)
 t.test(A_G_QPA$density)
