@@ -57,15 +57,14 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source, linetype =source,
                                scale = 1) +
   labs(y = "Density", x = "Source contribution") + 
   
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
   scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
                       labels = c("Algae", "Biofilm", "Leaf litter"),
                       guide = "none", na.value = "transparent") +
-  
-
-  # add legend:  guide = "legend",
-  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
-                       labels = c("Algae", "Biofilm", "Leaf litter"),
-                       guide = "legend") +
   
   # add legend:  guide = "legend",
   scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
@@ -83,10 +82,12 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source, linetype =source,
         legend.title=element_text(size=20), # title font size
         legend.key.height= unit(1, 'cm'),# box height
         legend.key.width= unit(1, 'cm'), # box width
-        legend.background = element_rect(fill = "transparent"),
-        ) + 
+        # legend.background = element_rect(fill = "transparent"),
+  ) + 
   
   guides(color = guide_legend(override.aes = list(fill = "white")))+
+  
+ # annotate("text", x = .8, y = 4.5, label = "Some text") +
   
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
