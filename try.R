@@ -12,14 +12,15 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source,
                                scale = 1) +
   labs(y = "Density", x = "Source contribution") + 
   
-  scale_fill_cyclical(name = "", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
                     labels = c("Algae", "Biofilm", "Leaf litter"),
                     guide = "legend", na.value = "transparent") +
   
   # add legend:  guide = "legend",
-  scale_color_cyclical(name = "", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
                       labels = c("Algae", "Biofilm", "Leaf litter"),
                       guide = "legend") +
+  
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
@@ -27,7 +28,8 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source,
   theme(plot.title = element_text(face="bold"))+
   
   theme(legend.position=c(.85,.75),
-  legend.text = element_text(size=20), #change legend text font size
+  legend.text = element_text(size=18), #change legend text font size
+  legend.title=element_text(size=20), 
   legend.key.height= unit(1, 'cm'),
   legend.key.width= unit(1, 'cm')) + 
   
