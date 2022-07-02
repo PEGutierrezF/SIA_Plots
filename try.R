@@ -4,13 +4,12 @@
 QPA_G_Nov17 <- read.csv("DensityPlots/QPANov17/01 QPA_Glossosomatidae_Nov17.csv")
 head(QPA_G_Nov17)
 
-line <- c("solid", "dotted", "longdash")
+
 
 ggplot(QPA_G_Nov17, aes(x = density, color = source, 
                         fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.5, 
                                quantile_fun = hdi, vline_linetype = 0,
-                               linetype=1,
                                bandwidth = 0.085) +
   labs(y = "Density", x = "Source contribution") +
   
@@ -24,9 +23,9 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source,
                       labels = c("Algae", "Biofilm", "Leaf litter"),
                       guide = "none", na.value = "transparent") +
   
-  scale_linetype_manual(values = c("solid", "dotted", "longdash"),
-                       labels = c("Algae", "Biofilm", "Leaf litter"),
-                       guide = "none", na.value = "transparent") +
+  scale_linetype_manual(breaks=c("Algae", "Biofilm", "Leaflitter"), 
+                        labels=c("Algae", "Biofilm", "Leaf litter"),
+                        values=c("dotted", "dashed", "solid")) +
   
 
   theme_classic() +
