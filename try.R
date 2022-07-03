@@ -97,11 +97,40 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source, linetype =source,
 #
 
 
+set.seed(14)
 
+df <- data.frame(
+  density = c(rgamma(400, 2, 10), rgamma(400, 2.25, 9), rgamma(400, 5, 7)),
+  source = rep(c("source_1", "source_2", "source_3"),
+               each = 400
+  )
+)
 
+library(ggplot2)
+library(HDInterval)
+library(ggridges)
 
-
-
+ggplot(df, aes(x = density, color = source, linetype = source,
+                         fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.2, 
+                               quantile_fun = hdi, # vline_linetype = 0, 
+                               scale = 1) + 
+  
+  labs(y = "Density", x = "Source contribution") +
+  
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("source_1", "source_2", "source_3"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("source_1", "source_2", "source_3"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("source_1", "source_2", "source_3"),
+                       guide = "none") +
+  
+  theme_classic() 
 
 
 
