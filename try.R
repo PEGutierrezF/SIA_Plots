@@ -97,6 +97,8 @@ ggplot(QPA_G_Nov17, aes(x = density, color = source, linetype =source,
 #
 
 
+# Question ----------------------------------------------------------------
+
 set.seed(14)
 
 df <- data.frame(
@@ -108,13 +110,12 @@ df <- data.frame(
 
 
 
-ggplot(df, aes(x = density, color = source, linetype = source,
-                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
-  geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.2, 
-                               quantile_fun = hdi, # vline_linetype = 0, 
-                               scale = 1) +
-  
-  labs(y = "Density", x = "Source contribution") + 
+ggplot(QPA_An_Feb17, aes(x = density, color = source, linetype = source,
+               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale=1) +
+  labs(y = "Density", x = "Contribution") + 
   
   # add legend:  guide = "legend",
   scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
@@ -129,8 +130,7 @@ ggplot(df, aes(x = density, color = source, linetype = source,
   scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
                        labels = c("source1", "source2", "source3"),
                        guide = "none") +
-  
-  theme_classic() +
+
   ylim(0, 8) +
   xlim(0, 1) +
 

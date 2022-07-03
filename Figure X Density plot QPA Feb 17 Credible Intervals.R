@@ -302,7 +302,7 @@ l1 <- ggplot(QPA_L_Feb17, aes(x = density, color = source, linetype =source,
   ylim(0, 8) +
   xlim(0, 1) +
   ggtitle('Libelullidae') +
-  theme(plot.title = element_text(face="bold.italic"))+
+  theme(plot.title = element_text(face="bold"))+
   
   theme(legend.position=c(.85,.75),
         legend.text = element_text(size=18), # item legend text font size
@@ -430,7 +430,7 @@ m1 <- ggplot(QPA_M_Feb17, aes(x = density, color = source, linetype =source,
                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.2, 
                                quantile_fun = hdi, vline_linetype = 0, 
-                               scale = 1) +
+                               key_glyph = "path", scale = 1) +
   labs(y = "Density", x = "Source contribution") + 
   
   # add legend:  guide = "legend",
@@ -479,7 +479,7 @@ an1 <- ggplot(QPA_An_Feb17, aes(x = density, color = source, linetype = source,
                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
-                               key_glyph = "path", scale=1) +
+                               key_glyph = "path", scale= 1) +
   
   labs(y = "Density", x = "Source contribution") + 
   
