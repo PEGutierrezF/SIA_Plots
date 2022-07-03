@@ -525,7 +525,7 @@ an1
 
 
 
-Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
+Fig1 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer() + plot_spacer())
 Fig1
 Fig1 + ggsave("Figure X Density plot QPA Feb 17 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
 

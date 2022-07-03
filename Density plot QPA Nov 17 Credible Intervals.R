@@ -305,3 +305,249 @@ l1 <- ggplot(QPA_L_Nov17, aes(x = density, color = source, linetype = source,
 
 l1
 
+# Xyphocarys ----------------------------------------------------------------
+
+QPA_X_Nov17 <- read.csv("DensityPlots/QPANov17/07 QPA_Xyphocaris_Nov17.csv")
+
+x1 <- ggplot(QPA_X_Nov17, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale= 1) +
+  
+  labs(y = "Density", x = "Source contribution") + 
+  
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("Algae", "Biofilm", "Leaf litter"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("Algae", "Biofilm", "Leaf litter"),
+                       guide = "none") +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('X. elongata') +
+  theme(plot.title = element_text(face="bold.italic")) +
+  
+  theme(legend.position = "none") +
+  theme(legend.text = element_text(size=16), # item legend text font size
+        legend.title=element_text(size=18), # title font size
+        legend.key.height= unit(1, 'cm'),# box height
+        legend.key.width= unit(1, 'cm')) +  # box width
+  
+  #  guides(color = guide_legend(override.aes = list(fill = "white")))+
+  #  theme(plot.margin=unit(c(0,3,0,0),"cm"))+
+  #  theme(legend.position=c(1.8,0.5)) +
+  
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+x1
+
+# Atya ----------------------------------------------------------------
+
+QPA_A_Nov17 <- read.csv("DensityPlots/QPANov17/08 QPA_Atya_Nov17.csv")
+
+a1 <- ggplot(QPA_A_Nov17, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale= 1) +
+  
+  labs(y = "Density", x = "Source contribution") + 
+  
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("Algae", "Biofilm", "Leaf litter"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("Algae", "Biofilm", "Leaf litter"),
+                       guide = "none") +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('A. lanipes') +
+  theme(plot.title = element_text(face="bold.italic")) +
+  
+  theme(legend.position = "none") +
+  theme(legend.text = element_text(size=16), # item legend text font size
+        legend.title=element_text(size=18), # title font size
+        legend.key.height= unit(1, 'cm'),# box height
+        legend.key.width= unit(1, 'cm')) +  # box width
+  
+  #  guides(color = guide_legend(override.aes = list(fill = "white")))+
+  #  theme(plot.margin=unit(c(0,3,0,0),"cm"))+
+  #  theme(legend.position=c(1.8,0.5)) +
+  
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+a1
+
+# Macrobrachium ----------------------------------------------------------------
+
+QPA_M_Nov17 <- read.csv("DensityPlots/QPANov17/09 QPA_Macrobrachium_Nov17.csv")
+
+m1 <- ggplot(QPA_M_Nov17, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale= 1) +
+  
+  labs(y = "Density", x = "Source contribution") + 
+  
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("Algae", "Biofilm", "Leaf litter"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("Algae", "Biofilm", "Leaf litter"),
+                       guide = "none") +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('M. crenulatum') +
+  theme(plot.title = element_text(face="bold.italic")) +
+  
+  theme(legend.position = "none") +
+  theme(legend.text = element_text(size=16), # item legend text font size
+        legend.title=element_text(size=18), # title font size
+        legend.key.height= unit(1, 'cm'),# box height
+        legend.key.width= unit(1, 'cm')) +  # box width
+  
+  #  guides(color = guide_legend(override.aes = list(fill = "white")))+
+  #  theme(plot.margin=unit(c(0,3,0,0),"cm"))+
+  #  theme(legend.position=c(1.8,0.5)) +
+  
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+m1
+
+# Anolis ------------------------------------------------------------------
+
+QPA_An_Nov17 <- read.csv("DensityPlots/QPANov17/10 QPA_Anolis_Nov17.csv")
+
+an1 <- ggplot(QPA_An_Nov17, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale= 1) +
+  
+  labs(y = "Density", x = "Source contribution") + 
+  
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("Algae", "Biofilm", "Leaf litter"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("Algae", "Biofilm", "Leaf litter"),
+                       guide = "none") +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('A. evermanni') +
+  theme(plot.title = element_text(face="bold.italic")) +
+  
+  theme(legend.position = "none") +
+  theme(legend.text = element_text(size=16), # item legend text font size
+        legend.title=element_text(size=18), # title font size
+        legend.key.height= unit(1, 'cm'),# box height
+        legend.key.width= unit(1, 'cm')) +  # box width
+  
+  #  guides(color = guide_legend(override.aes = list(fill = "white")))+
+  #  theme(plot.margin=unit(c(0,3,0,0),"cm"))+
+  #  theme(legend.position=c(1.8,0.5)) +
+  
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+an1
+
+
+# Luecauge ------------------------------------------------------------------
+
+QPA_Lm_Nov17 <- read.csv("DensityPlots/QPANov17/11 QPA_Leucauge_Nov17.csv")
+
+lr <- ggplot(QPA_Lm_Nov17, aes(x = density, color = source, linetype = source,
+                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale= 1) +
+  
+  labs(y = "Density", x = "Source contribution") + 
+  
+  # add legend:  guide = "legend",
+  scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
+                          labels = c("Algae", "Biofilm", "Leaf litter"),
+                          guide = "legend") +
+  
+  scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                      labels = c("Algae", "Biofilm", "Leaf litter"),
+                      guide = "none", na.value = "transparent") +
+  
+  scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
+                       labels = c("Algae", "Biofilm", "Leaf litter"),
+                       guide = "none") +
+  
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
+  ggtitle('L. regnyi') +
+  theme(plot.title = element_text(face="bold.italic")) +
+  
+  theme(legend.position = "none") +
+  theme(legend.text = element_text(size=16), # item legend text font size
+        legend.title=element_text(size=18), # title font size
+        legend.key.height= unit(1, 'cm'),# box height
+        legend.key.width= unit(1, 'cm')) +  # box width
+  
+  guides(color = guide_legend(override.aes = list(fill = "white")))+
+  theme(plot.margin=unit(c(0,0.5,0,0),"cm"))+
+  theme(legend.position=c(1.4,0.5)) +
+  
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
+
+lr
+
+
+Fig_QP_Nov17 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
+Fig_QP_Nov17
+Fig_QP_Nov17 + ggsave("Figure X Density plot QPA Nov 17 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
+

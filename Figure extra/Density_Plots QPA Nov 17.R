@@ -50,7 +50,7 @@ g1 <- ggplot(df, aes(x, y, color = source)) +
   ggtitle('Glossosomatidae') +
   theme(plot.title = element_text(face="bold"))+
   
-  theme(legend.position = "none")+
+  theme(legend.position = "none") +
   theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
         axis.text.x  = element_text(size = 12, vjust = 0.5),  
         axis.title.x = element_text(size = 14),
