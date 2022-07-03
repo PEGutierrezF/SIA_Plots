@@ -476,10 +476,10 @@ m1
 QPA_An_Feb17 <- read.csv("DensityPlots/QPAFeb17/10 QPA_Anolis_Feb17.csv")
 
 an1 <- ggplot(QPA_An_Feb17, aes(x = density, color = source, linetype = source,
-                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
-  geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.2, 
-                               quantile_fun = hdi, # vline_linetype = 0, 
-                               scale = 1) +
+               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+  geom_density_ridges_gradient(aes(y = 0), size=1.2, 
+                               quantile_lines = TRUE, quantile_fun = hdi,
+                               key_glyph = "path", scale=1) +
   
   labs(y = "Density", x = "Source contribution") + 
   
