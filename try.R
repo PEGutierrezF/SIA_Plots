@@ -106,33 +106,46 @@ df <- data.frame(
   )
 )
 
-library(ggplot2)
-library(HDInterval)
-library(ggridges)
+
 
 ggplot(df, aes(x = density, color = source, linetype = source,
-                         fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), quantile_lines = TRUE, size=1.2, 
                                quantile_fun = hdi, # vline_linetype = 0, 
-                               scale = 1) + 
+                               scale = 1) +
   
-  labs(y = "Density", x = "Source contribution") +
+  labs(y = "Density", x = "Source contribution") + 
   
+  # add legend:  guide = "legend",
   scale_linetype_cyclical(name = "Source", values = c("solid", "dotted", "longdash"),
-                          labels = c("source_1", "source_2", "source_3"),
+                          labels = c("source1", "source2", "source3"),
                           guide = "legend") +
   
   scale_fill_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
-                      labels = c("source_1", "source_2", "source_3"),
+                      labels = c("source1", "source2", "source3"),
                       guide = "none", na.value = "transparent") +
   
+  # add legend:  guide = "legend",
   scale_color_cyclical(name = "Source", values = c("#31a354", "#2c7fb8", "#d95f0e"),
-                       labels = c("source_1", "source_2", "source_3"),
+                       labels = c("source1", "source2", "source3"),
                        guide = "none") +
   
-  theme_classic() 
+  theme_classic() +
+  ylim(0, 8) +
+  xlim(0, 1) +
 
+  theme(#legend.position=c(.85,.75),
+    legend.text = element_text(size=16), # item legend text font size
+    legend.title=element_text(size=18), # title font size
+    legend.key.height= unit(1, 'cm'),# box height
+    legend.key.width= unit(1, 'cm')) +  # box width
+  
+  guides(color = guide_legend(override.aes = list(fill = "white")))+
 
+  theme(axis.text.y  = element_text(size = 12, vjust = 0.5),
+        axis.text.x  = element_text(size = 12, vjust = 0.5),  
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))
 
 
 
