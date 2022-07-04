@@ -343,8 +343,6 @@ t.test(B_a$density)
 mean(A_a$density)
 t.test(A_a$density)
 
-
-
 # Macrobrachium ----------------------------------------------------------------
 
 QPA_M_June18 <- read.csv("DensityPlots/QPAJune18/09 QPA_Macrobrachium_June18.csv")

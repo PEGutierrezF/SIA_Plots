@@ -353,13 +353,9 @@ x1 <- ggplot(QPA_X_Nov17, aes(x = density, color = source, linetype = source,
 
 x1
 
-# Atya ----------------------------------------------------------------
+# Atya (8) ----------------------------------------------------------------
 
 QPA_A_Nov17 <- read.csv("DensityPlots/QPANov17/08 QPA_Atya_Nov17.csv")
-
-ggplot(QPA_A_Nov17, aes(x = density, color = source)) +
-  geom_density(size=1.5, alpha = 0.4) +
-  labs(y = "Density", x = "Source contribution")
 
 a1 <- ggplot(QPA_A_Nov17, aes(x = density, color = source, linetype = source,
                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
@@ -405,7 +401,7 @@ a1 <- ggplot(QPA_A_Nov17, aes(x = density, color = source, linetype = source,
 
 a1
 
-# Macrobrachium ----------------------------------------------------------------
+# Macrobrachium (9) ----------------------------------------------------------------
 
 QPA_M_Nov17 <- read.csv("DensityPlots/QPANov17/09 QPA_Macrobrachium_Nov17.csv")
 
@@ -453,7 +449,7 @@ m1 <- ggplot(QPA_M_Nov17, aes(x = density, color = source, linetype = source,
 
 m1
 
-# Anolis ------------------------------------------------------------------
+# Anolis (10) ------------------------------------------------------------------
 
 QPA_An_Nov17 <- read.csv("DensityPlots/QPANov17/10 QPA_Anolis_Nov17.csv")
 
@@ -502,7 +498,7 @@ an1 <- ggplot(QPA_An_Nov17, aes(x = density, color = source, linetype = source,
 an1
 
 
-# Luecauge ------------------------------------------------------------------
+# Luecauge (11) ------------------------------------------------------------------
 
 QPA_Lm_Nov17 <- read.csv("DensityPlots/QPANov17/11 QPA_Leucauge_Nov17.csv")
 
