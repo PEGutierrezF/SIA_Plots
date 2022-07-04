@@ -17,7 +17,7 @@ rm(list = ls())
 
 
 
-# Glossosomatidae ---------------------------------------------------------
+# Glossosomatidae (1) ---------------------------------------------------------
 
 
 QPA_G_June18 <- read.csv("DensityPlots/QPAJune18/01 QPA_Glossosomatidae_June18.csv")
@@ -76,7 +76,7 @@ hdi(B_G_QPA$density)
 hdi(A_G_QPA$density)
 
 
-# Baetidae ----------------------------------------------------------------
+# Baetidae (2) ----------------------------------------------------------------
 
 QPA_B_June18 <- read.csv("DensityPlots/QPAJune18/02 QPA_Baetidae_June18.csv")
 
@@ -133,7 +133,7 @@ hdi(B_B_QPA$density)
 hdi(A_B_QPA$density)
 
 
-# Chironomidae ----------------------------------------------------------------
+# Chironomidae (3) ----------------------------------------------------------------
 
 QPA_C_June18 <- read.csv("DensityPlots/QPAJune18/03 QPA_Chrironomidae_June18.csv")
 
