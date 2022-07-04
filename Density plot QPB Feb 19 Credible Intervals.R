@@ -3,7 +3,7 @@
 
 
 # ---------------------------------------------
-# Density Plots November 2017 Quebrada Prieta B
+# Density Plots February 2019 Quebrada Prieta B
 # Credible Intervals
 # 04 Jul 2022
 # Pablo E. Gutiérrez-Fonseca
@@ -19,10 +19,10 @@ rm(list = ls())
 
 # Glossosomatidae (1) ---------------------------------------------------------
 
-QPB_G_Nov17 <- read.csv("DensityPlots/QPB_Nov17/01 QPB_Glossosomatidae_Nov17.csv")
+QPB_G_Feb19 <- read.csv("DensityPlots/QPB_Feb19/01 QPB_Glossosomatidae_Feb19.csv")
 
-g1 <- ggplot(QPB_G_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+g1 <- ggplot(QPB_G_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -65,9 +65,9 @@ g1 <- ggplot(QPB_G_Nov17, aes(x = density, color = source, linetype = source,
 
 g1
 
-L_G_QPA <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Leaflitter")
-B_G_QPA <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Biofilm")
-A_G_QPA <- QPB_G_Nov17 %>% filter(QPB_G_Nov17$source == "Algae")
+L_G_QPA <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Leaflitter")
+B_G_QPA <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Biofilm")
+A_G_QPA <- QPB_G_Feb19 %>% filter(QPB_G_Feb19$source == "Algae")
 
 hdi(L_G_QPA$density)
 hdi(B_G_QPA$density)
@@ -76,10 +76,10 @@ hdi(A_G_QPA$density)
 
 # Baetidae (2) ----------------------------------------------------------------
 
-QPB_B_Nov17 <- read.csv("DensityPlots/QPB_Nov17/02 QPB_Baetidae_Nov17.csv")
+QPB_B_Feb19 <- read.csv("DensityPlots/QPB_Feb19/02 QPB_Baetidae_Feb19.csv")
 
-b1 <- ggplot(QPB_B_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+b1 <- ggplot(QPB_B_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -122,9 +122,9 @@ b1 <- ggplot(QPB_B_Nov17, aes(x = density, color = source, linetype = source,
 
 b1
 
-L_B_QPA <- QPB_B_Nov17 %>% filter(QPB_B_Nov17$source == "Leaflitter")
-B_B_QPA <- QPB_B_Nov17 %>% filter(QPB_B_Nov17$source == "Biofilm")
-A_B_QPA <- QPB_B_Nov17 %>% filter(QPB_B_Nov17$source == "Algae")
+L_B_QPA <- QPB_B_Feb19 %>% filter(QPB_B_Feb19$source == "Leaflitter")
+B_B_QPA <- QPB_B_Feb19 %>% filter(QPB_B_Feb19$source == "Biofilm")
+A_B_QPA <- QPB_B_Feb19 %>% filter(QPB_B_Feb19$source == "Algae")
 
 hdi(L_B_QPA$density)
 hdi(B_B_QPA$density)
@@ -133,10 +133,10 @@ hdi(A_B_QPA$density)
 
 # Chironomidae (3) ----------------------------------------------------------------
 
-QPB_C_Nov17 <- read.csv("DensityPlots/QPB_Nov17/03 QPB_Chrironomidae_Nov17.csv")
+QPB_C_Feb19 <- read.csv("DensityPlots/QPB_Feb19/03 QPB_Chrironomidae_Feb19.csv")
 
-c1 <- ggplot(QPB_C_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+c1 <- ggplot(QPB_C_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -181,10 +181,10 @@ c1
 
 # Njulio (4) ----------------------------------------------------------------
 
-QPB_Nj_Nov17 <- read.csv("DensityPlots/QPB_Nov17/04 QPB_Njulio_Nov17.csv")
+QPB_Nj_Feb19 <- read.csv("DensityPlots/QPB_Feb19/04 QPB_Njulio_Feb19.csv")
 
-n1 <- ggplot(QPB_Nj_Nov17, aes(x = density, color = source, linetype = source,
-                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+n1 <- ggplot(QPB_Nj_Feb19, aes(x = density, color = source, linetype = source,
+                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -227,13 +227,12 @@ n1 <- ggplot(QPB_Nj_Nov17, aes(x = density, color = source, linetype = source,
 
 n1
 
-
 # Phylloicus (5) ----------------------------------------------------------------
 
-QPB_P_Nov17 <- read.csv("DensityPlots/QPB_Nov17/05 QPB_Phylloicus_Nov17.csv")
+QPB_P_Feb19 <- read.csv("DensityPlots/QPB_Feb19/05 QPB_Phylloicus_Feb19.csv")
 
-p1 <- ggplot(QPB_P_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+p1 <- ggplot(QPB_P_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -279,10 +278,10 @@ p1
 
 # Libellulidae (6) ----------------------------------------------------------------
 
-QPB_L_Nov17 <- read.csv("DensityPlots/QPB_Nov17/06 QPB_Libellulidae_Nov17.csv")
+QPB_L_Feb19 <- read.csv("DensityPlots/QPB_Feb19/06 QPB_Libellulidae_Feb19.csv")
 
-l1 <- ggplot(QPB_L_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+l1 <- ggplot(QPB_L_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -327,10 +326,10 @@ l1
 
 # Xyphocarys (7) ----------------------------------------------------------------
 
-QPB_X_Nov17 <- read.csv("DensityPlots/QPB_Nov17/07 QPB_Xyphocaris_Nov17.csv")
+QPB_X_Feb19 <- read.csv("DensityPlots/QPB_Feb19/07 QPB_Xyphocaris_Feb19.csv")
 
-x1 <- ggplot(QPB_X_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+x1 <- ggplot(QPB_X_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -375,10 +374,10 @@ x1
 
 # Atya (8) ----------------------------------------------------------------
 
-QPB_A_Nov17 <- read.csv("DensityPlots/QPB_Nov17/08 QPB_Atya_Nov17.csv")
+QPB_A_Feb19 <- read.csv("DensityPlots/QPB_Feb19/08 QPB_Atya_Feb19.csv")
 
-a1 <- ggplot(QPB_A_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+a1 <- ggplot(QPB_A_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -424,10 +423,10 @@ a1
 
 # Macrobrachium (9) ----------------------------------------------------------------
 
-QPB_M_Nov17 <- read.csv("DensityPlots/QPB_Nov17/09 QPB_Macrobrachium_Nov17.csv")
+QPB_M_Feb19 <- read.csv("DensityPlots/QPB_Feb19/09 QPB_Macrobrachium_Feb19.csv")
 
-m1 <- ggplot(QPB_M_Nov17, aes(x = density, color = source, linetype = source,
-                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+m1 <- ggplot(QPB_M_Feb19, aes(x = density, color = source, linetype = source,
+                              fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -472,10 +471,10 @@ m1
 
 # Anolis (10) ------------------------------------------------------------------
 
-QPB_An_Nov17 <- read.csv("DensityPlots/QPB_Nov17/10 QPB_Anolis_Nov17.csv")
+QPB_An_Feb19 <- read.csv("DensityPlots/QPB_Feb19/10 QPB_Anolis_Feb19.csv")
 
-an1 <- ggplot(QPB_An_Nov17, aes(x = density, color = source, linetype = source,
-                                 fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+an1 <- ggplot(QPB_An_Feb19, aes(x = density, color = source, linetype = source,
+                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -521,10 +520,10 @@ an1
 
 # Luecauge (11) ------------------------------------------------------------------
 
-QPB_Lr_Nov17 <- read.csv("DensityPlots/QPB_Nov17/11 QPB_Leucauge_Nov17.csv")
+QPB_Lm_Feb19 <- read.csv("DensityPlots/QPB_Feb19/11 QPB_Leucauge_Feb19.csv")
 
-lr <- ggplot(QPB_Lr_Nov17, aes(x = density, color = source, linetype = source,
-                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
+lr <- ggplot(QPB_Lm_Feb19, aes(x = density, color = source, linetype = source,
+                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
                                key_glyph = "path", scale= 1) +
@@ -568,8 +567,7 @@ lr <- ggplot(QPB_Lr_Nov17, aes(x = density, color = source, linetype = source,
 lr
 
 
-Fig6 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
-Fig6
-Fig6 + ggsave("Figure X Density plot QPB Nov 17 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
-
+Fig8 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
+Fig8
+Fig8 + ggsave("Figure X Density plot QPB Feb 19 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
 
