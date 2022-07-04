@@ -279,7 +279,7 @@ p1 <- ggplot(QPA_P_June18, aes(x = density, color = source, linetype = source,
 p1
 
 
-# Libellulidae ----------------------------------------------------------------
+# Libellulidae (6) ----------------------------------------------------------------
 
 QPA_L_June18 <- read.csv("DensityPlots/QPAJune18/06 QPA_Libellulidae_June18.csv")
 
