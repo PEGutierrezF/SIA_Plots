@@ -357,6 +357,10 @@ x1
 
 QPA_A_Nov17 <- read.csv("DensityPlots/QPANov17/08 QPA_Atya_Nov17.csv")
 
+ggplot(QPA_A_Nov17, aes(x = density, color = source)) +
+  geom_density(size=1.5, alpha = 0.4) +
+  labs(y = "Density", x = "Source contribution")
+
 a1 <- ggplot(QPA_A_Nov17, aes(x = density, color = source, linetype = source,
                               fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
