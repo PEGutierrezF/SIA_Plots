@@ -4,6 +4,7 @@
 
 # ---------------------------------------------
 # Density Plots February 2017 Quebrada Prieta B
+# Credible Intervals
 # 04 Jul 2022
 # Pablo E. Gutiérrez-Fonseca
 # pabloe.gutierrezfonseca@gmail.com
