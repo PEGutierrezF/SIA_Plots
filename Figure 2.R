@@ -33,7 +33,7 @@ isotopes_new <- c(
 # Graph 
 
 Fig_isotopes_ecology <- ggplot(data = data, aes(x = sampling, y = value, group= stream, colour= stream)) + 
-  geom_line(size=1.2, linetype = "dotted") + 
+  geom_line(size=1, linetype = "dashed") + 
   geom_point(shape=19, size = 4.5)+
   geom_errorbar(aes(ymax=value+sd, ymin=value-sd), width = 0) +
 
@@ -46,7 +46,7 @@ Fig_isotopes_ecology <- ggplot(data = data, aes(x = sampling, y = value, group= 
   
 # line in discrete variable
   geom_vline(xintercept=seq(1.5, length(unique(data$stream))-0.5, 1), 
-             lwd=3, colour="#df65b0", linetype="solid", alpha=0.5) +
+             lwd=2.7, colour="#df65b0", linetype="solid", alpha=0.5) +
   
 # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
