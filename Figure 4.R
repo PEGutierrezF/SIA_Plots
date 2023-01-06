@@ -34,7 +34,7 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
                      labels = c("Prieta A", "Prieta B")) +
   
   # Label  
-  labs(x="Sampling event", y = "Layman's CWM", colour = "Stream") +
+  labs(x="Sampling event", y = "Value of Layman's CWM", colour = "Stream") +
   scale_x_discrete(labels = c("6mo\npre-", "2mo\npost-", "9mo\npost-", "18mo\npost-")) +  
   
   # line in discrete variable
@@ -49,7 +49,7 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
   
   # Mueve los margenes para que la legenda entre
   #  top (t), right (r), bottom (b), and left (l)
-  theme(axis.title.x = element_text(margin = margin(t = 15))) +
+  # theme(axis.title.x = element_text(margin = margin(t = 15))) +
   
   # Strip  
   theme(strip.placement = 'outside') +
@@ -70,14 +70,14 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
+  facet_wrap(~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
              scale = "free_y")                         
 
 Fig_4_ecology
 
 #Ecology format
 Fig_4_ecology + tiff(filename="D:/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
-                            height=5600,width=7200,units="px",res=800,compression="lzw")
+                            height=5000,width=7200,units="px",res=800,compression="lzw")
 
                          
                          
