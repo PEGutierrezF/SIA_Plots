@@ -20,7 +20,7 @@ df.data <- "data/data_laymanCWM.xlsx"
 excel_sheets(path = df.data)  
 df <- read_excel(path = df.data, sheet = "laymansCWM")
              
-# Second, reorganize
+# First, reorganize the sampling events
 df$sampling = factor(df$sampling, 
               levels=c('6mopre','2mopost','9mopost','18mopost'))
 
@@ -53,11 +53,11 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
   
   # Strip  
   theme(strip.placement = 'outside') +
-  theme(strip.switch.pad.grid = unit('0.25', "cm")) +
+  theme(strip.switch.pad.grid = unit('0.1', "cm")) +
   theme(strip.text.x = element_text(size = 14)) +
   theme(strip.text.y = element_text(size = 14)) +
   theme(strip.background = element_rect(colour="black", fill="gray90"),
-        strip.text = element_text(margin = margin(10, 10, 10, 10))) +
+        strip.text = element_text(margin = margin(5, 5, 5, 5))) +
   
   # Legend 
   theme(legend.key.size = unit(0.6, "cm"))+
@@ -70,7 +70,8 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  facet_wrap(~layman, scale = "free_y")                         
+  facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
+             scale = "free_y")                         
 
 Fig_4_ecology
 
