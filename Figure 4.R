@@ -20,19 +20,10 @@ df.data <- "data/data_laymanCWM.xlsx"
 excel_sheets(path = df.data)  
 df <- read_excel(path = df.data, sheet = "laymansCWM")
 
-# First, rename variables
-layman_n <-  c('NR' = "??15N range",
-  'CR' = "??13C range",
-  'TA' = "Total area",
-  'CD' = "Distance to Centroid",
-  'MNND' = "mean Nearest Neighbor distance",
-  'SDNND' = "SD of the nearest neighbor distance")
-
 
 # First, reorganize the sampling events
 df$sampling = factor(df$sampling, 
               levels=c('6mopre','2mopost','9mopost','18mopost'))
-
 
 
 Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=stream)) +
@@ -79,17 +70,13 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  facet_wrap(.~layman, scale = "free_y",
-             labeller = labeller(layman = as_labeller(layman_n))) 
+  facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
+             scale = "free_y") 
 
 
 
 Fig_4_ecology
 
-
-bueno
-facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
-           scale = "free_y") 
 #Ecology format
 Fig_4_ecology + tiff(filename="D:/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
                             height=5600,width=7200,units="px",res=800,compression="lzw")
