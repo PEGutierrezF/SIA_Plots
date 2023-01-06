@@ -17,13 +17,13 @@ rm(list = ls())
 
 
 
-libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork',
+libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork',"readxl", 
                'gridExtra',"cowplot",'HDInterval','ggridges')
 lapply(libraries, require, character.only = TRUE)
 
 
 library(tidyverse)
 library(HDInterval)
-install.packages('ggridges')
+install.packages('readxl')
 library(ggridges)
 
