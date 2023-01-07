@@ -71,7 +71,7 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
   facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
-             scale = "free_y", strip.position ="top")
+             scale = "free_y")
 
 
 Fig_4_ecology
