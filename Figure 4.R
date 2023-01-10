@@ -73,7 +73,6 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
   facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
              scale = "free_y")
 
-
 Fig_4_ecology
 
 #Ecology format
