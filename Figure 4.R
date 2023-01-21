@@ -19,7 +19,7 @@ rm(list = ls())
 df.data <- "data/data_laymanCWM.xlsx"
 excel_sheets(path = df.data)  
 df <- read_excel(path = df.data, sheet = "laymansCWM")
-
+df
 
 # First, reorganize the sampling events
 df$sampling = factor(df$sampling, 
