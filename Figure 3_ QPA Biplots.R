@@ -36,7 +36,7 @@ find_hull <- function(dataframe) {
 qpaF17_hull <- find_hull(QPA_Feb17) 
 qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 
-
+cc
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2) +
   geom_polygon(data=qpaF17_hull1, fill= "pink1", 
