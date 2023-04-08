@@ -28,6 +28,8 @@ QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                   "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPA_Feb17$taxa) 
 
+
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -36,11 +38,21 @@ find_hull <- function(dataframe) {
 qpaF17_hull <- find_hull(QPA_Feb17) 
 qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 
-cc
+# -----------------------------------------------------------------------
+
+# Polygon area ------------------------------------------------------------
+polygon_QPAFeb <- data.frame(x = c(-32.08,-32.08, -31.8804), 
+                             y = c(0.559, 17.4411, 0.559))
+polygon_QPAFeb
+# -------------------------------------------------------------------------
+
+# Plot
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2) +
-  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
+#               colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPAFeb, aes(x = x, y = y), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = expression(delta^{15}*"N (\211)"), fill = "Taxa") +
