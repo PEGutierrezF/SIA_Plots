@@ -40,7 +40,7 @@ qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 
 # -----------------------------------------------------------------------
 
-# Polygon area ------------------------------------------------------------
+# Food resources Polygon area -------------------------------------------
 polygon_QPAFeb <- data.frame(x = c(-31.2878,-31.8804, -31.2878,
                                    -31.2878,-31.8804,-30.6952,
                                    -30.6952, -31.2878, -31.2878,
@@ -148,6 +148,7 @@ QPA_Nov17$taxa <- factor(QPA_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPA_Nov17$taxa) 
 
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -155,7 +156,10 @@ find_hull <- function(dataframe) {
 }
 qpaN17_hull <- find_hull(QPA_Nov17) 
 
-# Polygon area ------------------------------------------------------------
+# -------------------------------------------------------------------------
+
+
+# Food resources Polygon area ------------------------------------------------------------
 polygon_QPA_Nov <- data.frame(x = c(-22.5013, -26.769, -22.5013,   
                                     -22.5013,-22.5013, -18.232, 
                                     -22.5013, -22.5013, -18.232,
@@ -251,7 +255,6 @@ QPANov17
 
 # # QPA June 2018 ---------------------------------------------------------
 
-
 QPA_June18 <- read.csv("Biplot/QPA_June18.csv")
 head(QPA_June18)
 
@@ -260,6 +263,7 @@ QPA_June18$taxa <- factor(QPA_June18$taxa, levels = c("Glossosomatidae", "Baetid
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPA_June18$taxa) 
 
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -267,12 +271,31 @@ find_hull <- function(dataframe) {
 }
 qpaJ18_hull <- find_hull(QPA_June18) 
 
+# -------------------------------------------------------------------------
+
+# Food resources Polygon area ------------------------------------------------------------
+polygon_QPA_Jun <- data.frame(x = c(-25.9788,-28.1843,-25.9788,
+                                    -25.9788,-23.7732,-25.9788,
+                                    -23.7732,-25.9788, -25.9788),
+                              
+                              y = c(13.850,10.13571, 10.13571,
+                                    13.850,10.13571, 10.13571, 
+                                    10.13571,6.421,10.13571),
+                              
+                              g=c('a','a','a', 'b','b','b',
+                                  'c','c','c' #'d','d','d',
+                                  #'d','d','d' 
+                                  ))
+polygon_QPA_Jun
+# -------------------------------------------------------------------------
 
 QPAJune18 <-  ggplot(QPA_June18, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpaJ18_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#  geom_polygon(data=qpaJ18_hull, fill= "pink1", 
+#               colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPA_Jun, aes(x = x, y = y, group=g), fill = "gray80", 
+             colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = "") +
@@ -448,7 +471,7 @@ p1 <- ggarrange(QPAFeb17, QPANov17, QPAJune18, QPAFeb19,
                 common.legend = TRUE, legend="bottom") +
   theme(plot.margin = margin(1,0.1,0.1,0.1, "cm")) # Increase area (margin) of the graph
 p1
-p1 + ggsave("Figure 3.jpg", width=11, height=6.5)
+p1 + ggsave("Figure 3b.jpg", width=11, height=6.5)
 
 
 # Incluir strips
@@ -477,7 +500,7 @@ p2 <- ggdraw(p1) +
 p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
 p3
 
-p3 + ggsave("Figure 3a.jpg", width=11, height=6.5)
+p3 + ggsave("Figure 3aa.jpg", width=11, height=6.5)
 #
 
 
