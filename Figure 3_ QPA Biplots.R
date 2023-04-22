@@ -506,7 +506,7 @@ p1
 p1 + ggsave("Figure 3b.jpg", width=11, height=6.5)
 
 
-# Incluir strips
+# Include strips
 p2 <- ggdraw(p1) + 
   geom_rect(aes(xmin=0.066, xmax=0.244, ymin=0.933, ymax=0.986), color = "black", alpha=0.2) +
   draw_label("6mo pre-", x = 0.16, y = 0.960, size = 14 ,fontface = "plain") +
