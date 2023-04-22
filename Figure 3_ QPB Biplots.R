@@ -133,8 +133,9 @@ QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N)) +
 QPBFeb17
 
 
-# QPB November 2017 -------------------------------------------------------
 
+# -------------------------------------------------------------------------
+# QPB November 2017 -------------------------------------------------------
 
 QPB_Nov17 <- read.csv("Biplot/QPB_Nov17.csv")
 head(QPB_Nov17)
@@ -144,6 +145,8 @@ QPB_Nov17$taxa <- factor(QPB_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Nov17$taxa) 
 
+
+# Laymans Polygon ---------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -151,12 +154,36 @@ find_hull <- function(dataframe) {
 }
 qpbN17_hull <- find_hull(QPB_Nov17) 
 
+# -------------------------------------------------------------------------
+# Food resources Polygon area -------------------------------------------
+polygon_QPB_Nov <- data.frame(x = c(-14.508,-24.4241,-14.508,
+                                    -14.508,-4.591,-14.508,
+                                    -4.591,-14.508,-14.508,
+                                    
+                                    -14.508, -32.104, -32.424,
+                                    -24.4241,-14.508),
+                              
+                              y = c(16.5156949, 10.3605,10.3605,
+                                    16.5156949, 10.3605,10.3605,
+                                    10.3605,4.205494871,10.3605,
+                                    
+                                    4.205494871,-0.620179384,-0.307820616,
+                                    10.3605,10.3605),
+                              
+                              g=c('a','a','a','b','b','b',
+                                  'c','c','c', 
+                                  'd','d','d','d','d'))
+polygon_QPB_Nov
+# -------------------------------------------------------------------------
+
 
 QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpbN17_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+  #  geom_polygon(data=qpbN17_hull, fill= "pink1", 
+  #               colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPB_Nov, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
@@ -186,16 +213,16 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N)) +
   geom_segment(aes(x=-27.40470835,xend=-27.49879165,yend=2.49425,y=2.49425), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
   geom_segment(aes(x=-27.45175,xend=-27.45175,yend=2.719578464,y=2.268921536), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -27.45175, y = 2.49425), shape=17,color = "turquoise3", size=5) +
-
+  
   geom_segment(aes(x=-4.591, xend=-24.4241,yend=10.3605,y=10.3605), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-14.508,xend=-14.508,yend=16.5156949,y=4.205494871), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# N algae
   geom_point(aes(x = -14.508, y = 10.3605), shape=19,color = "greenyellow", size=5)+
-    
+  
   # Axis Limits 
-   xlim(-45,1) +
-   ylim(-5,20) +
-
- # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  xlim(-45,1) +
+  ylim(-5,20) +
+  
+  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
   annotate("text", x = -7, y = 13, label = "Algae") +
@@ -223,17 +250,20 @@ QPBNov17 <-  ggplot(QPB_Nov17, aes(x=C, y=N)) +
 QPBNov17
 
 
-# QPB June 2018 -------------------------------------------------------
 
+# -------------------------------------------------------------------------
+# QPB June 2018 -------------------------------------------------------
 
 QPB_June18 <- read.csv("Biplot/QPB_June18.csv")
 head(QPB_June18)
 
 QPB_June18$taxa <- factor(QPB_June18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
-                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                      "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                      "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_June18$taxa)
 
+
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -241,12 +271,39 @@ find_hull <- function(dataframe) {
 }
 qpbJ18_hull <- find_hull(QPB_June18) 
 
+# -------------------------------------------------------------------------
+
+
+# Food resources Polygon area -------------------------------------------
+polygon_QPB_Jun <- data.frame(x = c(-23.22405591, -27.1850047001927,-23.22405591,
+                                    -23.22405591, -19.2631071177543,-23.22405591,
+                                    -19.2631071177543,-23.22405591,-23.22405591,
+                                    
+                                    -23.22405591,-30.22279365,-30.66570635,
+                                    -27.1850047001927,-23.22405591),
+                              
+                              y = c(33.10554446,21.86152524,21.86152524,
+                                    33.10554446,21.86152524,21.86152524,
+                                    21.86152524,10.61750602, 21.86152524,
+                                    
+                                    10.61750602,0.435379484,0.435379484,
+                                    21.86152524,21.86152524),
+                              
+                              g= c('a','a','a','b','b','b',
+                                   'c','c','c', 
+                                   'd','d','d','d','d'))
+polygon_QPB_Jun
+# -------------------------------------------------------------------------
+
 
 QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpbJ18_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+  #  geom_polygon(data=qpbJ18_hull, fill= "pink1", 
+  #               colour = "pink2",size = 0.5, alpha=.5) +
+  
+  geom_polygon(data = polygon_QPB_Jun, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
@@ -284,7 +341,7 @@ QPBJune18 <-  ggplot(QPB_June18, aes(x=C, y=N)) +
   xlim(-45,1) +
   ylim(-5,35) +
   
- # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
   annotate("text", x = -13, y = 25, label = "Algae") +
@@ -313,6 +370,7 @@ QPBJune18
 
 
 
+# -------------------------------------------------------------------------
 # QPB February 2019 -------------------------------------------------------
 
 
