@@ -147,11 +147,35 @@ find_hull <- function(dataframe) {
 }
 qpaN17_hull <- find_hull(QPA_Nov17) 
 
+# Polygon area ------------------------------------------------------------
+polygon_QPA_Nov <- data.frame(x = c(-22.5013, -26.769, -22.5013,   
+                                    -22.5013,-22.5013, -18.232, 
+                                    -22.5013, -22.5013, -18.232,
+                                    
+                                    -31.5665, -26.769,-22.5013,
+                                    -22.5013,-31.5665,-31.5665),
+                              
+                              y = c(4.864, 3.5359, 3.5359,
+                                    4.864, 3.5359, 3.5359,
+                                    3.5359, 2.2073, 3.5359,
+                                    
+                                    1.1411, 3.5359,3.5359,
+                                    2.2073, 0.7178, 1.1411), 
+                              
+                              g=c('a','a','a', 'b','b','b',
+                                  'c','c','c', 'd','d','d',
+                                  'd','d','d'))
+polygon_QPA_Nov
+# -------------------------------------------------------------------------
+
 
 QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3,stroke = 1.2) +
-  geom_polygon(data=qpaN17_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#  geom_polygon(data=qpaN17_hull, fill= "pink1", 
+#               colour = "pink2",size = 0.5, alpha=.5) +
+ 
+geom_polygon(data = polygon_QPA_Nov, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = "") +
