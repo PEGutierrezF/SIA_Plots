@@ -18,14 +18,12 @@ rm(list = ls())
 
 
 # QPA February 17 ---------------------------------------------------------
-
-
 QPA_Feb17 <- read.csv("Biplot/QPA_Feb17.csv")
 head(QPA_Feb17)
 
 QPA_Feb17$taxa <- factor(QPA_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
-                                                  "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                  "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                    "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPA_Feb17$taxa) 
 
 
@@ -62,31 +60,31 @@ polygon_QPAFeb
 # Plot
 QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2) +
-#  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
-#               colour = "pink2",size = 0.5, alpha=.5) +
+  #  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
+  #               colour = "pink2",size = 0.5, alpha=.5) +
   geom_polygon(data = polygon_QPAFeb, aes(x = x, y = y, group=g), fill = "gray80", 
                colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = expression(delta^{15}*"N (\211)"), fill = "Taxa") +
-#color
-      scale_colour_manual("Taxa",
-                        values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
-                                   "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
-                        labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
-                                   expression(italic("P. pulchrus")), "Libellulidae", 
-                                   expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                   expression(italic("M. crenulatum")), expression(italic("A. evermani")),
-                                   expression(italic("L. regnyi")))) +
-# shape
-    scale_shape_manual("Taxa",
-                       values=c(0,1,2,3,4,5,6,7,8,9,10,11),
-                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
-                                  expression(italic("P. pulchrus")), "Libellulidae", 
-                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                  expression(italic("M. crenulatum")), expression(italic("A. evermani")),
-                                  expression(italic("L. regnyi"))))  +
-# Segments  
+  #color
+  scale_colour_manual("Taxa",
+                      values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
+                                 "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
+                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                 expression(italic("P. pulchrus")), "Libellulidae", 
+                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("L. regnyi")))) +
+  # shape
+  scale_shape_manual("Taxa",
+                     values=c(0,1,2,3,4,5,6,7,8,9,10,11),
+                     labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                expression(italic("P. pulchrus")), "Libellulidae", 
+                                expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("L. regnyi"))))  +
+  # Segments  
   geom_segment(aes(x=-31.9041,xend=-32.2459,yend=0.559,y=0.559), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
   geom_segment(aes(x=-32.08,xend=-32.08,yend=0.8789,y=0.2401), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -32.075, y = 0.559), shape=15,color = "coral4", size=5)+ 
@@ -98,34 +96,34 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_segment(aes(x=-30.6952, xend=-31.8804,yend=11.27881,y=11.27881), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
   geom_segment(aes(x=-31.2878,xend=-31.2878,yend=17.4411,y=5.1166), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
   geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
-
-# Axis Limits 
+  
+  # Axis Limits 
   xlim(-43,-20) +
   ylim(-5,20) +
-    
-# Axis
+  
+  # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
   theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
-    
-#  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
+  
+  #  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
   annotate("text", x = -27, y = 12, label = "Algae") +
   annotate("text", x = -36, y = 7, label = "Biofilm") +
   annotate("text", x = -24, y = 5, label = "Leaf litter") +
   
-geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
+  geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
-# Legend    
+  # Legend    
   theme(legend.position = "none") +
   theme(legend.key=element_blank()) +
   theme(legend.text.align = 0) +
   theme(legend.title=element_text(size=16, face="bold")) + # legend title size
   theme(legend.text = element_text(color = "black", size = 14))+  #factor name 
-# Panel
+  # Panel
   theme(panel.grid.major = element_line(colour="gray95"), 
         panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
@@ -135,11 +133,8 @@ QPAFeb17
 
 
 
-
-
+# -------------------------------------------------------------------------
 # QPA November 2017 -------------------------------------------------------
-
-
 QPA_Nov17 <- read.csv("Biplot/QPA_Nov17.csv")
 head(QPA_Nov17)
 
@@ -253,7 +248,8 @@ QPANov17
 
 
 
-# # QPA June 2018 ---------------------------------------------------------
+# -------------------------------------------------------------------------
+# QPA June 2018 -----------------------------------------------------------
 
 QPA_June18 <- read.csv("Biplot/QPA_June18.csv")
 head(QPA_June18)
@@ -369,6 +365,7 @@ QPAJune18
 
 
 
+# -------------------------------------------------------------------------
 # QPA February 2019 -------------------------------------------------------
 QPA_Feb19 <- read.csv("Biplot/QPA_Feb19.csv")
 head(QPA_Feb19)

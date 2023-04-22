@@ -17,9 +17,8 @@ rm(list = ls())
 
 
 
+# -------------------------------------------------------------------------
 # QPB February 17 ---------------------------------------------------------
-
-
 QPB_Feb17 <- read.csv("Biplot/QPB_Feb17.csv")
 head(QPB_Feb17)
 
@@ -28,6 +27,7 @@ QPB_Feb17$taxa <- factor(QPB_Feb17$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Feb17$taxa) 
 
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -35,13 +35,37 @@ find_hull <- function(dataframe) {
 }
 qpbF17_hull <- find_hull(QPB_Feb17) 
 qpbF17_hull1 <- qpbF17_hull[-6,] # Exclude spider
+# -------------------------------------------------------------------------
+
+# Food resources Polygon area -------------------------------------------
+polygon_QPB_Feb <- data.frame(x = c(-41.0594,-47.8407,-41.0594,
+                                    -41.0594,-34.2780,-41.0594, 
+                                    -47.8407,-41.0594,-41.0594,
+                                    
+                                    -41.0594,-30.3005, -30.2554,
+                                    -34.2780, -41.0594),
+                              
+                             y = c(14.13489,9.446942,9.446942,
+                                   14.13489,9.446942,9.446942,
+                                   9.446942,4.758994,9.446942,
+                                   
+                                   4.758994,1.537445838,2.13925,
+                                   9.446942,9.446942),
+                             
+                             g=c('a','a','a','b','b','b',
+                                 'c','c','c', 
+                                 'd','d','d','d','d'))
+polygon_QPB_Feb
+# -------------------------------------------------------------------------
 
 
 QPBFeb17 <-  ggplot(QPB_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpbF17_hull1, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#    geom_polygon(data=qpbF17_hull1, fill= "pink1", 
+#                 colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPB_Feb, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = expression(delta^{15}*"N (\211)")) +
