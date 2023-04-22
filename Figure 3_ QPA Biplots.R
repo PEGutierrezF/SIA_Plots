@@ -41,13 +41,16 @@ qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 # -----------------------------------------------------------------------
 
 # Polygon area ------------------------------------------------------------
-polygon_QPAFeb <- data.frame(x = c(-31.2878,-31.2878,-31.9041,-32.2459, 
-                                   -31.2878,-30.6952, -31.2878,
-                                   -30.6952,-31.2878), 
+polygon_QPAFeb <- data.frame(x = c(-31.2878,-31.8804, -31.2878,
+                                   -31.2878,-31.8804,-30.6952,
+                                   -30.6952, -31.2878, -31.2878), 
                              
-                             y = c(17.4411, 5.1166, 0.559, 0.559, 
-                                   17.4411,11.27881, 11.27881,
-                                   11.27881,5.1166))
+                             y = c(17.4411, 11.27881, 11.27881,
+                                   17.4411, 11.27881,11.27881,
+                                   11.27881, 5.1166, 11.27881),
+                             
+                             g=c('a','a','a','b','b','b',
+                                 'c','c','c'))
 polygon_QPAFeb
 # -------------------------------------------------------------------------
 
@@ -56,7 +59,7 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2) +
 #  geom_polygon(data=qpaF17_hull1, fill= "pink1", 
 #               colour = "pink2",size = 0.5, alpha=.5) +
-  geom_polygon(data = polygon_QPAFeb, aes(x = x, y = y), fill = "gray80", 
+  geom_polygon(data = polygon_QPAFeb, aes(x = x, y = y, group=g), fill = "gray80", 
                colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
