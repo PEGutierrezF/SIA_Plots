@@ -373,7 +373,6 @@ QPBJune18
 # -------------------------------------------------------------------------
 # QPB February 2019 -------------------------------------------------------
 
-
 QPB_Feb19 <- read.csv("Biplot/QPB_Feb19.csv")
 head(QPB_Feb19)
 
@@ -382,6 +381,8 @@ QPB_Feb19$taxa <- factor(QPB_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae
                                                       "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPB_Feb19$taxa) 
 
+
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -389,11 +390,35 @@ find_hull <- function(dataframe) {
 }
 qpbF19_hull <- find_hull(QPB_Feb19) 
 
+# -------------------------------------------------------------------------
+
+
+
+# Food resources Polygon area -------------------------------------------
+polygon_QPB_Feb19 <- data.frame(x = c(-30.67231168, -34.15278073,-30.67231168,
+                                    -30.67231168, -27.19184263,-30.67231168,
+                                    
+                                    -34.15278073,-30.26828427,-27.07343146,
+                                    -27.19184263,-34.15278073),
+                              
+                              y = c(12.21237758,8.022895772,8.022895772,
+                                    12.21237758,8.022895772,8.022895772,
+                                    
+                                    8.022895772,0.593431458,3.183309524,
+                                    8.022895772,8.022895772),
+                              
+                              g= c('a','a','a','b','b','b',
+                                   'd','d','d','d','d'))
+polygon_QPB_Feb19
+# -------------------------------------------------------------------------
+
 QPBFeb19 <-  ggplot(QPB_Feb19, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpbF19_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#  geom_polygon(data=qpbF19_hull, fill= "pink1", 
+#               colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPB_Feb19, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x= expression(delta^{13}*"C (\211)"), y = "") +
