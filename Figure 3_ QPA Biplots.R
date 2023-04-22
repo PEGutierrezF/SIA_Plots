@@ -276,15 +276,21 @@ qpaJ18_hull <- find_hull(QPA_June18)
 # Food resources Polygon area ------------------------------------------------------------
 polygon_QPA_Jun <- data.frame(x = c(-25.9788,-28.1843,-25.9788,
                                     -25.9788,-23.7732,-25.9788,
-                                    -23.7732,-25.9788, -25.9788),
+                                    -23.7732,-25.9788, -25.9788,
+                              
+                                    -25.9788,-29.6746,-29.8854,
+                                    -28.1843,-25.9788, -25.9788),
                               
                               y = c(13.850,10.13571, 10.13571,
                                     13.850,10.13571, 10.13571, 
-                                    10.13571,6.421,10.13571),
+                                    10.13571,6.421,10.13571,
+                              
+                                    6.421, 3.676, 3.676,
+                                    10.13571, 10.13571, 6.421),
                               
                               g=c('a','a','a', 'b','b','b',
-                                  'c','c','c' #'d','d','d',
-                                  #'d','d','d' 
+                                  'c','c','c', 'd','d','d',
+                                  'd','d','d' 
                                   ))
 polygon_QPA_Jun
 # -------------------------------------------------------------------------
@@ -364,8 +370,6 @@ QPAJune18
 
 
 # QPA February 2019 -------------------------------------------------------
-
-
 QPA_Feb19 <- read.csv("Biplot/QPA_Feb19.csv")
 head(QPA_Feb19)
 
@@ -374,6 +378,8 @@ QPA_Feb19$taxa <- factor(QPA_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
 levels(QPA_Feb19$taxa) 
 
+
+# Layman Polygon ----------------------------------------------------------
 # Define hull area
 # Computes the subset of points which lie on the convex hull of the set of points specified.
 find_hull <- function(dataframe) {
@@ -381,11 +387,37 @@ find_hull <- function(dataframe) {
 }
 qpaF19_hull <- find_hull(QPA_Feb19) 
 
+# -------------------------------------------------------------------------
+
+# Food resources Polygon area ------------------------------------------------------------
+polygon_QPA_Feb18 <- data.frame(x = c(-26.844,-27.9095,-26.844,
+                                      -26.844,-25.7792,-26.844,
+                                      -25.7792,-26.844,-26.844,
+                                      
+                                      -26.844,-28.2969,-28.5964,
+                                      -27.9095,-26.844,-26.844),
+                              
+                              y = c(14.361,9.433,9.433,
+                                    14.361,9.433,9.433,
+                                    9.433, 4.505,9.433,
+                                    
+                                    4.505,1.153,1.153,
+                                    9.433, 9.433,4.505),
+                              
+                              g=c('a','a','a', 'b','b','b',
+                                  'c','c','c', 'd','d','d',
+                                  'd','d','d' 
+                              ))
+polygon_QPA_Feb18
+# -------------------------------------------------------------------------
+
 QPAFeb19 <-  ggplot(QPA_Feb19, aes(x=C, y=N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), 
              size=3,stroke = 1.2) +
-  geom_polygon(data=qpaF19_hull, fill= "pink1", 
-               colour = "pink2",size = 0.5, alpha=.5) +
+#  geom_polygon(data=qpaF19_hull, fill= "pink1", 
+#               colour = "pink2",size = 0.5, alpha=.5) +
+  geom_polygon(data = polygon_QPA_Feb18, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = "") +
