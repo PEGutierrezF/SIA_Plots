@@ -182,7 +182,7 @@ QPANov17 <-  ggplot(QPA_Nov17, aes(x=C, y=N)) +
 #               colour = "pink2",size = 0.5, alpha=.5) +
  
 geom_polygon(data = polygon_QPA_Nov, aes(x = x, y = y, group=g), fill = "gray80", 
-               colour = "gray80", size = 0.5, alpha = 0.5) +
+              colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label
   labs(x="", y = "") +
@@ -212,12 +212,12 @@ geom_polygon(data = polygon_QPA_Nov, aes(x = x, y = y, group=g), fill = "gray80"
   geom_segment(aes(x=-26.3198,xend=-26.3198,yend=3.03212,y=1.7938), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -26.3198, y = 2.413), shape=17,color = "turquoise3", size=5)+ 
   
-  geom_segment(aes(x=-18.232, xend=-26.769,yend=3.5359,y=3.5359), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-22.5013,xend=-22.50128,yend=4.864,y=2.2073), size=0.7,linetype='solid', color="black",arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_segment(aes(x=-13.96470099, xend=-31.03786873,yend=3.5359,y=3.5359), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-22.5013,xend=-22.50128,yend=6.193159675,y=0.878692151), size=0.7,linetype='solid', color="black",arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
   geom_point(aes(x = -22.5013, y = 3.5359), shape=19,color = "greenyellow", size=5)+ 
   
   # Axis Limits 
-  xlim(-43,-17) +
+  xlim(-43,-12) +
   ylim(-5,20) +
   
   #text
