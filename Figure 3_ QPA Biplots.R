@@ -39,17 +39,17 @@ qpaF17_hull1 <- qpaF17_hull[-6,] # Exclude spider
 # -----------------------------------------------------------------------
 
 # Food resources Polygon area -------------------------------------------
-polygon_QPAFeb <- data.frame(x = c(-31.2878,-31.8804, -31.2878,
-                                   -31.2878,-31.8804,-30.6952,
-                                   -30.6952, -31.2878, -31.2878,
+polygon_QPAFeb <- data.frame(x = c(-31.2878,-32.47305561, -31.2878,
+                                   -31.2878,-30.10257075,-31.2878,
+                                   -30.10257075, -31.2878, -31.2878,
                                    
-                                   -31.2878, -31.9041,-32.2459,-31.8804,-31.2878), 
+                                   -31.2878, -32.075,-32.41679916,-32.47305561,-31.2878), 
                              
-                             y = c(17.4411, 11.27881, 11.27881,
-                                   17.4411, 11.27881,11.27881,
-                                   11.27881, 5.1166, 11.27881,
+                             y = c(23.60339213, 11.27881, 11.27881,
+                                   23.60339213, 11.27881,11.27881,
+                                   11.27881, -1.045775726, 11.27881,
                                    
-                                   5.1166, 0.559, 0.559,11.27881, 11.27881),
+                             -1.045775726, -0.078829653, 0.559, 11.27881, 11.27881),
                              
                              g=c('a','a','a','b','b','b',
                                  'c','c','c',
@@ -85,21 +85,21 @@ QPAFeb17 <-  ggplot(QPA_Feb17, aes(x=C, y=N)) +
                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
-  geom_segment(aes(x=-31.9041,xend=-32.2459,yend=0.559,y=0.559), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
-  geom_segment(aes(x=-32.08,xend=-32.08,yend=0.8789,y=0.2401), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_segment(aes(x=-31.73320084,xend=-32.41679916,yend=0.559,y=0.559), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-32.08,xend=-32.08,yend=1.196829653,y=-0.078829653), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
   geom_point(aes(x = -32.075, y = 0.559), shape=15,color = "coral4", size=5)+ 
   
-  geom_segment(aes(x=-31.48,xend=-31.90,yend=6.06,y=6.06), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
-  geom_segment(aes(x=-31.69,xend=-31.69,yend=6.3904,y=5.7320), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_segment(aes(x=-31.26717346,xend=-32.11782654,yend=6.06,y=6.06), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-31.69,xend=-31.69,yend=6.719656916,y=5.402843084), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
   geom_point(aes(x = -31.69, y = 6.06), shape=17,color = "turquoise3", size=5)+ 
   
-  geom_segment(aes(x=-30.6952, xend=-31.8804,yend=11.27881,y=11.27881), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
-  geom_segment(aes(x=-31.2878,xend=-31.2878,yend=17.4411,y=5.1166), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_segment(aes(x=-30.10257075, xend=-32.47305561,yend=11.27881,y=11.27881), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-31.2878,xend=-31.2878,yend=23.60339213,y=-1.045775726), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
   geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
   
   # Axis Limits 
   xlim(-43,-20) +
-  ylim(-5,20) +
+  ylim(-5,25) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
