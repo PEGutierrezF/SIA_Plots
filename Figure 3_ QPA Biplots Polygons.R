@@ -2,24 +2,34 @@
 
 
 
+# ---------------------------------------------
+# Biplots for Quebrada Prieta A with Polygons
+# 27 Apr 2023
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
 
 
+
+# cleans global environment
+rm(list = ls())
 
 
 
 QPA_data <- "Biplot/QPA.xlsx"
 excel_sheets(path = QPA_data)
 
+
+
+# QPA February 17  --------------------------------------------------------
 qpa_Feb17 <- read_excel(path = QPA_data, sheet = "QPA_Feb17")  
-qpa_Feb17 <- qpa_Feb17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% 
-  na.omit()
-
-
+qpa_Feb17 <- qpa_Feb17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpa_Feb17$taxa <- factor(qpa_Feb17$taxa, 
                          levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
-                          "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                          "M. crenulatum", "A. evermani","L. regnyi"))
+                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                    "M. crenulatum", "A. evermani","L. regnyi"))
 levels(qpa_Feb17$taxa) 
 
 
@@ -91,8 +101,10 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
   geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
   
   # Axis Limits 
-  xlim(-50,-0) +
-  ylim(-5,35) +
+#  xlim(-40,-20) +
+#  ylim(-5,25) +
+  scale_x_continuous(breaks = seq(-40, -20, 5), limits = c(-43, -20)) +
+  scale_y_continuous(breaks = seq(-5, 25, 5), limits = c(-5, 25)) +
   
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
@@ -124,3 +136,115 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
 
 QPAFeb17
 
+
+
+# -------------------------------------------------------------------------
+# QPA November 2017 -------------------------------------------------------
+qpa_Nov17 <- read_excel(path = QPA_data, sheet = "QPA_Nov17")  
+qpa_Nov17 <- qpa_Nov17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
+
+qpa_Nov17$taxa <- factor(qpa_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+                                                    "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
+                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+levels(qpa_Nov17$taxa) 
+
+
+# Food resources Polygon area ------------------------------------------------------------
+polygon_QPA_Nov <- data.frame(x = c(-22.5013, -31.03786873, -22.5013,   
+                                    -22.5013,-13.96470099, -22.5013, 
+                                    -13.96470099, -22.5013,  -22.5013,
+                                    
+                              -22.5013, -31.5665,-31.98790875,
+                              -31.03786873,-22.5013),
+                              
+                              y = c(6.19315967, 3.5359, 3.5359,
+                                    6.19315967, 3.5359, 3.5359,
+                                    3.5359, 0.878692151, 3.5359,
+                                    
+                                    0.878692151, 0.506121525,0.9295,
+                                    3.5359, 3.5359), 
+                              
+                              g=c('a','a','a', 'b','b','b',
+                                  'c','c','c',
+                                  'd','d','d','d','d'))
+polygon_QPA_Nov
+# -------------------------------------------------------------------------
+
+
+QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
+  geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2)+ 
+  
+  # Error bars Taxa
+  geom_errorbarh(aes(xmin=mean_C - sd_C,
+                     xmax=mean_C + sd_C),
+                 height=0.2, size=0.5)+
+  geom_errorbar(aes(ymin=mean_N - sd_N,
+                    ymax=mean_N + sd_N),
+                width=0.2, size=0.5) +
+  # Polygons  
+  geom_polygon(data = polygon_QPA_Nov, aes(x = x, y = y, group=g), fill = "gray80", 
+               colour = "gray80", size = 0.5, alpha = 0.5) +
+  
+  # Axis label
+  labs(x="", y = "") +
+  #color
+  scale_colour_manual("Taxa",
+                      values = c("#276419", "#4d9221", "#b35806", "#fdb863", "#2166ac", 
+                                 "#D55E00", "#fdae61", "#f46d43", "#d73027", "#003c30", "#003c30"),
+                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                 expression(italic("P. pulchrus")), "Libellulidae", 
+                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("L. regnyi")))) +
+  # shape
+  scale_shape_manual("Taxa",
+                     values=c(0,1,2,3,4,5,6,7,8,9,10,11),
+                     labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
+                                expression(italic("P. pulchrus")), "Libellulidae", 
+                                expression(italic("X. elongata")), expression(italic("A. lanipes")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("L. regnyi"))))  +
+  # Segments  
+  geom_segment(aes(x=-31.14509125,xend=-31.98790875,yend=0.9295,y=0.9295), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
+  geom_segment(aes(x=-31.5665,xend=-31.5665,yend=1.352878475,y=0.506121525), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) + # N leaflitter
+  geom_point(aes(x = -31.5665, y = 0.9295), shape=15,color = "coral4", size=5)+ 
+  
+  geom_segment(aes(x=-26.22114135,xend=-26.41835865,yend=2.413,y=2.413), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90))+ # C biofilm
+  geom_segment(aes(x=-26.3198,xend=-26.3198,yend=3.651249302,y=1.174750698), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90))+ # N biofilm
+  geom_point(aes(x = -26.3198, y = 2.413), shape=17,color = "turquoise3", size=5)+ 
+  
+  geom_segment(aes(x=-13.96470099, xend=-31.03786873,yend=3.5359,y=3.5359), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both",angle = 90)) +# C algae
+  geom_segment(aes(x=-22.5013,xend=-22.50128,yend=6.193159675,y=0.878692151), size=0.7,linetype='solid', color="black",arrow = arrow(length = unit(0.1, "cm"),ends = "both", angle = 90)) +# algae
+  geom_point(aes(x = -22.5013, y = 3.5359), shape=19,color = "greenyellow", size=5)+ 
+  
+  # Axis Limits 
+#  xlim(-43,-12) +
+#  ylim(-5,20) +
+  scale_x_continuous(breaks = seq(-40, -13, 5), limits = c(-41, -13)) +
+  scale_y_continuous(breaks = seq(-5, 20, 5), limits = c(-5, 20)) +
+  
+  #text
+  annotate("text", x = -26, y = 7, label = "Algae") +
+  annotate("text", x = -35, y = 5, label = "Biofilm") +
+  annotate("text", x = -36, y = -4, label = "Leaf litter") +
+  
+  geom_segment(aes(x =-32, xend=-28,y = 4, yend = 3), # Biofilm
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
+  geom_segment(aes(x =-36, xend=-33,y = -3, yend = 0), # Leaf litter
+               arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
+  # Axis
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
+  # Legend    
+  theme(legend.position = "none") +
+  
+  # Panel
+  theme(panel.grid.major = element_line(colour="gray95"), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
+
+QPANov17
