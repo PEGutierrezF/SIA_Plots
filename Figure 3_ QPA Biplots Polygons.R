@@ -101,8 +101,8 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
   geom_point(aes(x = -31.2878, y = 11.27881), shape=19,color = "greenyellow", size=5)+ 
   
   # Axis Limits 
-#  xlim(-40,-20) +
-#  ylim(-5,25) +
+  #  xlim(-40,-20) +
+  #  ylim(-5,25) +
   scale_x_continuous(breaks = seq(-40, -20, 5), limits = c(-43, -20)) +
   scale_y_continuous(breaks = seq(-5, 25, 5), limits = c(-5, 25)) +
   
@@ -154,8 +154,8 @@ polygon_QPA_Nov <- data.frame(x = c(-22.5013, -31.03786873, -22.5013,
                                     -22.5013,-13.96470099, -22.5013, 
                                     -13.96470099, -22.5013,  -22.5013,
                                     
-                              -22.5013, -31.5665,-31.98790875,
-                              -31.03786873,-22.5013),
+                                    -22.5013, -31.5665,-31.98790875,
+                                    -31.03786873,-22.5013),
                               
                               y = c(6.19315967, 3.5359, 3.5359,
                                     6.19315967, 3.5359, 3.5359,
@@ -218,8 +218,8 @@ QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
   geom_point(aes(x = -22.5013, y = 3.5359), shape=19,color = "greenyellow", size=5)+ 
   
   # Axis Limits 
-#  xlim(-43,-12) +
-#  ylim(-5,20) +
+  #  xlim(-43,-12) +
+  #  ylim(-5,20) +
   scale_x_continuous(breaks = seq(-40, -13, 5), limits = c(-41, -13)) +
   scale_y_continuous(breaks = seq(-5, 20, 5), limits = c(-5, 20)) +
   
