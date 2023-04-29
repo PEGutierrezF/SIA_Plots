@@ -17,7 +17,7 @@ rm(list = ls())
 
 
 
-QPA_data <- "Biplot/QPA.xlsx"
+QPA_data <- "Biplot/QPA_cosumers_iso_signature.xlsx"
 excel_sheets(path = QPA_data)
 
 
@@ -253,7 +253,7 @@ QPANov17
 
 # -------------------------------------------------------------------------
 # QPA June 2018 -----------------------------------------------------------
-QPA_data <- "Biplot/QPA.xlsx"
+QPA_data <- "Biplot/QPA_cosumers_iso_signature.xlsx"
 excel_sheets(path = QPA_data)
 
 qpa_Jun18 <- read_excel(path = QPA_data, sheet = "QPA_Jun18")  
