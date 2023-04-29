@@ -218,7 +218,7 @@ QPBNov17 <- ggplot(qpb_Nov17, aes(x=mean_C, y=mean_N)) +
   # Axis Limits 
   #xlim(-45,1) +
   #ylim(-5,20) +
-  scale_x_continuous(breaks = seq(-40, 6, 5), limits = c(-43, 6)) +
+  scale_x_continuous(breaks = seq(-40, 6, 10), limits = c(-43, 6)) +
   scale_y_continuous(breaks = seq(-5, 23, 5), limits = c(-5, 23)) +
   
   # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
@@ -335,17 +335,17 @@ QPBJune18 <-  ggplot(qpb_Jun18, aes(x=mean_C, y=mean_N)) +
   # Axis Limits 
   #xlim(-45,1) +
   #ylim(-5,35) +
-  scale_x_continuous(breaks = seq(-40, 0, 5), limits = c(-43, 0)) +
-  scale_y_continuous(breaks = seq(-5, 45, 5), limits = c(-5, 45)) +
+  scale_x_continuous(breaks = seq(-40, -10, 5), limits = c(-43, -7)) +
+  scale_y_continuous(breaks = seq(-5, 45, 10), limits = c(-5, 45)) +
   
   # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
   annotate("text", x = -13, y = 25, label = "Algae") +
   annotate("text", x = -36, y = 10, label = "Biofilm") +
-  annotate("text", x = -10, y = -4, label = "Leaf litter") +
+  annotate("text", x = -15, y = -4, label = "Leaf litter") +
   
-  geom_segment(aes(x =-19, xend=-26,y = -3, yend = -1.25), # Leaf litter
+  geom_segment(aes(x =-22, xend=-27,y = -3, yend = -1.25), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   
   # Axis
