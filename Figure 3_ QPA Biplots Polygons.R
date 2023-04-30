@@ -367,17 +367,17 @@ QPAJune18
 
 # -------------------------------------------------------------------------
 # QPA February 2019 -------------------------------------------------------
-qpa_Feb18 <- read_excel(path = QPA_data, sheet = "QPA_Feb19")  
-qpa_Feb18 <- qpa_Feb18 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
+qpa_Feb19 <- read_excel(path = QPA_data, sheet = "QPA_Feb19")  
+qpa_Feb19 <- qpa_Feb19 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
-qpa_Feb18$taxa <- factor(qpa_Feb18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
+qpa_Feb19$taxa <- factor(qpa_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
                                                     "M. crenulatum", "A. evermani","L. regnyi"))
-levels(qpa_Feb18$taxa) 
+levels(qpa_Feb19$taxa) 
 
 
 # Food resources Polygon area ------------------------------------------------------------
-polygon_QPA_Feb18 <- data.frame(x = c(-26.844,-28.97460148,-26.844,
+polygon_QPA_Feb19 <- data.frame(x = c(-26.844,-28.97460148,-26.844,
                                       -26.844,-24.71418889,-26.844,
                                       -24.71418889,-26.844,-26.844,
                                       
@@ -393,10 +393,10 @@ polygon_QPA_Feb18 <- data.frame(x = c(-26.844,-28.97460148,-26.844,
                                 
                                 g=c('a','a','a', 'b','b','b',
                                     'c','c','c', 'd','d','d','d'))
-polygon_QPA_Feb18
+polygon_QPA_Feb19
 
 # -------------------------------------------------------------------------
-QPAFeb19 <-  ggplot(qpa_Feb18, aes(x=mean_C, y=mean_N)) +
+QPAFeb19 <-  ggplot(qpa_Feb19, aes(x=mean_C, y=mean_N)) +
   geom_point(aes(group=taxa, shape=taxa, colour=taxa), size=3 ,stroke = 1.2)+ 
   
   # Error bars Taxa
@@ -408,7 +408,7 @@ QPAFeb19 <-  ggplot(qpa_Feb18, aes(x=mean_C, y=mean_N)) +
                 width=0.2, size=0.5) +
   
   # Polygons
-  geom_polygon(data = polygon_QPA_Feb18, aes(x = x, y = y, group=g), fill = "gray80", 
+  geom_polygon(data = polygon_QPA_Feb19, aes(x = x, y = y, group=g), fill = "gray80", 
                colour = "gray80", size = 0.5, alpha = 0.5) +
   
   # Axis label

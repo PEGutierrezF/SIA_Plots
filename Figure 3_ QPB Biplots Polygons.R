@@ -224,7 +224,7 @@ QPBNov17 <- ggplot(qpb_Nov17, aes(x=mean_C, y=mean_N)) +
   # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
-  annotate("text", x = -7, y = 13, label = "Algae") +
+  annotate("text", x = -6.5, y = 14, label = "Algae") +
   annotate("text", x = -36, y = 5, label = "Biofilm") +
   annotate("text", x = -11, y = -3, label = "Leaf litter") +
   
