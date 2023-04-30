@@ -109,10 +109,10 @@ QPBFeb17 <- ggplot(qpb_Feb17, aes(x=mean_C, y=mean_N)) +
   
   #text
   annotate("text", x = -35, y = 12, label = "Algae") +
-  annotate("text", x = -26, y = 8, label = "Biofilm") +
+  annotate("text", x = -25.5, y = 8, label = "Biofilm") +
   annotate("text", x = -35, y = -4, label = "Leaf litter") +
   
-  geom_segment(aes(x =-30.5, xend=-33.5,y = 8, yend = 6), # Biofilm
+  geom_segment(aes(x =-30.5, xend=-33.5,y = 8, yend = 7), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   geom_segment(aes(x =-35, xend=-32,y = -3, yend = 0), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
@@ -341,8 +341,8 @@ QPBJune18 <-  ggplot(qpb_Jun18, aes(x=mean_C, y=mean_N)) +
   # theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
-  annotate("text", x = -13, y = 25, label = "Algae") +
-  annotate("text", x = -36, y = 10, label = "Biofilm") +
+  annotate("text", x = -13, y = 27, label = "Algae") +
+  annotate("text", x = -36, y = 10.5, label = "Biofilm") +
   annotate("text", x = -15, y = -4, label = "Leaf litter") +
   
   geom_segment(aes(x =-22, xend=-27,y = -3, yend = -1.25), # Leaf litter

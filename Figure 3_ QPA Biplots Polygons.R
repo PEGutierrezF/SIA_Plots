@@ -115,8 +115,8 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
   #  theme(axis.title.x=element_blank(),axis.text.x=element_blank()) +
   
   #text
-  annotate("text", x = -27, y = 12, label = "Algae") +
-  annotate("text", x = -36, y = 7, label = "Biofilm") +
+  annotate("text", x = -26.5, y = 12, label = "Algae") +
+  annotate("text", x = -36.5, y = 7, label = "Biofilm") +
   annotate("text", x = -24, y = 5, label = "Leaf litter") +
   
   geom_segment(aes(x =-26, xend=-30.5,y = 4, yend = 1.75), # Leaf litter
@@ -230,7 +230,7 @@ QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
   
   geom_segment(aes(x =-32, xend=-28,y = 4, yend = 3), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
-  geom_segment(aes(x =-36, xend=-33,y = -3, yend = 0), # Leaf litter
+  geom_segment(aes(x =-36, xend=-33,y = -3, yend = -0.5), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   # Axis
   theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
@@ -253,8 +253,6 @@ QPANov17
 
 # -------------------------------------------------------------------------
 # QPA June 2018 -----------------------------------------------------------
-QPA_data <- "Biplot/QPA_cosumers_iso_signature.xlsx"
-excel_sheets(path = QPA_data)
 
 qpa_Jun18 <- read_excel(path = QPA_data, sheet = "QPA_Jun18")  
 qpa_Jun18 <- qpa_Jun18 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
@@ -369,9 +367,6 @@ QPAJune18
 
 # -------------------------------------------------------------------------
 # QPA February 2019 -------------------------------------------------------
-QPA_data <- "Biplot/QPA.xlsx"
-excel_sheets(path = QPA_data)
-
 qpa_Feb18 <- read_excel(path = QPA_data, sheet = "QPA_Feb19")  
 qpa_Feb18 <- qpa_Feb18 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
