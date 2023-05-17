@@ -113,6 +113,16 @@ b1 <- ggplot(QPA_B_Nov17, aes(x = density, color = source, linetype = source,
 
 b1
 
+
+L_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Leaflitter")
+B_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Biofilm")
+A_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Algae")
+
+mean(L_B_QPA$density)
+mean(B_B_QPA$density)
+mean(A_B_QPA$density)
+
+
 # Chironomidae ----------------------------------------------------------------
 
 QPA_C_Nov17 <- read.csv("DensityPlots/QPANov17/03 QPA_Chrironomidae_Nov17.csv")
@@ -208,6 +218,14 @@ n1 <- ggplot(QPA_Nj_Nov17, aes(x = density, color = source, linetype = source,
         axis.title.y = element_text(size = 14))
 
 n1
+
+L_Nj_QPA <- QPA_Nj_Nov17 %>% filter(QPA_Nj_Nov17$source == "Leaflitter")
+B_Nj_QPA <- QPA_Nj_Nov17 %>% filter(QPA_Nj_Nov17$source == "Biofilm")
+A_Nj_QPA <- QPA_Nj_Nov17 %>% filter(QPA_Nj_Nov17$source == "Algae")
+
+mean(L_Nj_QPA$density)
+mean(B_Nj_QPA$density)
+mean(A_Nj_QPA$density)
 
 # Phylloicus ----------------------------------------------------------------
 
