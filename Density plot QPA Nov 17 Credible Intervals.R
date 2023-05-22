@@ -275,6 +275,14 @@ p1 <- ggplot(QPA_P_Nov17, aes(x = density, color = source, linetype = source,
 
 p1
 
+L_Ph_QPA <- QPA_P_Nov17 %>% filter(QPA_P_Nov17$source == "Leaflitter")
+B_Ph_QPA <- QPA_P_Nov17 %>% filter(QPA_P_Nov17$source == "Biofilm")
+A_Ph_QPA <- QPA_P_Nov17 %>% filter(QPA_P_Nov17$source == "Algae")
+
+mean(L_Ph_QPA$density) #hdi
+mean(B_Ph_QPA$density) #hdi
+mean(A_Ph_QPA$density) #hdi
+
 # Libellulidae ----------------------------------------------------------------
 
 QPA_L_Nov17 <- read.csv("DensityPlots/QPANov17/06 QPA_Libellulidae_Nov17.csv")
