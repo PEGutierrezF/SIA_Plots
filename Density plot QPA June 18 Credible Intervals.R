@@ -128,9 +128,9 @@ L_B_QPA <- QPA_B_June18 %>% filter(QPA_B_June18$source == "Leaflitter")
 B_B_QPA <- QPA_B_June18 %>% filter(QPA_B_June18$source == "Biofilm")
 A_B_QPA <- QPA_B_June18 %>% filter(QPA_B_June18$source == "Algae")
 
-hdi(L_B_QPA$density)
-hdi(B_B_QPA$density)
-hdi(A_B_QPA$density)
+mean(L_B_QPA$density) # hdi
+mean(B_B_QPA$density)# hdi
+mean(A_B_QPA$density)# hdi
 
 
 # Chironomidae (3) ----------------------------------------------------------------
@@ -229,6 +229,14 @@ n1 <- ggplot(QPA_Nj_June18, aes(x = density, color = source, linetype = source,
 
 n1
 
+
+L_Nj_QPA <- QPA_Nj_June18 %>% filter(QPA_Nj_June18$source == "Leaflitter")
+B_Nj_QPA <- QPA_Nj_June18 %>% filter(QPA_Nj_June18$source == "Biofilm")
+A_Nj_QPA <- QPA_Nj_June18 %>% filter(QPA_Nj_June18$source == "Algae")
+
+mean(L_Nj_QPA$density) #hdi
+mean(B_Nj_QPA$density)#hdi
+mean(A_Nj_QPA$density)#hdi
 
 # Phylloicus (5) ----------------------------------------------------------------
 
