@@ -20,36 +20,18 @@ rm(list = ls())
 envi.data <- "data/physicochemical_data_2017_2019.xlsx"
 excel_sheets(path = envi.data)  
 data <- read_excel(path = envi.data, sheet = "environmental_var")
-# Convert the 'value' column to numeric
-data$value <- as.numeric(data$value)
 data
-
 
 # Discharge ---------------------------------------------------------------
 
-data <- read.csv("data/physicochemical_data.csv")
+# data <- read.csv("data/physicochemical_data.csv")
 discharge <- data[1:1762,]
 
+# Convert the 'value' column to numeric
+data$value <- as.numeric(data$value)
 discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(discharge)
 tail(discharge)
-
-
-
-# Create the ggplot
- ggplot(data, aes(x = date, y = value, color = stream)) +
-  geom_line(size = 0.8) + 
-  scale_color_manual(values = c("Prieta A" = '#ce1256', "Prieta B" = '#0570b0')) +
-  scale_y_continuous(labels = scales::number_format(accuracy = 0.01)) +
-  labs(x = "", y = "Water level (m)", color = 'Stream') +
-  labs(tag = "A") +
-  theme_bw() +
-  theme(legend.position = "none") +
-  theme(axis.title.x = element_text(size = 12, angle = 0)) +
-  theme(axis.title.y = element_text(size = 12, angle = 90)) +
-  theme(axis.text.x = element_text(angle = 0, size = 10, vjust = 0.5, color = "black")) +
-  theme(axis.text.y = element_text(angle = 0, size = 10, vjust = 0.5, color = "black"))
-
 
 
  d <-  ggplot(discharge, aes(x=date, y=value, color = factor(stream, labels = c("Prieta A", "Prieta B")))) +
@@ -94,7 +76,7 @@ tail(discharge)
 
 # Canopy cover ------------------------------------------------------------
 
-data <- read.csv("data/physicochemical_data.csv")
+# data <- read.csv("data/physicochemical_data.csv")
 canopy <- slice(data, (1763:1814))
 canopy$date <-as.POSIXct(canopy$date,"%Y-%m-%d",tz = "UTC")
 head(canopy)
@@ -142,7 +124,7 @@ c1
 
 # Leaf litter -------------------------------------------------------------
 
-data <- read.csv("data/physicochemical_data.csv")
+# data <- read.csv("data/physicochemical_data.csv")
 leaf <- slice(data, (1815:1930))
 leaf$date <-as.POSIXct(leaf$date,"%Y-%m-%d",tz = "UTC")
 head(leaf)
@@ -244,7 +226,7 @@ ch1
 
 # BOM ---------------------------------------------------------------------
 
-data <- read.csv("data/physicochemical_data.csv")
+# data <- read.csv("data/physicochemical_data.csv")
 BOM <- slice(data, (1991:2050))
 BOM$date <-as.POSIXct(BOM$date,"%Y-%m-%d",tz = "UTC")
 head(BOM)
