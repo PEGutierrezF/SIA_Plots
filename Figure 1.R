@@ -15,6 +15,13 @@
 # cleans global environment
 rm(list = ls())
 
+
+# Read as excel .xlsx file
+data <- read_excel("data/physicochemical_data_2017_2019.xlsx", 
+                   sheet = "environmental_var", na = '')
+
+
+
 # Discharge ---------------------------------------------------------------
 
 data <- read.csv("data/physicochemical_data.csv")
