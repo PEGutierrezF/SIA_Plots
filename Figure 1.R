@@ -176,12 +176,12 @@ l1
 
 # Chlorophyl -a  -------------------------------------------------------------
 
-data <- read.csv("data/physicochemical_data.csv")
 chla <- slice(data, (1931:1990))
 chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
 tail(chla)
 
+data$value <- as.numeric(data$value)
 chla$sd = as.numeric(chla$sd)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
