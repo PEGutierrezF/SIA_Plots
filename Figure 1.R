@@ -15,20 +15,13 @@
 # cleans global environment
 rm(list = ls())
 
-
-
-envi.data <- "data/physicochemical_data_2017_2019.xlsx"
-excel_sheets(path = envi.data)  
-data <- read_excel(path = envi.data, sheet = "environmental_var")
-data
-
 # Discharge ---------------------------------------------------------------
 
-# data <- read.csv("data/physicochemical_data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 discharge <- data[1:1762,]
 
 # Convert the 'value' column to numeric
-data$value <- as.numeric(data$value)
+#data$value <- as.numeric(data$value)
 discharge$date <-as.POSIXct(discharge$date,"%Y-%m-%d",tz = "UTC")
 head(discharge)
 tail(discharge)
@@ -76,14 +69,14 @@ tail(discharge)
 
 # Canopy cover ------------------------------------------------------------
 
-# data <- read.csv("data/physicochemical_data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 canopy <- slice(data, (1763:1814))
 canopy$date <-as.POSIXct(canopy$date,"%Y-%m-%d",tz = "UTC")
 head(canopy)
 tail(canopy)
 
 canopy$sd = as.numeric(canopy$sd)
-
+class(canopy$sd)
 c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   geom_line(size=0.8) + 
   scale_color_manual(values=c('#ce1256','#0570b0'))+
@@ -124,7 +117,7 @@ c1
 
 # Leaf litter -------------------------------------------------------------
 
-# data <- read.csv("data/physicochemical_data.csv")
+data <- read.csv("data/physicochemical_data.csv")
 leaf <- slice(data, (1815:1930))
 leaf$date <-as.POSIXct(leaf$date,"%Y-%m-%d",tz = "UTC")
 head(leaf)
@@ -181,7 +174,6 @@ chla$date <-as.POSIXct(chla$date,"%Y-%m-%d",tz = "UTC")
 head(chla)
 tail(chla)
 
-data$value <- as.numeric(data$value)
 chla$sd = as.numeric(chla$sd)
 
 ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
