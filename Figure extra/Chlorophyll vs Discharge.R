@@ -2,9 +2,14 @@
 
 
 
-
-
-
+# ---------------------------------------------
+# Correlation between Discharge and Chlorophyll
+# This correlation was made to address a comment from the Reviewer and Editor.
+# 30 Jul 2023
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
 
 
 
@@ -30,13 +35,14 @@ discharge <- discharge %>% # Select Prieta A
 chla_QPA <- slice(data, (1931:1960)) # Select Chlorophyll
 
 merged_df <- merge(chla_QPA, discharge, by = "date") # Merge both dataframe by date
+head(merged_df)
 
-
+# Correlation
 merged_df$value.x <- as.numeric(as.character(merged_df$value.x))
-shapiro.test(merged_df$value.x)
+shapiro.test(merged_df$value.x) # Normal
 
 merged_df$value.y <- as.numeric(as.character(merged_df$value.y))
-shapiro.test(merged_df$value.y)
+shapiro.test(merged_df$value.y) # Non-normal
 
 merged_df <- na.omit(merged_df)
 # Calculate Spearman's rank correlation
@@ -57,8 +63,8 @@ ggscatter(merged_df, x = "value.y", y = "value.x",
 # Prieta B:  Chlorophyll vs Discharge -------------------------------------
 
 discharge <- data[1:1762,] # Select Discharge
-discharge <- discharge %>% # Select Prieta A
-  filter(stream=="QPA")
+discharge <- discharge %>% # Select Prieta B
+  filter(stream=="QPB")
 
 chla_QPB <- slice(data, (1961:1990)) # Select Chlorophyll
 tail(chla_QPB)
