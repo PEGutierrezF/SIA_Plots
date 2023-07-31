@@ -379,17 +379,17 @@ l1
 
 
 
-L_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Leaflitter")
-B_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Biofilm")
-A_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Algae")
+L_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Leaflitter")
+B_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Biofilm")
+A_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Algae")
 
-round(hdi(L_Ph_QPA$density),2)
-round(hdi(B_Ph_QPA$density),2)
-round(hdi(A_Ph_QPA$density),2)
+round(hdi(L_L_QPA$density),2)
+round(hdi(B_L_QPA$density),2)
+round(hdi(A_L_QPA$density),2)
 
-round(mean(L_Ph_QPA$density),2)
-round(mean(B_Ph_QPA$density),2)
-round(mean(A_Ph_QPA$density),2)
+round(mean(L_L_QPA$density),2)
+round(mean(B_L_QPA$density),2)
+round(mean(A_L_QPA$density),2)
 
 # Xiphocaris ----------------------------------------------------------------
 
@@ -444,13 +444,13 @@ L_x_QPA <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Leaflitter")
 B_x_QPA <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Biofilm")
 A_x_QPA <- QPA_X_Feb17 %>% filter(QPA_X_Feb17$source == "Algae")
 
-hdi(L_x_QPA$density)
-hdi(B_x_QPA$density)
-hdi(A_x_QPA$density)
+round(hdi(L_x_QPA$density),2)
+round(hdi(B_x_QPA$density),2)
+round(hdi(A_x_QPA$density),2)
 
-hdi(L_x_QPA$density)
-hdi(B_x_QPA$density)
-hdi(A_x_QPA$density)
+round(mean(L_x_QPA$density),2)
+round(mean(B_x_QPA$density),2)
+round(mean(A_x_QPA$density),2)
 
 # Atya ----------------------------------------------------------------
 
@@ -500,6 +500,19 @@ a1 <- ggplot(QPA_A_Feb17, aes(x = density, color = source, linetype =source,
         axis.title.y = element_text(size = 14))
 
 a1
+
+L_A_QPA <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Leaflitter")
+B_A_QPA <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Biofilm")
+A_A_QPA <- QPA_A_Feb17 %>% filter(QPA_A_Feb17$source == "Algae")
+
+round(hdi(L_A_QPA$density),2)
+round(hdi(B_A_QPA$density),2)
+round(hdi(A_A_QPA$density),2)
+
+round(mean(L_A_QPA$density),2)
+round(mean(B_A_QPA$density),2)
+round(mean(A_A_QPA$density),2)
+
 
 # Macrobrachium ----------------------------------------------------------------
 
