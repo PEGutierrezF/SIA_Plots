@@ -563,6 +563,20 @@ m1 <- ggplot(QPA_M_Feb17, aes(x = density, color = source, linetype =source,
 
 m1
 
+
+L_M_QPA <- QPA_M_Feb17 %>% filter(QPA_M_Feb17$source == "Leaflitter")
+B_M_QPA <- QPA_M_Feb17 %>% filter(QPA_M_Feb17$source == "Biofilm")
+A_M_QPA <- QPA_M_Feb17 %>% filter(QPA_M_Feb17$source == "Algae")
+
+round(hdi(L_M_QPA$density),2)
+round(hdi(B_M_QPA$density),2)
+round(hdi(A_M_QPA$density),2)
+
+round(mean(L_M_QPA$density),2)
+round(mean(B_M_QPA$density),2)
+round(mean(A_M_QPA$density),2)
+
+
 # Anolis ------------------------------------------------------------------
 
 QPA_An_Feb17 <- read.csv("DensityPlots/QPAFeb17/10 QPA_Anolis_Feb17.csv")
@@ -614,6 +628,19 @@ an1 <- ggplot(QPA_An_Feb17, aes(x = density, color = source, linetype = source,
         axis.title.y = element_text(size = 14))
 
 an1
+
+
+L_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Leaflitter")
+B_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Biofilm")
+A_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Algae")
+
+round(hdi(L_An_QPA$density),2)
+round(hdi(B_An_QPA$density),2)
+round(hdi(A_An_QPA$density),2)
+
+round(mean(L_An_QPA$density),2)
+round(mean(B_An_QPA$density),2)
+round(mean(A_An_QPA$density),2)
 
 
 
