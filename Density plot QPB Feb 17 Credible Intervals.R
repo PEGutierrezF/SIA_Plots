@@ -66,13 +66,18 @@ g1 <- ggplot(QPB_G_Feb17, aes(x = density, color = source, linetype = source,
 
 g1
 
-L_G_QPA <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Leaflitter")
-B_G_QPA <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Biofilm")
-A_G_QPA <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Algae")
 
-hdi(L_G_QPA$density)
-hdi(B_G_QPA$density)
-hdi(A_G_QPA$density)
+L_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Leaflitter")
+B_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Biofilm")
+A_G_QPB <- QPB_G_Feb17 %>% filter(QPB_G_Feb17$source == "Algae")
+
+round(hdi(L_G_QPB$density),2)
+round(hdi(B_G_QPB$density),2)
+round(hdi(A_G_QPB$density),2)
+
+round(mean(L_G_QPB$density),2)
+round(mean(B_G_QPB$density),2)
+round(mean(A_G_QPB$density),2)
 
 # Baetidae (2) ----------------------------------------------------------------
 
@@ -122,13 +127,19 @@ b1 <- ggplot(QPB_B_Feb17, aes(x = density, color = source, linetype = source,
 
 b1
 
-L_B_QPA <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Leaflitter")
-B_B_QPA <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Biofilm")
-A_B_QPA <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Algae")
 
-hdi(L_B_QPA$density)
-hdi(B_B_QPA$density)
-hdi(A_B_QPA$density)
+
+L_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Leaflitter")
+B_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Biofilm")
+A_B_QPB <- QPB_B_Feb17 %>% filter(QPB_B_Feb17$source == "Algae")
+
+round(hdi(L_B_QPB$density),2)
+round(hdi(B_B_QPB$density),2)
+round(hdi(A_B_QPB$density),2)
+
+round(mean(L_B_QPB$density),2)
+round(mean(B_B_QPB$density),2)
+round(mean(A_B_QPB$density),2)
 
 
 # Chironomidae (3) ----------------------------------------------------------------
@@ -180,6 +191,20 @@ c1 <- ggplot(QPB_C_Feb17, aes(x = density, color = source, linetype = source,
 
 c1
 
+
+L_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Leaflitter")
+B_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Biofilm")
+A_C_QPB <- QPB_C_Feb17 %>% filter(QPB_C_Feb17$source == "Algae")
+
+round(hdi(L_C_QPB$density),2)
+round(hdi(B_C_QPB$density),2)
+round(hdi(A_C_QPB$density),2)
+
+round(mean(L_C_QPB$density),2)
+round(mean(B_C_QPB$density),2)
+round(mean(A_C_QPB$density),2)
+
+
 # Njulio ----------------------------------------------------------------
 
 QPB_Nj_Feb17 <- read.csv("DensityPlots/QPB_Feb17/04 QPB_Njulio_Feb17.csv")
@@ -227,6 +252,20 @@ n1 <- ggplot(QPB_Nj_Feb17, aes(x = density, color = source, linetype = source,
         axis.title.y = element_text(size = 14))
 
 n1
+
+
+L_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Leaflitter")
+B_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Biofilm")
+A_Nj_QPA <- QPA_Nj_Feb17 %>% filter(QPA_Nj_Feb17$source == "Algae")
+
+round(hdi(L_Nj_QPA$density),2)
+round(hdi(B_Nj_QPA$density),2)
+round(hdi(A_Nj_QPA$density),2)
+
+round(mean(L_Nj_QPA$density),2)
+round(mean(B_Nj_QPA$density),2)
+round(mean(A_Nj_QPA$density),2)
+
 
 # Phylloicus (5) ----------------------------------------------------------------
 
