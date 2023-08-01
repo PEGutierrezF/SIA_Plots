@@ -315,7 +315,6 @@ p1 <- ggplot(QPA_P_Feb17, aes(x = density, color = source, linetype =source,
 
 p1
 
-
 L_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Leaflitter")
 B_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Biofilm")
 A_Ph_QPA <- QPA_P_Feb17 %>% filter(QPA_P_Feb17$source == "Algae")
@@ -376,8 +375,6 @@ l1 <- ggplot(QPA_L_Feb17, aes(x = density, color = source, linetype =source,
         axis.title.y = element_text(size = 14))
 
 l1
-
-
 
 L_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Leaflitter")
 B_L_QPA <- QPA_L_Feb17 %>% filter(QPA_L_Feb17$source == "Biofilm")
