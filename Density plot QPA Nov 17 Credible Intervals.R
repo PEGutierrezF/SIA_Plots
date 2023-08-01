@@ -64,6 +64,18 @@ g1 <- ggplot(QPA_G_Nov17, aes(x = density, color = source, linetype = source,
 
 g1
 
+L_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Leaflitter")
+B_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Biofilm")
+A_G_QPA <- QPA_G_Nov17 %>% filter(QPA_G_Nov17$source == "Algae")
+
+round(hdi(L_G_QPA$density),2)
+round(hdi(B_G_QPA$density),2)
+round(hdi(A_G_QPA$density),2)
+
+round(mean(L_G_QPA$density),2)
+round(mean(B_G_QPA$density),2)
+round(mean(A_G_QPA$density),2)
+
 
 # Baetidae ----------------------------------------------------------------
 
@@ -118,10 +130,13 @@ L_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Leaflitter")
 B_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Biofilm")
 A_B_QPA <- QPA_B_Nov17 %>% filter(QPA_B_Nov17$source == "Algae")
 
-mean(L_B_QPA$density)
-mean(B_B_QPA$density)
-mean(A_B_QPA$density)
+round(hdi(L_B_QPA$density),2)
+round(hdi(B_B_QPA$density),2)
+round(hdi(A_B_QPA$density),2)
 
+round(mean(L_B_QPA$density),2)
+round(mean(B_B_QPA$density),2)
+round(mean(A_B_QPA$density),2)
 
 # Chironomidae ----------------------------------------------------------------
 
