@@ -65,13 +65,17 @@ g1 <- ggplot(QPB_G_June18, aes(x = density, color = source, linetype = source,
 
 g1
 
-L_G_QPA <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Leaflitter")
-B_G_QPA <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Biofilm")
-A_G_QPA <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Algae")
+A_G_QPB <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Algae")
+B_G_QPB <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Biofilm")
+L_G_QPB <- QPB_G_June18 %>% filter(QPB_G_June18$source == "Leaflitter")
 
-hdi(L_G_QPA$density)
-hdi(B_G_QPA$density)
-hdi(A_G_QPA$density)
+round(hdi(A_G_QPB$density),2)
+round(hdi(B_G_QPB$density),2)
+round(hdi(L_G_QPB$density),2)
+
+round(mean(A_G_QPB$density),2)
+round(mean(B_G_QPB$density),2)
+round(mean(L_G_QPB$density),2)
 
 
 # Baetidae (2) ----------------------------------------------------------------
@@ -122,13 +126,17 @@ b1 <- ggplot(QPB_B_June18, aes(x = density, color = source, linetype = source,
 
 b1
 
-L_B_QPA <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Leaflitter")
-B_B_QPA <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Biofilm")
-A_B_QPA <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Algae")
+A_B_QPB <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Algae")
+B_B_QPB <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Biofilm")
+L_B_QPB <- QPB_B_June18 %>% filter(QPB_B_June18$source == "Leaflitter")
 
-hdi(L_B_QPA$density)
-hdi(B_B_QPA$density)
-hdi(A_B_QPA$density)
+round(hdi(A_B_QPB$density),2)
+round(hdi(B_B_QPB$density),2)
+round(hdi(L_B_QPB$density),2)
+
+round(mean(A_B_QPB$density),2)
+round(mean(B_B_QPB$density),2)
+round(mean(L_B_QPB$density),2)
 
 
 # Chironomidae (3) ----------------------------------------------------------------
@@ -179,6 +187,17 @@ c1 <- ggplot(QPB_C_June18, aes(x = density, color = source, linetype = source,
 
 c1
 
+A_C_QPB <- QPB_C_June18 %>% filter(QPB_C_June18$source == "Algae")
+B_C_QPB <- QPB_C_June18 %>% filter(QPB_C_June18$source == "Biofilm")
+L_C_QPB <- QPB_C_June18 %>% filter(QPB_C_June18$source == "Leaflitter")
+
+round(hdi(A_C_QPB$density),2)
+round(hdi(B_C_QPB$density),2)
+round(hdi(L_C_QPB$density),2)
+
+round(mean(A_C_QPB$density),2)
+round(mean(B_C_QPB$density),2)
+round(mean(L_C_QPB$density),2)
 
 # Njulio (4) ----------------------------------------------------------------
 
@@ -228,6 +247,17 @@ n1 <- ggplot(QPB_Nj_June18, aes(x = density, color = source, linetype = source,
 
 n1
 
+A_Nj_QPB <- QPB_Nj_June18 %>% filter(QPB_Nj_June18$source == "Algae")
+B_Nj_QPB <- QPB_Nj_June18 %>% filter(QPB_Nj_June18$source == "Biofilm")
+L_Nj_QPB <- QPB_Nj_June18 %>% filter(QPB_Nj_June18$source == "Leaflitter")
+
+round(hdi(A_Nj_QPB$density),2)
+round(hdi(B_Nj_QPB$density),2)
+round(hdi(L_Nj_QPB$density),2)
+
+round(mean(A_Nj_QPB$density),2)
+round(mean(B_Nj_QPB$density),2)
+round(mean(L_Nj_QPB$density),2)
 
 # Phylloicus (5) ----------------------------------------------------------------
 
@@ -277,6 +307,17 @@ p1 <- ggplot(QPB_P_June18, aes(x = density, color = source, linetype = source,
 
 p1
 
+A_Ph_QPB <- QPB_P_June18 %>% filter(QPB_P_June18$source == "Algae")
+B_Ph_QPB <- QPB_P_June18 %>% filter(QPB_P_June18$source == "Biofilm")
+L_Ph_QPB <- QPB_P_June18 %>% filter(QPB_P_June18$source == "Leaflitter")
+
+round(hdi(A_Ph_QPB$density),2)
+round(hdi(B_Ph_QPB$density),2)
+round(hdi(L_Ph_QPB$density),2)
+
+round(mean(A_Ph_QPB$density),2)
+round(mean(B_Ph_QPB$density),2)
+round(mean(L_Ph_QPB$density),2)
 
 # Libellulidae (6) ----------------------------------------------------------------
 
@@ -326,6 +367,18 @@ l1 <- ggplot(QPB_L_June18, aes(x = density, color = source, linetype = source,
 
 l1
 
+A_L_QPB <- QPB_L_June18 %>% filter(QPB_L_June18$source == "Algae")
+B_L_QPB <- QPB_L_June18 %>% filter(QPB_L_June18$source == "Biofilm")
+L_L_QPB <- QPB_L_June18 %>% filter(QPB_L_June18$source == "Leaflitter")
+
+round(hdi(A_L_QPB$density),2)
+round(hdi(B_L_QPB$density),2)
+round(hdi(L_L_QPB$density),2)
+
+round(mean(A_L_QPB$density),2)
+round(mean(B_L_QPB$density),2)
+round(mean(L_L_QPB$density),2)
+
 # Xyphocarys (7) ----------------------------------------------------------------
 
 QPB_X_June18 <- read.csv("DensityPlots/QPB_June18/07 QPB_Xyphocaris_June18.csv")
@@ -374,6 +427,18 @@ x1 <- ggplot(QPB_X_June18, aes(x = density, color = source, linetype = source,
 
 x1
 
+A_x_QPB <- QPB_X_June18 %>% filter(QPB_X_June18$source == "Algae")
+B_x_QPB <- QPB_X_June18 %>% filter(QPB_X_June18$source == "Biofilm")
+L_x_QPB <- QPB_X_June18 %>% filter(QPB_X_June18$source == "Leaflitter")
+
+round(hdi(A_x_QPB$density),2)
+round(hdi(B_x_QPB$density),2)
+round(hdi(L_x_QPB$density),2)
+
+round(mean(A_x_QPB$density),2)
+round(mean(B_x_QPB$density),2)
+round(mean(L_x_QPB$density),2)
+
 # Atya (8) ----------------------------------------------------------------
 
 QPB_A_June18 <- read.csv("DensityPlots/QPB_June18/08 QPB_Atya_June18.csv")
@@ -421,6 +486,18 @@ a1 <- ggplot(QPB_A_June18, aes(x = density, color = source, linetype = source,
         axis.title.y = element_text(size = 14))
 
 a1
+
+A_A_QPB <- QPB_A_June18 %>% filter(QPB_A_June18$source == "Algae")
+B_A_QPB <- QPB_A_June18 %>% filter(QPB_A_June18$source == "Biofilm")
+L_A_QPB <- QPB_A_June18 %>% filter(QPB_A_June18$source == "Leaflitter")
+
+round(hdi(A_A_QPB$density),2)
+round(hdi(B_A_QPB$density),2)
+round(hdi(L_A_QPB$density),2)
+
+round(mean(A_A_QPB$density),2)
+round(mean(B_A_QPB$density),2)
+round(mean(L_A_QPB$density),2)
 
 
 # Macrobrachium (9) ----------------------------------------------------------------
@@ -471,6 +548,19 @@ m1 <- ggplot(QPB_M_June18, aes(x = density, color = source, linetype = source,
 
 m1
 
+A_M_QPB <- QPB_M_June18 %>% filter(QPB_M_June18$source == "Algae")
+B_M_QPB <- QPB_M_June18 %>% filter(QPB_M_June18$source == "Biofilm")
+L_M_QPB <- QPB_M_June18 %>% filter(QPB_M_June18$source == "Leaflitter")
+
+round(hdi(A_M_QPB$density),2)
+round(hdi(B_M_QPB$density),2)
+round(hdi(L_M_QPB$density),2)
+
+round(mean(A_M_QPB$density),2)
+round(mean(B_M_QPB$density),2)
+round(mean(L_M_QPB$density),2)
+
+
 # Anolis (10) ------------------------------------------------------------------
 
 QPB_An_June18 <- read.csv("DensityPlots/QPB_June18/10 QPB_Anolis_June18.csv")
@@ -520,9 +610,21 @@ an1 <- ggplot(QPB_An_June18, aes(x = density, color = source, linetype = source,
 an1
 
 
+A_An_QPB <- QPB_An_June18 %>% filter(QPB_An_June18$source == "Algae")
+B_An_QPB <- QPB_An_June18 %>% filter(QPB_An_June18$source == "Biofilm")
+L_An_QPB <- QPB_An_June18 %>% filter(QPB_An_June18$source == "Leaflitter")
+
+round(hdi(A_An_QPB$density),2)
+round(hdi(B_An_QPB$density),2)
+round(hdi(L_An_QPB$density),2)
+
+round(mean(A_An_QPB$density),2)
+round(mean(B_An_QPB$density),2)
+round(mean(L_An_QPB$density),2)
+
 # Luecauge (11) ------------------------------------------------------------------
 
-QPB_Lm_June18 <- read.csv("DensityPlots/QPB_June18/11 QPB_Leucauge_June18.csv")
+QPB_Lr_June18 <- read.csv("DensityPlots/QPB_June18/11 QPB_Leucauge_June18.csv")
 
 lr <- ggplot(QPB_Lm_June18, aes(x = density, color = source, linetype = source,
                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
@@ -568,6 +670,18 @@ lr <- ggplot(QPB_Lm_June18, aes(x = density, color = source, linetype = source,
 
 lr
 
+
+A_lr_QPB <- QPB_Lr_June18 %>% filter(QPB_Lr_June18$source == "Algae")
+B_lr_QPB <- QPB_Lr_June18 %>% filter(QPB_Lr_June18$source == "Biofilm")
+L_lr_QPB <- QPB_Lr_June18 %>% filter(QPB_Lr_June18$source == "Leaflitter")
+
+round(hdi(A_lr_QPB$density),2)
+round(hdi(B_lr_QPB$density),2)
+round(hdi(L_lr_QPB$density),2)
+
+round(mean(A_lr_QPB$density),2)
+round(mean(B_lr_QPB$density),2)
+round(mean(L_lr_QPB$density),2)
 
 Fig7 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
 Fig7

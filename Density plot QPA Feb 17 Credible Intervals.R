@@ -626,7 +626,6 @@ an1 <- ggplot(QPA_An_Feb17, aes(x = density, color = source, linetype = source,
 
 an1
 
-
 L_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Leaflitter")
 B_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Biofilm")
 A_An_QPA <- QPA_An_Feb17 %>% filter(QPA_An_Feb17$source == "Algae")
