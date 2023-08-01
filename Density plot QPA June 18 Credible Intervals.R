@@ -309,9 +309,9 @@ p1 <- ggplot(QPA_P_June18, aes(x = density, color = source, linetype = source,
 
 p1
 
-L_Ph_QPA <- QPA_P_June19 %>% filter(QPA_P_June19$source == "Leaflitter")
-B_Ph_QPA <- QPA_P_June19 %>% filter(QPA_P_June19$source == "Biofilm")
-A_Ph_QPA <- QPA_P_June19 %>% filter(QPA_P_June19$source == "Algae")
+L_Ph_QPA <- QPA_P_June18 %>% filter(QPA_P_June18$source == "Leaflitter")
+B_Ph_QPA <- QPA_P_June18 %>% filter(QPA_P_June18$source == "Biofilm")
+A_Ph_QPA <- QPA_P_June18 %>% filter(QPA_P_June18$source == "Algae")
 
 round(hdi(L_Ph_QPA$density),2)
 round(hdi(B_Ph_QPA$density),2)
@@ -369,6 +369,18 @@ l1 <- ggplot(QPA_L_June18, aes(x = density, color = source, linetype = source,
 
 l1
 
+L_L_QPA <- QPA_L_June18 %>% filter(QPA_L_June18$source == "Leaflitter")
+B_L_QPA <- QPA_L_June18 %>% filter(QPA_L_June18$source == "Biofilm")
+A_L_QPA <- QPA_L_June18 %>% filter(QPA_L_June18$source == "Algae")
+
+round(hdi(L_L_QPA$density),2)
+round(hdi(B_L_QPA$density),2)
+round(hdi(A_L_QPA$density),2)
+
+round(mean(L_L_QPA$density),2)
+round(mean(B_L_QPA$density),2)
+round(mean(A_L_QPA$density),2)
+
 # Xyphocarys (7) ----------------------------------------------------------------
 
 QPA_X_June18 <- read.csv("DensityPlots/QPAJune18/07 QPA_Xyphocaris_June18.csv")
@@ -416,6 +428,18 @@ x1 <- ggplot(QPA_X_June18, aes(x = density, color = source, linetype = source,
         axis.title.y = element_text(size = 14))
 
 x1
+
+L_x_QPA <- QPA_X_June18 %>% filter(QPA_X_June18$source == "Leaflitter")
+B_x_QPA <- QPA_X_June18 %>% filter(QPA_X_June18$source == "Biofilm")
+A_x_QPA <- QPA_X_June18 %>% filter(QPA_X_June18$source == "Algae")
+
+round(hdi(L_x_QPA$density),2)
+round(hdi(B_x_QPA$density),2)
+round(hdi(A_x_QPA$density),2)
+
+round(mean(L_x_QPA$density),2)
+round(mean(B_x_QPA$density),2)
+round(mean(A_x_QPA$density),2)
 
 # Atya (8) ----------------------------------------------------------------
 
@@ -465,6 +489,18 @@ a1 <- ggplot(QPA_A_June18, aes(x = density, color = source, linetype = source,
 
 a1
 
+
+L_A_QPA <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Leaflitter")
+B_A_QPA <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Biofilm")
+A_A_QPA <- QPA_A_June18 %>% filter(QPA_A_June18$source == "Algae")
+
+round(hdi(L_A_QPA$density),2)
+round(hdi(B_A_QPA$density),2)
+round(hdi(A_A_QPA$density),2)
+
+round(mean(L_A_QPA$density),2)
+round(mean(B_A_QPA$density),2)
+round(mean(A_A_QPA$density),2)
 
 # Macrobrachium (9) ----------------------------------------------------------------
 

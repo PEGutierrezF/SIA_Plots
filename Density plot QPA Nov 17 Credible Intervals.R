@@ -438,6 +438,7 @@ round(hdi(A_x_QPA$density),2)
 round(mean(L_x_QPA$density),2)
 round(mean(B_x_QPA$density),2)
 round(mean(A_x_QPA$density),2)
+
 # Atya (8) ----------------------------------------------------------------
 
 QPA_A_Nov17 <- read.csv("DensityPlots/QPANov17/08 QPA_Atya_Nov17.csv")
