@@ -2,11 +2,21 @@
 
 
 
+# ---------------------------------------------
+# Example for the Second Bayesian model
+# 03 Aug 2023
+# Pablo E. Gutiérrez-Fonseca
+# pabloe.gutierrezfonseca@gmail.com
+# ---------------------------------------------
+#  
+
+
+
 # This is just an example for Quebrada Prieta A, February 2017. 
 # This model estimates the contribution of food sources (i.e., Algae, Biofilm and
 # leaf litter) to consumers.
 # Algal signature was calculated using model one.
-# All documment included in this folder were used in the Cluster from the University of Puerto Rico.
+# All documents included in this folder were used in the Cluster from the University of Puerto Rico.
 
 # Usage:
 # Rscript --vanilla QPA_Algae.R Stan_QPA/QPA_Feb.csv Stan_QPA/sources_QPA_Feb.csv QPA_FoodWeb.stan
