@@ -500,16 +500,16 @@ p1
 # Include strips
 p2 <- ggdraw(p1) + 
   geom_rect(aes(xmin=0.066, xmax=0.244, ymin=0.933, ymax=0.986), color = "black", alpha=0.2) +
-  draw_label("6mo pre-", x = 0.16, y = 0.960, size = 14 ,fontface = "plain") +
+  draw_label("6 months pre-", x = 0.16, y = 0.960, size = 14 ,fontface = "plain") +
   
   geom_rect(aes(xmin=0.304, xmax=0.492, ymin=0.933, ymax=0.986), color = "black", alpha=0.2) +
-  draw_label("2mo post-", x = 0.40, y = 0.960, size = 14, fontface = "plain") +
+  draw_label("2 months post-", x = 0.40, y = 0.960, size = 14, fontface = "plain") +
   
   geom_rect(aes(xmin=0.551, xmax=0.739, ymin=0.933, ymax=0.986), color = "black", alpha=0.2) +
-  draw_label("9mo post-", x = 0.65, y = 0.960, size = 14,fontface = "plain")+
+  draw_label("9 months post-", x = 0.65, y = 0.960, size = 14,fontface = "plain")+
   
   geom_rect(aes(xmin=0.799, xmax=0.987, ymin=0.933, ymax=0.986), color = "black", alpha=0.2) +
-  draw_label("18mo post-", x = 0.9, y = 0.960, size = 14, fontface = "plain") +
+  draw_label("18 months post-", x = 0.9, y = 0.960, size = 14, fontface = "plain") +
   
   # Prieta A
   geom_rect(aes(xmin=0.994, xmax= 1.025, ymin=0.622, ymax=0.924), color = "black", alpha=0.2) +
