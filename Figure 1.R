@@ -338,8 +338,7 @@ g_legend <- function(a.gplot){
   legend
 } 
 
-library(gridExtra)
-library(lemon)
+
 legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)) +
                       theme(legend.key.size = unit(0.6, "cm"))+
                       theme(legend.title=element_text(size=14)) + # legend title size

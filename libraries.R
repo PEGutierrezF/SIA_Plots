@@ -18,7 +18,7 @@ rm(list = ls())
 
 
 libraries <- c("ggplot2", "ggpubr","dplyr", 'patchwork',"readxl", 
-               'gridExtra',"cowplot",'HDInterval','ggridges')
+               'gridExtra',"cowplot",'HDInterval','ggridges', 'lemon')
 lapply(libraries, require, character.only = TRUE)
 
 
