@@ -56,8 +56,13 @@ tail(discharge)
    # theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
    theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-   theme(axis.text.x=element_blank())  #subaxis x
+   theme(axis.text.x=element_blank()) + #subaxis x
    #theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+ 
+   # Set custom breaks and labels for ticks at specific months on the x-axis
+   scale_x_continuous(
+     breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
+     labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
  
  d
  
@@ -105,8 +110,13 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
   # theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.x=element_blank())  #subaxis x
+  theme(axis.text.x=element_blank()) + #subaxis x
 #theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+
+# Set custom breaks and labels for ticks at specific months on the x-axis
+  scale_x_continuous(
+    breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
+    labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
 
 c
 
@@ -160,8 +170,12 @@ leaf$sd = as.numeric(leaf$sd)
    # theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
    theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-   theme(axis.text.x=element_blank())  #subaxis x
+   theme(axis.text.x=element_blank()) + #subaxis x
  #theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+   # Set custom breaks and labels for ticks at specific months on the x-axis
+   scale_x_continuous(
+     breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
+     labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
  
  
  l
@@ -210,7 +224,12 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  # Set custom breaks and labels for ticks at specific months on the x-axis
+  scale_x_continuous(
+    breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
+    labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+
 ch 
 
 ch1 <- ch + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
@@ -261,35 +280,11 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
   
-
-  
-# Assuming 'data' is your full dataset
-# Convert 'date' column to the Date class
-data$date <- as.Date(data$date, format = "%Y-%m-%d")
-
-# Filter data for the desired range (1991:2050)
-BOM <- data %>%
-  filter(year(date) >= 1991, year(date) <= 2050)
-
-# Create a ggplot
-b <- ggplot(BOM, aes(x = date, y = value, colour = stream)) +
-  geom_line(size = 0.8) +
-  scale_color_manual(values = c('#ce1256', '#0570b0')) +
-  geom_point() +
-  geom_errorbar(aes(ymax = value + sd, ymin = value - sd), na.rm = TRUE,
-                width = 0, colour = "gray50") +
-  # Labels
-  xlab('Year') + ylab("Benthic organic matter (" * g ~ m^-2 * ")") +
-  labs(tag = "E") +
-  theme_bw() +
-  theme(legend.position = "none") +
-  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
-  theme(axis.text.x = element_text(angle = 0, size = 10, vjust = 0.5, color = "black")) + # subaxis x
-  theme(axis.text.y = element_text(angle = 0, size = 10, vjust = 0.5, color = "black"))  # subaxis y +
-
-  
-
+  # Set custom breaks and labels for ticks at specific months on the x-axis
+  scale_x_continuous(
+    breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
+    labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+ 
 b
 
 b1 <- b + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
