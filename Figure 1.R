@@ -123,16 +123,16 @@ c
 c1 <- c + annotate("rect", xmin = as.POSIXct("2017-09-6"), xmax = as.POSIXct("2017-09-21"), 
              ymin = -Inf, ymax = Inf,  fill = "#df65b0", alpha=.5) +
   
-  geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 77, xend = as.POSIXct(c("2017-02-01")), yend = 69), 
+  geom_segment(aes(x = as.POSIXct(c("2017-02-01")), y = 84, xend = as.POSIXct(c("2017-02-01")), yend = 75), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2017-11-30")), y = 77, xend = as.POSIXct(c("2017-11-30")), yend = 69), 
+  geom_segment(aes(x = as.POSIXct(c("2017-11-30")), y = 84, xend = as.POSIXct(c("2017-11-30")), yend = 75), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 77, xend = as.POSIXct(c("2018-06-01")), yend = 69), 
+  geom_segment(aes(x = as.POSIXct(c("2018-06-01")), y = 84, xend = as.POSIXct(c("2018-06-01")), yend = 75), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black") +
   
-  geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 77, xend = as.POSIXct(c("2019-02-01")), yend = 69), 
+  geom_segment(aes(x = as.POSIXct(c("2019-02-01")), y = 84, xend = as.POSIXct(c("2019-02-01")), yend = 75), 
                arrow = arrow(length = unit(0.2, "cm")),size = 1, color = "black")
 
 c1
