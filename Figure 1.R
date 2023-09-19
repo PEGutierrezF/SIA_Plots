@@ -214,14 +214,14 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
                # position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 width = 0, colour = "gray50") +
 # Labels 
-  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
+  xlab('Time') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
   #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   labs(tag = "C")+
   
   theme_bw() +
   theme(legend.position="none")  +
   
-  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.x = element_text(size = 12, angle = 0, vjust = -0.75)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
@@ -269,13 +269,13 @@ b <- ggplot(BOM, aes(x=date,y=value, colour=stream)) +
               #  position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 width = 0, colour = "gray50") + 
 #Labels
-  xlab('Year') + ylab("Benthic organic matter ("*g~m^-2*")") +
+  xlab('Time') + ylab("Benthic organic matter ("*g~m^-2*")") +
   labs(tag = "E")+
   
   theme_bw() +
   theme(legend.position="none") +
   
-  theme(axis.title.x = element_text(size = 12, angle = 0)) + # axis x
+  theme(axis.title.x = element_text(size = 12, angle = 0, vjust = -0.75)) + # axis x
   theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y
   theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
