@@ -71,7 +71,7 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
   facet_wrap(.~factor(layman, levels=c('NR', 'CR', 'TA', 'CD', 'MNND', 'SDNND' )),
-             scale = "free_y")
+             scale = "free_y") 
 
 Fig_4_ecology
 
@@ -79,7 +79,7 @@ Fig_4_ecology
 Fig_4_ecology + tiff(filename="C:/Users/pgutierr/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
                             height=5600,width=7200,units="px",res=600,compression="lzw")
 
-                         
-                     
-                         
-                         
+  
+
+
+
