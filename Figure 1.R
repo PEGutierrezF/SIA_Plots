@@ -141,7 +141,7 @@ leaf$sd = as.numeric(leaf$sd)
                       breaks = seq(0, 13, by=3), limits=c(0,13)) +
 
 #Labels
-   labs(x= 'Year', y= "Litterfall input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
+   labs(x= '', y= "Litterfall input rate ("*g~m^-2~d^-1*")") + #  ("*g~m^-2~d^-1*")
    labs(tag = "D") + 
    
   geom_point() +
@@ -191,7 +191,7 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
                # position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 width = 0, colour = "gray50") +
 # Labels 
-  xlab('') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
+  xlab('Year') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
   #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   labs(tag = "C")+
   
@@ -275,13 +275,24 @@ b1
 
 # Plot 1 ------------------------------------------------------------------
 
+# Create your individual plots with tags
+d1_tagged <- d1 + labs(title = "(a)") +
+  theme(legend.position = c(0.25, 0.6)) +
+  theme(legend.key.size = unit(0.6, "cm")) +
+  theme(legend.title = element_text(size = 14)) +
+  theme(legend.text = element_text(color = "black", size = 12))
 
-Fig1 <- (d1 | plot_spacer()) / (c1 | l1) / (ch1 | b1) 
-Fig2 <- Fig1 + plot_annotation(tag_levels = 'A') 
-Fig2
 
-Fig2 + ggsave("Figure 1.tiff",width = 200, height = 220, units = "mm")
+# Extract the common legend
+legend <- g_legend(d1_tagged)
 
+
+Fig1 <- d1 + legend + c1 + l1 + ch1 + b1 
+Fig1 <- Fig1 + plot_annotation(tag_levels = list(c('a)','', 'b)','c)','d)','e)')))
+Fig1 <- Fig1 + plot_layout(nrow = 3)
+Fig1
+
+Fig1 + ggsave("Figure 1.tiff",width = 18, height = 24, units = "cm", dpi = 600)
 
 
 # Plot 2 ------------------------------------------------------------------
@@ -301,13 +312,17 @@ legend <- g_legend(d1+theme(legend.position = c(0.25, 0.6)) +
                       theme(legend.title=element_text(size=14)) + # legend title size
                       theme(legend.text = element_text(color = "black", size = 12)))
 
-Fig <-grid.arrange(d1+theme(legend.position='hidden'), legend,
-             c1+theme(legend.position='hidden'),ch1+theme(legend.position='hidden'),
-             l1+theme(legend.position='hidden'),b1+theme(legend.position='hidden'),
+Fig <-grid.arrange(d1 + theme(legend.position='hidden'), legend,
+             c1 + theme(legend.position='hidden'), l1 + theme(legend.position='hidden'),
+             ch1 + theme(legend.position='hidden'), b1 + theme(legend.position='hidden'),
              nrow=3)
 
 #Ecology format
-ggsave(file="Figure 1.tiff", Fig, height = 10, width = 8, dpi = 600)
+ggsave(file="Figure 1.tiff", Fig, width = 18, height = 24, units = "cm", dpi = 600)
  
+
+
+
+
 
 

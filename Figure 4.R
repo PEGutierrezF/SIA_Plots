@@ -76,12 +76,10 @@ Fig_4_ecology <- ggplot(df, aes(x = sampling, y = value, color= stream, group=st
 Fig_4_ecology
 
 #Ecology format
-Fig_4_ecology + tiff(filename="D:/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
-                            height=5600,width=7200,units="px",res=800,compression="lzw")
+Fig_4_ecology + tiff(filename="C:/Users/pgutierr/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 4.tiff",
+                            height=5600,width=7200,units="px",res=600,compression="lzw")
 
                          
-                         
-                         
-                         
+                     
                          
                          

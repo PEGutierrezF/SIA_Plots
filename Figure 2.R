@@ -15,6 +15,7 @@
 data <- read.csv("data/isotopes.csv")
 head(data)
 
+source("Function.R", encoding="utf-8")
 # First, rename variables
 source_new <- c(
   'Algae' = "Algae",
@@ -24,6 +25,7 @@ source_new <- c(
 # Second, reorganize
 data$sampling = factor(data$sampling, 
                        levels=c('six','two','9mo','18mo'))
+
 # Rename the isotopes
 isotopes_new <- c(
   "Carbon" = "delta^{13}*C ~(`\211`)",
@@ -77,7 +79,7 @@ Fig_isotopes_ecology <- ggplot(data = data, aes(x = sampling, y = value, group= 
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-facet_grid(isotope ~ source, 
+ facet_grid(isotope ~ source, 
                scales= "free_y",
                labeller = labeller(isotope = as_labeller(isotopes_new,  label_parsed),
                                                     source = as_labeller(source_new)))
