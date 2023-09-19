@@ -12,10 +12,15 @@
 
 
 
+# cleans global environment
+rm(list = ls())
+
+
+
 data <- read.csv("data/isotopes.csv")
 head(data)
 
-source("Function.R", encoding="utf-8")
+
 # First, rename variables
 source_new <- c(
   'Algae' = "Algae",
@@ -89,7 +94,8 @@ Fig_isotopes_ecology
 
 #Ecology format
 Fig_isotopes_ecology + tiff(filename="D:/OneDrive - University of Vermont/LTER/Manuscript 2019 Stable Isotopes/SIA_Plots 2017-2019/Figure 2.tiff",
-     height=5600,width=7200,units="px",res=800,compression="lzw")
+     height=5600,width=7200,units="px",res=600, compression="lzw")
+
 
 # Fig_isotopes_ecology + ggsave("Figure 2.jpeg", width=11, height=6.5)
 
