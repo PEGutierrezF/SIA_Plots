@@ -61,8 +61,8 @@ tail(discharge)
  
    # Set custom breaks and labels for ticks at specific months on the x-axis
    scale_x_continuous(
-     breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
-     labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+     breaks = seq(min(discharge$date), max(discharge$date), by = "6 months"),
+     labels = format(seq(min(discharge$date), max(discharge$date), by = "6 months"), "%b\n%Y"))
  
  d
  
@@ -115,8 +115,8 @@ c <- ggplot(canopy, aes(x=date,y=value, colour=stream)) +
 
 # Set custom breaks and labels for ticks at specific months on the x-axis
   scale_x_continuous(
-    breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
-    labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+    breaks = seq(min(canopy$date), max(canopy$date), by = "6 months"),
+    labels = format(seq(min(canopy$date), max(canopy$date), by = "6 months"), "%b\n%Y"))
 
 c
 
@@ -174,8 +174,8 @@ leaf$sd = as.numeric(leaf$sd)
  #theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black"))  #subaxis y
    # Set custom breaks and labels for ticks at specific months on the x-axis
    scale_x_continuous(
-     breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
-     labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+     breaks = seq(min(leaf$date), max(leaf$date), by = "6 months"),
+     labels = format(seq(min(leaf$date), max(leaf$date), by = "6 months"), "%b\n%Y"))
  
  
  l
@@ -214,8 +214,10 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
                # position = position_dodge(width = 0.9),stat = "identity", #width = 0.2,
                 width = 0, colour = "gray50") +
 # Labels 
-  xlab('Time') + ylab(expression(paste("Chlorophyll-", ~italic("a") , ~"("*mg~m^-2*")"))) +
-  #("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
+  xlab('Time') + 
+  ylab(bquote(paste("Chlorophyll-", italic("a"), " ("*mu*g~m^-2*")"))) +
+
+#("Chlorophyll-a ("*"\u03BC"~g~m^-2*")") +
   labs(tag = "C")+
   
   theme_bw() +
@@ -227,8 +229,8 @@ ch <- ggplot(chla, aes(x=date,y=value, colour=stream)) +
   theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
   # Set custom breaks and labels for ticks at specific months on the x-axis
   scale_x_continuous(
-    breaks = seq(min(BOM$date), max(BOM$date), by = "6 months"),
-    labels = format(seq(min(BOM$date), max(BOM$date), by = "6 months"), "%b\n%Y"))
+    breaks = seq(min(chla$date), max(chla$date), by = "6 months"),
+    labels = format(seq(min(chla$date), max(chla$date), by = "6 months"), "%b\n%Y"))
 
 ch 
 
