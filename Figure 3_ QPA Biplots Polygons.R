@@ -225,10 +225,10 @@ QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
   
   #text
   annotate("text", x = -26, y = 8, label = "Algae") +
-  annotate("text", x = -35, y = 5, label = "Biofilm") +
+  annotate("text", x = -22, y = -3, label = "Biofilm") +
   annotate("text", x = -36, y = -4, label = "Leaf litter") +
   
-  geom_segment(aes(x =-32, xend=-28,y = 4, yend = 3), # Biofilm
+  geom_segment(aes(x =-22, xend=-25,y = -2, yend = 0.5), # Biofilm
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
   geom_segment(aes(x =-36, xend=-33,y = -3, yend = -0.5), # Leaf litter
                arrow = arrow(length = unit(0.3, "cm")), size = 0.3) +
@@ -523,5 +523,5 @@ p2 <- ggdraw(p1) +
 p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
 p3
 
-p3 + ggsave("Figure 3 Polygons 2SD.jpg", width=11, height=6.5)
+p3 + ggsave("Figure 3.jpg", width=11, height=6.5)
 #
