@@ -29,7 +29,7 @@ qpa_Feb17 <- qpa_Feb17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 qpa_Feb17$taxa <- factor(qpa_Feb17$taxa, 
                          levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpa_Feb17$taxa) 
 
 
@@ -372,7 +372,7 @@ qpa_Feb19 <- qpa_Feb19 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpa_Feb19$taxa <- factor(qpa_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpa_Feb19$taxa) 
 
 
@@ -522,6 +522,9 @@ p2 <- ggdraw(p1) +
 
 p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
 p3
+
+p3 + tiff(filename="C:/Users/Guti/OneDrive - University of Vermont/Curriculum/02_ Articulos/45- Gutiérrez-F et al. Ecology/SIA_Plots/Figure 3a.tiff",
+                            height=5600,width=7200,units="px",res=600, compression="lzw")
 
 p3 + ggsave("Figure 3.tiff", width=11, height=6.5, dpi=600)
 #
