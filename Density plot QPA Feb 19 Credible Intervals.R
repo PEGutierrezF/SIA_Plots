@@ -351,7 +351,7 @@ l1 <- ggplot(QPA_L_Feb19, aes(x = density, color = source, linetype = source,
   theme_classic() +
   ylim(0, 8) +
   xlim(0, 1) +
-  ggtitle('Libelullidae') +
+  ggtitle('Libellulidae') +
   theme(plot.title = element_text(face="bold")) +
   
   theme(legend.position = "none") +
