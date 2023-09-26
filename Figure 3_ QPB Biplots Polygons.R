@@ -30,7 +30,7 @@ qpb_Feb17 <- qpb_Feb17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 qpb_Feb17$taxa <- factor(qpb_Feb17$taxa, 
                          levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpb_Feb17$taxa) 
 
 
@@ -77,7 +77,7 @@ QPBFeb17 <- ggplot(qpb_Feb17, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -85,7 +85,7 @@ QPBFeb17 <- ggplot(qpb_Feb17, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-30.21038156,xend=-30.39061844,yend=2.13925,y=2.13925), size=0.7, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -135,7 +135,6 @@ QPBFeb17 <- ggplot(qpb_Feb17, aes(x=mean_C, y=mean_N)) +
 QPBFeb17
 
 
-
 # -------------------------------------------------------------------------
 # QPB November 2017 -------------------------------------------------------
 qpb_Nov17 <- read_excel(path = QPB_data, sheet = "QPB_Nov17")  
@@ -144,7 +143,7 @@ qpb_Nov17 <- qpb_Nov17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 qpb_Nov17$taxa <- factor(qpb_Nov17$taxa, 
                          levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpb_Nov17$taxa) 
 
 # Food resources Polygon area -------------------------------------------
@@ -192,7 +191,7 @@ QPBNov17 <- ggplot(qpb_Nov17, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -200,7 +199,7 @@ QPBNov17 <- ggplot(qpb_Nov17, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-31.94351287,xend=-32.58448713,yend=-0.464,y=-0.464), size=0.7, linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -261,7 +260,7 @@ qpb_Jun18 <- qpb_Jun18 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpb_Jun18$taxa <- factor(qpb_Jun18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpb_Jun18$taxa) 
 
 
@@ -309,7 +308,7 @@ QPBJune18 <-  ggplot(qpb_Jun18, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -317,7 +316,7 @@ QPBJune18 <-  ggplot(qpb_Jun18, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-30.00133729,xend=-30.88716271,yend=0.5765,y=0.5765), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -378,7 +377,7 @@ qpb_Feb19 <- qpb_Feb19 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpb_Feb19$taxa <- factor(qpb_Feb19$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpb_Feb19$taxa) 
 
 
@@ -425,7 +424,7 @@ QPBFeb19 <-  ggplot(qpb_Feb19, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -433,7 +432,7 @@ QPBFeb19 <-  ggplot(qpb_Feb19, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-30.18343146,xend=-30.29656854,yend=0.65,y=0.65), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter

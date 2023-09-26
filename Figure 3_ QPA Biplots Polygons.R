@@ -76,7 +76,7 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -84,7 +84,7 @@ QPAFeb17 <- ggplot(qpa_Feb17, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   
   # Segments  
@@ -145,7 +145,7 @@ qpa_Nov17 <- qpa_Nov17 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpa_Nov17$taxa <- factor(qpa_Nov17$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpa_Nov17$taxa) 
 
 
@@ -194,7 +194,7 @@ QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -202,7 +202,7 @@ QPANov17 <- ggplot(qpa_Nov17, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-31.14509125,xend=-31.98790875,yend=0.9295,y=0.9295), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -259,7 +259,7 @@ qpa_Jun18 <- qpa_Jun18 %>% select(taxa,mean_C,sd_C,mean_N,sd_N) %>% na.omit()
 
 qpa_Jun18$taxa <- factor(qpa_Jun18$taxa, levels = c("Glossosomatidae", "Baetidae", "Chironomidae", "N. julio",
                                                     "P. pulchrus", "Libellulidae", "X. elongata", "A. lanipes",
-                                                    "M. crenulatum", "A. evermani","L. regnyi"))
+                                                    "M. crenulatum", "A. evermanni","L. regnyi"))
 levels(qpa_Jun18$taxa) 
 
 
@@ -309,7 +309,7 @@ geom_polygon(data = polygon_QPA_Jun, aes(x = x, y = y, group=g), fill = "gray80"
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -317,7 +317,7 @@ geom_polygon(data = polygon_QPA_Jun, aes(x = x, y = y, group=g), fill = "gray80"
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-29.56913511,xend=-29.99086489,yend=3.676,y=3.676), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -421,7 +421,7 @@ QPAFeb19 <-  ggplot(qpa_Feb19, aes(x=mean_C, y=mean_N)) +
                       labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                  expression(italic("P. pulchrus")), "Libellulidae", 
                                  expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                 expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                 expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                  expression(italic("L. regnyi")))) +
   # shape
   scale_shape_manual("Taxa",
@@ -429,7 +429,7 @@ QPAFeb19 <-  ggplot(qpa_Feb19, aes(x=mean_C, y=mean_N)) +
                      labels = c("Glossosomatidae", "Baetidae", "Chironomidae",expression(italic( "N. julio")),
                                 expression(italic("P. pulchrus")), "Libellulidae", 
                                 expression(italic("X. elongata")), expression(italic("A. lanipes")),
-                                expression(italic("M. crenulatum")), expression(italic("A. evermani")),
+                                expression(italic("M. crenulatum")), expression(italic("A. evermanni")),
                                 expression(italic("L. regnyi"))))  +
   # Segments  
   geom_segment(aes(x=-28.14711144,xend=-28.74622189,yend=1.153,y=1.153), size=0.7,linetype='solid', color="black", arrow = arrow(length = unit(0.1, "cm"), ends = "both", angle = 90)) + # C leaflitter
@@ -523,8 +523,6 @@ p2 <- ggdraw(p1) +
 p3 <- p2 + theme(plot.margin = unit(c(0.5, 2, 0, 0), units = "cm")) # t=1, l=2, b=1, r=1
 p3
 
-p3 + tiff(filename="C:/Users/Guti/OneDrive - University of Vermont/Curriculum/02_ Articulos/45- Gutiérrez-F et al. Ecology/SIA_Plots/Figure 3a.tiff",
-                            height=5600,width=7200,units="px",res=600, compression="lzw")
 
 p3 + ggsave("Figure 3.tiff", width=11, height=6.5, dpi=600)
 #
