@@ -628,4 +628,4 @@ round(mean(A_An_QPB$density),2)
 
 Fig5 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + plot_spacer()+ plot_spacer())
 Fig5
-Fig5 + ggsave("Figure X Density plot QPB Feb 17 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
+Fig5 + ggsave("Figure S2 Density plot QPB Feb 17 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
