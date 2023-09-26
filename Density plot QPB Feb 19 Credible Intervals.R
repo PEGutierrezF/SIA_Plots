@@ -626,7 +626,7 @@ round(mean(L_An_QPB$density),2)
 
 QPB_Lr_Feb19 <- read.csv("DensityPlots/QPB_Feb19/11 QPB_Leucauge_Feb19.csv")
 
-lr <- ggplot(QPB_Lm_Feb19, aes(x = density, color = source, linetype = source,
+lr <- ggplot(QPB_Lr_Feb19, aes(x = density, color = source, linetype = source,
                                fill = after_stat(ifelse(quantile == 2, NA, color)))) +
   geom_density_ridges_gradient(aes(y = 0), size=1.2, 
                                quantile_lines = TRUE, quantile_fun = hdi,
@@ -685,5 +685,5 @@ round(mean(L_lr_QPB$density),2)
 
 Fig8 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
 Fig8
-Fig8 + ggsave("Figure X Density plot QPB Feb 19 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
-
+Fig8 + ggsave("Figure S8 Density plot QPB Feb 19 Credible Intervals.tiff",
+              width = 210, height = 297, units = "mm", dpi=300)
