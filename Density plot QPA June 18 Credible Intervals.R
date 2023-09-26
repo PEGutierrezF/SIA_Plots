@@ -688,5 +688,5 @@ round(mean(A_Lm_QPA$density),2)
 
 Fig3 <- (x1+a1+m1) / (g1+b1+c1) /(n1+p1 +l1) / (an1 + lr + plot_spacer())
 Fig3
-Fig3 + ggsave("Figure X Density plot QPA June 18 Credible Intervals.jpg",width = 210, height = 297, units = "mm")
-
+Fig3 + ggsave("Figure S5 Density plot QPA June 18 Credible Intervals.tiff",
+              width = 210, height = 297, units = "mm", dpi=300)
